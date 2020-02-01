@@ -35,9 +35,9 @@ public final class Constants {
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;
     }
-    public static final class HangingConstants {
-        public static final int HANGING_WINCH_ID = 15;
-        public static final int HANGING_ELEVATOR_ID = 16;
+    public static final class ClimbConstants {
+        public static final int CLIMB_WINCH_ID = 15;
+        public static final int CLIMB_ELEVATOR_ID = 16;
     }
 
 }
