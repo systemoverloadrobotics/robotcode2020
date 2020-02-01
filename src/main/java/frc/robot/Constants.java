@@ -16,4 +16,28 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    public static final class DriveConstants {
+        public static final int RIGHT_MASTER_ID = 4;
+        public static final int RIGHT_FOLLOWER_1_ID = 5;
+        public static final int RIGHT_FOLLOWER_2_ID = 6;
+        public static final int LEFT_MASTER_ID = 7;
+        public static final int LEFT_FOLLOWER_1_ID = 8;
+        public static final int LEFT_FOLLOWER_2_ID = 9;
+    }
+    public static final class IntakeConstants {
+        public static final int INTAKE_BAR_MOTOR_ID = 10;
+        public static final int INTAKE_WHEELS_ID = 11;
+    }
+    public static final class StorageConstants {
+        public static final int POLYCORD_MOTOR_ID = 12;
+        public static final int STORAGE_GATE_ID = 13;
+    }
+    public static final class OuttakeConstants {
+        public static final int OUTTAKE_WHEELS_ID = 14;
+    }
+    public static final class HangingConstants {
+        public static final int HANGING_WINCH_ID = 15;
+        public static final int HANGING_ELEVATOR_ID = 16;
+    }
+
 }
