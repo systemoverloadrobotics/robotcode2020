@@ -10,7 +10,7 @@ public class Climb extends SubsystemBase {
 
     public WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(Constants.ClimbConstants.CLIMB_ELEVATOR_ID);
     public WPI_TalonSRX winchMotor = new WPI_TalonSRX(Constants.ClimbConstants.CLIMB_WINCH_ID);
-    
+
     public Climb() {
         elevatorMotor.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyOpen,Constants.ClimbConstants.CLIMB_ELEVATOR_ID,0);
         elevatorMotor.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed,Constants.ClimbConstants.CLIMB_ELEVATOR_ID,0);
@@ -39,6 +39,6 @@ public class Climb extends SubsystemBase {
     }
 
     public void stall() {
-
+        winchMotor.stopMotor();
     }
 }
