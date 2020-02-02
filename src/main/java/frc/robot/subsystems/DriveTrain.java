@@ -25,27 +25,25 @@ public class DriveTrain extends SubsystemBase {
 
     private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
-    private double speed = flightStick.getY();
-    private double rotation = flightStick.getX();
 
     public DriveTrain() {
 
     }
 
-    public void moveForward() {
+    public void moveForward(double speed) {
         robotDrive.arcadeDrive(speed,0);
     }
 
-    public void moveBackward() {
+    public void moveBackward(double speed) {
         robotDrive.arcadeDrive(speed,0);
     }
 
-    public void turnLeft() {
-
+    public void turnLeft(double speed, double rotation) {
+        robotDrive.arcadeDrive(speed,rotation);
     }
 
-    public void turnRight() {
-
+    public void turnRight(double speed, double rotation) {
+        robotDrive.arcadeDrive(speed, rotation);
     }
 
     public void park() {
