@@ -20,8 +20,8 @@ public class DriveTrain extends SubsystemBase {
     public Joystick flightStick = new Joystick(0);
     //defines the joystick as the flight stick
 
-    private SpeedControllerGroup rightGroup = new SpeedControllerGroup(RIGHT_MASTER_ID, RIGHT_FOLLOWER_1_ID, RIGHT_FOLLOWER_2_ID);
-    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(LEFT_MASTER_ID, LEFT_FOLLOWER_1_ID, LEFT_FOLLOWER_2_ID);
+    private SpeedControllerGroup rightGroup = new SpeedControllerGroup(RIGHT_MASTER, RIGHT_FOLLOWER_1, RIGHT_FOLLOWER_2);
+    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(LEFT_MASTER, LEFT_FOLLOWER_1, LEFT_FOLLOWER_2);
 
     private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
@@ -30,12 +30,25 @@ public class DriveTrain extends SubsystemBase {
 
     }
 
-    public void moveForward(double speed) {
-        robotDrive.arcadeDrive(speed,0);
+    public void moveForward(double ...speeds) {
+        if(speeds.length == 0){
+            robotDrive.arcadeDrive(flightStick.getY()*0.6,0);
+            //the speed value is between -1 and 1. The value represents percent output of the motor.
+        }
+        else{
+            robotDrive.arcadeDrive(speeds[0],0);
+        }
+
     }
 
-    public void moveBackward(double speed) {
-        robotDrive.arcadeDrive(speed,0);
+    public void moveBackward(double ...speeds) {
+        if(speeds.length == 0){
+            robotDrive.arcadeDrive(flightStick.getY()*0.6,0);
+            //the speed value is between -1 and 1. The value represents percent output of the motor.
+        }
+        else{
+            robotDrive.arcadeDrive(speeds[0],0);
+        }
     }
 
     public void turnLeft(double speed, double rotation) {
