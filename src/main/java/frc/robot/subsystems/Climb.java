@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
-import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.RemoteLimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -11,9 +10,7 @@ public class Climb extends SubsystemBase {
 
     public WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(Constants.ClimbConstants.CLIMB_ELEVATOR_ID);
     public WPI_TalonSRX winchMotor = new WPI_TalonSRX(Constants.ClimbConstants.CLIMB_WINCH_ID);
-
-
-
+    
     public Climb() {
         elevatorMotor.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyOpen,Constants.ClimbConstants.CLIMB_ELEVATOR_ID,0);
         elevatorMotor.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed,Constants.ClimbConstants.CLIMB_ELEVATOR_ID,0);
