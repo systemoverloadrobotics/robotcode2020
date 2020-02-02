@@ -25,6 +25,11 @@ public final class Constants {
         public static final int LEFT_FOLLOWER_1_ID = 8;
         public static final int LEFT_FOLLOWER_2_ID = 9;
     }
+    public static final class ButtonConstants{
+        public static final int SHOOT_BUTTON = 5; //TBD
+        public static final int JOYSTICK_PORT = 0;
+
+    }
     public static final class IntakeConstants {
         public static final int INTAKE_BAR_MOTOR_ID = 10;
         public static final int INTAKE_WHEELS_ID = 11;
