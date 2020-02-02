@@ -51,12 +51,30 @@ public class DriveTrain extends SubsystemBase {
         }
     }
 
-    public void turnLeft(double speed, double rotation) {
-        robotDrive.arcadeDrive(speed,rotation);
+    public void turnLeft(double ...speeds) {
+        if(speeds.length == 0){
+            robotDrive.arcadeDrive(flightStick.getY()*0.6,flightStick.getX()*0.3);
+            //the speed value is between -1 and 1. The value represents percent output of the motor.
+        }
+        else if(speeds.length == 1){
+            robotDrive.arcadeDrive(speeds[0],flightStick.getX()*0.3);
+        }
+        else{
+            robotDrive.arcadeDrive(speeds[0],speeds[1]);
+        }
     }
 
-    public void turnRight(double speed, double rotation) {
-        robotDrive.arcadeDrive(speed, rotation);
+    public void turnRight(double ...speeds) {
+        if(speeds.length == 0){
+            robotDrive.arcadeDrive(flightStick.getY()*0.6,flightStick.getX()*0.3);
+            //the speed value is between -1 and 1. The value represents percent output of the motor.
+        }
+        else if(speeds.length == 1){
+            robotDrive.arcadeDrive(speeds[0],flightStick.getX()*0.3);
+        }
+        else{
+            robotDrive.arcadeDrive(speeds[0],speeds[1]);
+        }
     }
 
     public void park() {
