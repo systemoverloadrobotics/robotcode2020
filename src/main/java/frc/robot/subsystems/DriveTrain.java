@@ -19,7 +19,10 @@ public class DriveTrain extends SubsystemBase {
     //defines the joystick as the flight stick
 
     public DriveTrain() {
-
+        RIGHT_FOLLOWER_1_ID.follow(RIGHT_MASTER_ID);
+        RIGHT_FOLLOWER_2_ID.follow(RIGHT_MASTER_ID);
+        LEFT_FOLLOWER_1_ID.follow(LEFT_MASTER_ID);
+        LEFT_FOLLOWER_2_ID.follow(LEFT_MASTER_ID);
     }
 
     public void moveForward() {
