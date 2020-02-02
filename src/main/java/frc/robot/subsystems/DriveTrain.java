@@ -16,10 +16,11 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax LEFT_FOLLOWER_1_ID = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
     private CANSparkMax LEFT_FOLLOWER_2_ID = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
+    public Joystick flightStick = new Joystick(0);
+    //defines the joystick as the flight stick
 
     public DriveTrain() {
-        Joystick flightStick = new Joystick(0);
-        //defines the joystick as the flight stick
+
     }
 
     public void moveForward() {
