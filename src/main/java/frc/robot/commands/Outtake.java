@@ -9,10 +9,10 @@ public class Outtake extends SubsystemBase {
     public Outtake() {
 
     }
-    public static void spin(){
+    public static void shoot(){
 
     }
-    public static void stop(){
+    public static void stopShoot(){
 
 
     }
