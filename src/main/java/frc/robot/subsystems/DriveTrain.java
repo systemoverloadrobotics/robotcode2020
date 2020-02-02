@@ -20,24 +20,24 @@ public class DriveTrain extends SubsystemBase {
     public Joystick flightStick = new Joystick(0);
     //defines the joystick as the flight stick
 
-
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(RIGHT_MASTER_ID, RIGHT_FOLLOWER_1_ID, RIGHT_FOLLOWER_2_ID);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(LEFT_MASTER_ID, LEFT_FOLLOWER_1_ID, LEFT_FOLLOWER_2_ID);
 
     private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
+    private double speed = flightStick.getY();
+    private double rotation = flightStick.getX();
+
     public DriveTrain() {
 
     }
 
-
-
     public void moveForward() {
-
+        robotDrive.arcadeDrive(speed,0);
     }
 
     public void moveBackward() {
-
+        robotDrive.arcadeDrive(speed,0);
     }
 
     public void turnLeft() {
