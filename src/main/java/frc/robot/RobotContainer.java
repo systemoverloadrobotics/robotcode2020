@@ -12,7 +12,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.commands.Shoots10;
+import frc.robot.subsystems.Outtake;
+import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.Constants.ButtonConstants;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -22,7 +26,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
+  Joystick m_joystick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+  private final Outtake m_outtake = new Outtake();
+  private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 
@@ -42,6 +48,9 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+
+     final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
+     shoots10.whenPressed(m_shoots10);
   }
 
 
