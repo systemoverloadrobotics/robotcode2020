@@ -47,6 +47,7 @@ public final class Constants {
         public static final int CLIMB_WINCH_ID = 15;
         public static final int CLIMB_ELEVATOR_ID = 16;
         public static final int CLOSED_LIMIT_SWITCH_CONSTANT = 1;
+        public static final double ELEVATOR_POWER_CONSTANT = 0.3;
     }
 
 }
