@@ -31,10 +31,10 @@ public class RobotContainer {
   private final Storage m_storage = new Storage();
   private final Climb m_climb = new Climb();
   private final Autonomous autonomous = new Autonomous();
-  private final Joystick flightStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+  private final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,flightStick);
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 
@@ -58,7 +58,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-     final JoystickButton shoots10 = new JoystickButton(flightStick, ButtonConstants.SHOOT_BUTTON);
+     final JoystickButton shoots10 = new JoystickButton(m_joyStick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
   }
 
