@@ -9,28 +9,28 @@ import frc.robot.Constants.DriveConstants;
 
 
 public class DriveTrain extends SubsystemBase {
-    private CANSparkMax RIGHT_MASTER = new CANSparkMax(DriveConstants.RIGHT_MASTER_ID, MotorType.kBrushless);
-    private CANSparkMax RIGHT_FOLLOWER_1 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_1_ID, MotorType.kBrushless);
-    private CANSparkMax RIGHT_FOLLOWER_2 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_2_ID, MotorType.kBrushless);
-    private CANSparkMax LEFT_MASTER = new CANSparkMax(DriveConstants.LEFT_MASTER_ID, MotorType.kBrushless);
-    private CANSparkMax LEFT_FOLLOWER_1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
-    private CANSparkMax LEFT_FOLLOWER_2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
+    private CANSparkMax rightMaster = new CANSparkMax(DriveConstants.RIGHT_MASTER_ID, MotorType.kBrushless);
+    private CANSparkMax rightFollower1 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_1_ID, MotorType.kBrushless);
+    private CANSparkMax rightFollower2 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_2_ID, MotorType.kBrushless);
+    private CANSparkMax leftMaster = new CANSparkMax(DriveConstants.LEFT_MASTER_ID, MotorType.kBrushless);
+    private CANSparkMax leftFollower1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
+    private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
 
 
-    private SpeedControllerGroup rightGroup = new SpeedControllerGroup(RIGHT_MASTER, RIGHT_FOLLOWER_1, RIGHT_FOLLOWER_2);
-    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(LEFT_MASTER, LEFT_FOLLOWER_1, LEFT_FOLLOWER_2);
+    private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
+    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1, leftFollower2);
 
     private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
 
     public DriveTrain() {
-        RIGHT_MASTER.restoreFactoryDefaults();
-        RIGHT_FOLLOWER_1.restoreFactoryDefaults();
-        RIGHT_FOLLOWER_2.restoreFactoryDefaults();
-        LEFT_MASTER.restoreFactoryDefaults();
-        LEFT_FOLLOWER_1.restoreFactoryDefaults();
-        LEFT_FOLLOWER_2.restoreFactoryDefaults();
+        rightMaster.restoreFactoryDefaults();
+        rightFollower1.restoreFactoryDefaults();
+        rightFollower2.restoreFactoryDefaults();
+        leftMaster.restoreFactoryDefaults();
+        leftFollower1.restoreFactoryDefaults();
+        leftFollower2.restoreFactoryDefaults();
     }
 
     public void move(double speed, double turn){
