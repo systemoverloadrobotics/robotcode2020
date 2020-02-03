@@ -22,13 +22,13 @@ public class Climb extends SubsystemBase {
     }
 
     public void goUp() {
-        if(elevatorMotor.isFwdLimitSwitchClosed() != 1){
+        if(elevatorMotor.isFwdLimitSwitchClosed() != ClimbConstants.CLOSED_LIMIT_SWITCH_CONSTANT){
             elevatorMotor.set(0.3);
         }
     }
 
     public void goDown() {
-        if(elevatorMotor.isRevLimitSwitchClosed() != 1){
+        if(elevatorMotor.isRevLimitSwitchClosed() != ClimbConstants.CLOSED_LIMIT_SWITCH_CONSTANT){
             elevatorMotor.set(-0.3);
         }
     }
