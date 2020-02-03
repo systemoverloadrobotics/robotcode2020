@@ -24,13 +24,13 @@ public class ArcadeDrive extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        m_driveTrain.move(m_flightStick.getY()*DriveConstants.SPEED_MILTIPLIER, m_flightStick.getX()*DriveConstants.TURN_MUlTIPLIER);
+        m_driveTrain.drive(m_flightStick.getY()*DriveConstants.SPEED_MILTIPLIER, m_flightStick.getX()*DriveConstants.TURN_MUlTIPLIER);
     }
 
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        m_driveTrain.move(0,0);
+        m_driveTrain.drive(0,0);
     }
 
     // Returns true when the command should end.

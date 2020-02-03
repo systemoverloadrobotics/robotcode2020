@@ -33,7 +33,7 @@ public class DriveTrain extends SubsystemBase {
         leftFollower2.restoreFactoryDefaults();
     }
 
-    public void move(double speed, double turn){
+    public void drive(double speed, double turn){
         robotDrive.arcadeDrive(speed,turn);
     }
 
