@@ -15,7 +15,7 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.Shoots10;
 import edu.wpi.first.wpilibj.Joystick;
-import frc.robot.Constants.ButtonConstants;
+import frc.robot.Constants.*;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -34,7 +34,7 @@ public class RobotContainer {
   private final Joystick flightStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain);
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,flightStick);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 

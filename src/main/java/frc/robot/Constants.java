@@ -24,6 +24,8 @@ public final class Constants {
         public static final int LEFT_MASTER_ID = 7;
         public static final int LEFT_FOLLOWER_1_ID = 8;
         public static final int LEFT_FOLLOWER_2_ID = 9;
+        public static final double SPEED_MILTIPLIER = 0.6;
+        public static final double TURN_MUlTIPLIER = 0.3;
     }
     public static final class ButtonConstants{
         public static final int SHOOT_BUTTON = 5; //TBD

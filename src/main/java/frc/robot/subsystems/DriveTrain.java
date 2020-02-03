@@ -16,7 +16,7 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax LEFT_FOLLOWER_1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
     private CANSparkMax LEFT_FOLLOWER_2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
-    //defines the joystick as the flight stick
+
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(RIGHT_MASTER, RIGHT_FOLLOWER_1, RIGHT_FOLLOWER_2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(LEFT_MASTER, LEFT_FOLLOWER_1, LEFT_FOLLOWER_2);
@@ -28,51 +28,8 @@ public class DriveTrain extends SubsystemBase {
 
     }
 
-    public void moveForward(double ...speeds) {
-        if(speeds.length == 0){
-            robotDrive.arcadeDrive(flightStick.getY()*0.6,0);
-            //the speed value is between -1 and 1. The value represents percent output of the motor.
-        }
-        else{
-            robotDrive.arcadeDrive(speeds[0]*0.6,0);
-        }
-
-    }
-
-    public void moveBackward(double ...speeds) {
-        if(speeds.length == 0){
-            robotDrive.arcadeDrive(flightStick.getY()*0.6,0);
-            //the speed value is between -1 and 1. The value represents percent output of the motor.
-        }
-        else{
-            robotDrive.arcadeDrive(speeds[0]*0.6,0);
-        }
-    }
-
-    public void turnLeft(double ...speeds) {
-        if(speeds.length == 0){
-            robotDrive.arcadeDrive(flightStick.getY()*0.6,flightStick.getX()*0.3);
-            //the speed value is between -1 and 1. The value represents percent output of the motor.
-        }
-        else if(speeds.length == 1){
-            robotDrive.arcadeDrive(speeds[0]*0.6,flightStick.getX()*0.3);
-        }
-        else{
-            robotDrive.arcadeDrive(speeds[0]*0.6,speeds[1]*0.6);
-        }
-    }
-
-    public void turnRight(double ...speeds) {
-        if(speeds.length == 0){
-            robotDrive.arcadeDrive(flightStick.getY()*0.6,flightStick.getX()*0.3);
-            //the speed value is between -1 and 1. The value represents percent output of the motor.
-        }
-        else if(speeds.length == 1){
-            robotDrive.arcadeDrive(speeds[0]*0.6,flightStick.getX()*0.3);
-        }
-        else{
-            robotDrive.arcadeDrive(speeds[0]*0.6,speeds[1]*0.6);
-        }
+    public void move(double speed, double turn){
+        robotDrive.arcadeDrive(speed,turn);
     }
 
     public void park() {
