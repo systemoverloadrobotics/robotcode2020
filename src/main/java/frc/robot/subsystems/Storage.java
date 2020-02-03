@@ -18,7 +18,7 @@ public class Storage extends SubsystemBase {
 
     public boolean[] ballPositions(){
 
-        return new boolean[1];
+        return new boolean[1]; //placeholder for the return type
     }
     
 }
