@@ -9,10 +9,10 @@ public class ArcadeDrive extends CommandBase {
     private final DriveTrain m_driveTrain;
     private final double speed;
     private final double turn;
-    public ArcadeDrive(DriveTrain arcadeDrive, double motion, double spin){
+    public ArcadeDrive(DriveTrain arcadeDrive, double Speed, double Turn){
         m_driveTrain = arcadeDrive;
-        speed = motion;
-        turn = spin;
+        speed = Speed;
+        turn = Turn;
         addRequirements(arcadeDrive);
     }
 
