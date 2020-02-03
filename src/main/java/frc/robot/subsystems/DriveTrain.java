@@ -25,7 +25,12 @@ public class DriveTrain extends SubsystemBase {
 
 
     public DriveTrain() {
-
+        RIGHT_MASTER.restoreFactoryDefaults();
+        RIGHT_FOLLOWER_1.restoreFactoryDefaults();
+        RIGHT_FOLLOWER_2.restoreFactoryDefaults();
+        LEFT_MASTER.restoreFactoryDefaults();
+        LEFT_FOLLOWER_1.restoreFactoryDefaults();
+        LEFT_FOLLOWER_2.restoreFactoryDefaults();
     }
 
     public void move(double speed, double turn){
