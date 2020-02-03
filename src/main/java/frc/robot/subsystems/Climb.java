@@ -29,16 +29,16 @@ public class Climb extends SubsystemBase {
 
     public void goDown() {
         if(elevatorMotor.isRevLimitSwitchClosed() != ClimbConstants.CLOSED_LIMIT_SWITCH_CONSTANT){
-            elevatorMotor.set(ClimbConstants.ELEVATOR_POWER_CONSTANT);
+            elevatorMotor.set(-ClimbConstants.ELEVATOR_POWER_CONSTANT);
         }
     }
 
     public void spinWinchForward() {
-        winchMotor.set(0.3);
+        winchMotor.set(ClimbConstants.WINCH_POWER_CONSTANT);
     }
 
     public void spinWinchBackward() {
-        winchMotor.set(-0.3);
+        winchMotor.set(-ClimbConstants.WINCH_POWER_CONSTANT);
     }
 
     public void stall() {
