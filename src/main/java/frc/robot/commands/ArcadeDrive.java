@@ -7,19 +7,19 @@ import frc.robot.Constants.DriveConstants;
 public class ArcadeDrive extends CommandBase {
 
     private final DriveTrain m_driveTrain;
-    private final double speed;
-    private final double turn;
-    public ArcadeDrive(DriveTrain arcadeDrive, double Speed, double Turn){
+    private final double m_speed;
+    private final double m_turn;
+    public ArcadeDrive(DriveTrain arcadeDrive, double speed, double turn){
         m_driveTrain = arcadeDrive;
-        speed = Speed;
-        turn = Turn;
+        m_speed = speed;
+        m_turn = turn;
         addRequirements(arcadeDrive);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        m_driveTrain.drive(speed,turn);
+        m_driveTrain.drive(m_speed,m_turn);
     }
 
     // Called once the command ends or is interrupted.
