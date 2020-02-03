@@ -9,12 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Climb;
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Outtake;
-import frc.robot.subsystems.Autonomous;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.Shoots10;
@@ -38,6 +34,7 @@ public class RobotContainer {
   private final Joystick flightStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 
@@ -46,8 +43,8 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-
-
+    //setting default commands
+    m_driveTrain.setDefaultCommand(m_arcadeDrive);
 
     // Configure the button bindings
     configureButtonBindings();
