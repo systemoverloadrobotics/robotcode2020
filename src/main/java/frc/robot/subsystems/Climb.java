@@ -8,8 +8,8 @@ import frc.robot.Constants.ClimbConstants;
 
 public class Climb extends SubsystemBase {
 
-    public WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(ClimbConstants.CLIMB_ELEVATOR_ID);
-    public WPI_TalonSRX winchMotor = new WPI_TalonSRX(ClimbConstants.CLIMB_WINCH_ID);
+    private WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(ClimbConstants.CLIMB_ELEVATOR_ID);
+    private WPI_TalonSRX winchMotor = new WPI_TalonSRX(ClimbConstants.CLIMB_WINCH_ID);
 
     public Climb() {
         elevatorMotor.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyOpen,ClimbConstants.CLIMB_ELEVATOR_ID,0);
