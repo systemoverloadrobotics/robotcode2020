@@ -16,6 +16,9 @@ public class Climb extends SubsystemBase {
         elevatorMotor.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed,Constants.ClimbConstants.CLIMB_ELEVATOR_ID,0);
 
         winchMotor.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyOpen,Constants.ClimbConstants.CLIMB_WINCH_ID,0);
+
+        elevatorMotor.configFactoryDefault();
+        winchMotor.configFactoryDefault();
     }
 
     public void goUp() {
