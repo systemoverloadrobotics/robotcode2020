@@ -36,7 +36,7 @@ public class DriveTrain extends SubsystemBase {
             //the speed value is between -1 and 1. The value represents percent output of the motor.
         }
         else{
-            robotDrive.arcadeDrive(speeds[0],0);
+            robotDrive.arcadeDrive(speeds[0]*0.6,0);
         }
 
     }
@@ -47,7 +47,7 @@ public class DriveTrain extends SubsystemBase {
             //the speed value is between -1 and 1. The value represents percent output of the motor.
         }
         else{
-            robotDrive.arcadeDrive(speeds[0],0);
+            robotDrive.arcadeDrive(speeds[0]*0.6,0);
         }
     }
 
@@ -57,10 +57,10 @@ public class DriveTrain extends SubsystemBase {
             //the speed value is between -1 and 1. The value represents percent output of the motor.
         }
         else if(speeds.length == 1){
-            robotDrive.arcadeDrive(speeds[0],flightStick.getX()*0.3);
+            robotDrive.arcadeDrive(speeds[0]*0.6,flightStick.getX()*0.3);
         }
         else{
-            robotDrive.arcadeDrive(speeds[0],speeds[1]);
+            robotDrive.arcadeDrive(speeds[0]*0.6,speeds[1]*0.6);
         }
     }
 
@@ -70,10 +70,10 @@ public class DriveTrain extends SubsystemBase {
             //the speed value is between -1 and 1. The value represents percent output of the motor.
         }
         else if(speeds.length == 1){
-            robotDrive.arcadeDrive(speeds[0],flightStick.getX()*0.3);
+            robotDrive.arcadeDrive(speeds[0]*0.6,flightStick.getX()*0.3);
         }
         else{
-            robotDrive.arcadeDrive(speeds[0],speeds[1]);
+            robotDrive.arcadeDrive(speeds[0]*0.6,speeds[1]*0.6);
         }
     }
 
