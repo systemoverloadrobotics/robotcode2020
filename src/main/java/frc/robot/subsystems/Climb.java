@@ -38,7 +38,7 @@ public class Climb extends SubsystemBase {
     }
 
     public void spinWinchBackward() {
-        winchMotor.set(-ClimbConstants.WINCH_POWER_CONSTANT);
+        winchMotor.set(ClimbConstants.REVERSE_WINCH_POWER_CONSTANT);
     }
 
     public void stall() {
