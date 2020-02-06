@@ -42,6 +42,7 @@ public class RobotContainer {
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
   private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX());
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
 
 
 
@@ -67,8 +68,8 @@ public class RobotContainer {
      final JoystickButton shoots10 = new JoystickButton(m_joyStick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
 
-     final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, 1);
-     openAndCloseDoor.whenPressed(OpenAndCloseDoor);
+     final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, ButtonConstants.OPEN_DOOR);
+     openAndCloseDoor.whenPressed(m_openAndCloseDoor);
   }
 
 
