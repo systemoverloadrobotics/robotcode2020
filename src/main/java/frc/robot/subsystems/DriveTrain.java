@@ -34,7 +34,7 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void drive(double speed, double turn){
-        robotDrive.arcadeDrive(speed*DriveConstants.SPEED_MILTIPLIER,turn*DriveConstants.TURN_MUlTIPLIER);
+        robotDrive.arcadeDrive(speed*DriveConstants.SPEED_MULTIPLIER,turn*DriveConstants.TURN_MULTIPLIER);
     }
 
     public void park() {
