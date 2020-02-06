@@ -3,9 +3,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
+
 public class Storage extends SubsystemBase {
 
-    private DoubleSolenoid Doorman = new DoubleSolenoid(3,0,1);
+    private DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(3,0,1);
 
     public Storage() {
 
@@ -25,7 +26,7 @@ public class Storage extends SubsystemBase {
     }
 
     public void runDoubleSolenoid(){
-
+        m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     
 }
