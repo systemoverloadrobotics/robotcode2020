@@ -28,6 +28,7 @@ public final class Constants {
     public static final class ButtonConstants{
         public static final int SHOOT_BUTTON = 5; //TBD
         public static final int JOYSTICK_PORT = 0;
+        public static int CHANGE_SPEED = 0;
 
     }
     public static final class IntakeConstants {

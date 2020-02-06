@@ -30,7 +30,7 @@ public class RobotContainer {
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
+  private final Shoots10 changeSpeed = new Shoots10(m_outtake);
 
 
   /**
@@ -51,6 +51,7 @@ public class RobotContainer {
 
      final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
+     final JoystickButton changeSpeed = new JoystickButton(m_joystick, ButtonConstants.CHANGE_SPEED);
   }
 
 

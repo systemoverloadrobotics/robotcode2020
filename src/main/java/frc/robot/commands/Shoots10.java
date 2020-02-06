@@ -14,7 +14,7 @@ import frc.robot.subsystems.Outtake;
 public class Shoots10 extends CommandBase {
 
   private final Outtake m_shoot;
-
+  //private final Outtake m_desiredSpeed;
   public Shoots10(Outtake shoot) {
     m_shoot = shoot;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,6 +28,14 @@ public class Shoots10 extends CommandBase {
   }
 
   // Called every time the scheduler runs while the command is scheduled.
+ // @Override
+  public void shootSpeed(double joystickValue){
+
+  }
+  public void changeShootSpeed(double shootvalue){
+  //take in speed from joystick, i think this is totally wrong IDK!
+
+  }
   @Override
   public void execute() {
   }
