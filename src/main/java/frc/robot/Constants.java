@@ -24,8 +24,8 @@ public final class Constants {
         public static final int LEFT_MASTER_ID = 7;
         public static final int LEFT_FOLLOWER_1_ID = 8;
         public static final int LEFT_FOLLOWER_2_ID = 9;
-        public static final double SPEED_MILTIPLIER = 0.6;
-        public static final double TURN_MUlTIPLIER = 0.3;
+        public static final double SPEED_MULTIPLIER = 0.6;
+        public static final double TURN_MULTIPLIER = 0.3;
     }
     public static final class ButtonConstants{
         public static final int SHOOT_BUTTON = 5; //TBD
@@ -46,6 +46,10 @@ public final class Constants {
     public static final class ClimbConstants {
         public static final int CLIMB_WINCH_ID = 15;
         public static final int CLIMB_ELEVATOR_ID = 16;
+        public static final int CLOSED_LIMIT_SWITCH_CONSTANT = 1;
+        public static final double ELEVATOR_POWER_CONSTANT = 0.3;
+        public static final double WINCH_POWER_CONSTANT = 0.3;
+        public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
     }
 
 }
