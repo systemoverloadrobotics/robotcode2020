@@ -25,8 +25,10 @@ public class Storage extends SubsystemBase {
         return new boolean[1]; //placeholder for the return type
     }
 
-    public void runDoubleSolenoid(){
+    public void openDoubleSolenoid(){
         m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
     }
+
+    public void closeDoubleSolenoid(){m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);}
     
 }

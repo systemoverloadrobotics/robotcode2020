@@ -40,6 +40,7 @@ public final class Constants {
     public static final class StorageConstants {
         public static final int POLYCORD_MOTOR_ID = 12;
         public static final int STORAGE_GATE_ID = 13;
+        public static final int SUPER_SOLENOID_TIME = 3;
     }
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;
