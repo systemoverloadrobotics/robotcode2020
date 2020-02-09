@@ -51,7 +51,10 @@ public class RobotContainer {
 
      final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
-     final JoystickButton changeSpeed = new JoystickButton(m_joystick, ButtonConstants.CHANGE_SPEED);
+     //final JoystickButton speedChanger = new
+ final JoystickButton changeSpeed90 = new JoystickButton(m_joystick, ButtonConstants.CHANGE_SPEED);
+ //changeSpeed.whenPressed()
+
   }
 
 
