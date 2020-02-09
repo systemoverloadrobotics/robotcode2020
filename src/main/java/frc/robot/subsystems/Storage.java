@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Storage extends SubsystemBase {
 
-    public static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
-    public static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageConstants.POLYCORD_MOTOR_ID);
+    private static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
+    private static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageConstants.POLYCORD_MOTOR_ID);
     private DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(3,0,1);
 
 
