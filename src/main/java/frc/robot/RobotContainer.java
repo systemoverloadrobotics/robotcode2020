@@ -34,7 +34,7 @@ public class RobotContainer {
   private final Climb m_climb = new Climb();
   private final Autonomous autonomous = new Autonomous();
 
-  //joystick
+  //controllers
   private final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
 
   //commands
