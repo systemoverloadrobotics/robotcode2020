@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Outtake;
 
 
-public class Shoots10 extends CommandBase {
+public class SpeedChanger extends CommandBase {
 
-  private final Outtake m_shoot;
+  private final Outtake  m_outtake;
   //private final Outtake m_desiredSpeed;
-  public Shoots10(Outtake shoot) {
-    m_shoot = shoot;
+  public SpeedChanger(Outtake outtake) {
+    m_outtake = outtake;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(shoot);
   }
@@ -32,10 +32,10 @@ public class Shoots10 extends CommandBase {
   public void shootSpeed(double joystickValue){
 
   }
-//  /*public void changeShootSpeed(double shootvalue){
-////  //take in speed from joystick, i think this is totally wrong IDK!
-////*/
-////  }
+  public void changeShootSpeed(double shootvalue){
+  //take in speed from joystick, i think this is totally wrong IDK!
+
+  }
   @Override
   public void execute() {
   }

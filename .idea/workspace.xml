@@ -81,14 +81,17 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/frc/team6059" />
-      <recent name="$PROJECT_DIR$/src/main/java/frc/team6059/robot" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/frc/team6059/robot/Subsystems" />
       <recent name="$PROJECT_DIR$/src/main/java/frc/team6059/robot" />
       <recent name="C:\Users\sorfr\Documents\GitHub\robotCode2020\vendordeps" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="frc.robot.commands" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/frc/team6059" />
+      <recent name="$PROJECT_DIR$/src/main/java/frc/team6059/robot" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -225,7 +228,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
