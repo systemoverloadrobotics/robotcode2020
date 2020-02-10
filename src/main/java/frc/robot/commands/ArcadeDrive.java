@@ -8,17 +8,26 @@ public class ArcadeDrive extends CommandBase {
     private final DriveTrain m_driveTrain;
     private final double m_speed;
     private final double m_turn;
-    public ArcadeDrive(DriveTrain arcadeDrive, double speed, double turn){
+    private final boolean m_shiftbutton;
+    public ArcadeDrive(DriveTrain arcadeDrive, double speed, double turn, boolean shiftButton){
         m_driveTrain = arcadeDrive;
         m_speed = speed;
         m_turn = turn;
+        m_shiftbutton = shiftButton;
         addRequirements(arcadeDrive);
     }
+
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
         m_driveTrain.drive(m_speed,m_turn);
+        if(m_shiftbutton){
+            m_driveTrain.shiftUp();
+        }
+        else{
+            m_driveTrain.shiftDown();
+        }
     }
 
     // Called once the command ends or is interrupted.

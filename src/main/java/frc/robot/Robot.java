@@ -10,6 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.commands.ArcadeDrive;
+import frc.robot.subsystems.DriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -19,9 +23,11 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
   private RobotContainer m_robotContainer;
-
+  DriveTrain m_driveTrain = new DriveTrain();
+  Compressor m_compressor = new Compressor(3);
+  Joystick m_joyStick = new Joystick(0);
+  ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX(), m_joyStick.getRawButton(11));
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -31,7 +37,13 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+
+    //compressor, were cheating but SHHH
+
   }
+
+
 
   /**
    * This function is called every robot packet, no matter the mode. Use this for items like
@@ -46,7 +58,18 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-    CommandScheduler.getInstance().run();
+
+    if(m_joyStick.getRawButton(11)){
+      System.out.println("hi, you like it when i show up");
+      m_compressor.start();
+    }
+    else{
+      m_compressor.stop();
+    }
+
+
+   CommandScheduler.getInstance().run();
+    //CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
   }
 
   /**
