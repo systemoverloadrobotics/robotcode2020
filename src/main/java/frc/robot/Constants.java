@@ -18,12 +18,12 @@ package frc.robot;
  */
 public final class Constants {
     public static final class DriveConstants {
-        public static final int RIGHT_MASTER_ID = 4;
-        public static final int RIGHT_FOLLOWER_1_ID = 5;
-        public static final int RIGHT_FOLLOWER_2_ID = 6;
-        public static final int LEFT_MASTER_ID = 7;
-        public static final int LEFT_FOLLOWER_1_ID = 8;
-        public static final int LEFT_FOLLOWER_2_ID = 9;
+        public static final int RIGHT_MASTER_ID = 1;
+        public static final int RIGHT_FOLLOWER_1_ID = 2;
+        public static final int RIGHT_FOLLOWER_2_ID = 3;
+        public static final int LEFT_MASTER_ID = 4;
+        public static final int LEFT_FOLLOWER_1_ID = 5;
+        public static final int LEFT_FOLLOWER_2_ID = 6;
         public static final double SPEED_MULTIPLIER = 0.6;
         public static final double TURN_MULTIPLIER = 0.3;
     }
