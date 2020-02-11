@@ -26,12 +26,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  //subsystems
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final Intake m_intake = new Intake();
   private final Storage m_storage = new Storage();
   private final Climb m_climb = new Climb();
+
   private final Autonomous autonomous = new Autonomous();
 
   //controllers
@@ -43,6 +42,8 @@ public class RobotContainer {
   private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX());
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
+
+
 
 
 
@@ -65,7 +66,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-     final JoystickButton shoots10 = new JoystickButton(m_joyStick, ButtonConstants.SHOOT_BUTTON);
+     final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
 
      final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, ButtonConstants.OPEN_DOOR);
@@ -80,6 +81,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    //return m_autoCommand;
   }
 }
