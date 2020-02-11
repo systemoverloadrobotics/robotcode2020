@@ -44,6 +44,5 @@ public class Storage extends SubsystemBase {
         m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
-    public void closeDoubleSolenoid(){m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);}
-    
+    public void closeDoubleSolenoid(){m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);}
 }
