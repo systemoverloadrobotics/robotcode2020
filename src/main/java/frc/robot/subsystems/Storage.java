@@ -12,7 +12,7 @@ public class Storage extends SubsystemBase {
 
     private static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
     private static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageConstants.POLYCORD_MOTOR_ID);
-    private DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(3,0,1);
+    private DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(StorageConstants.DOUBLESOLENOID_MODULE_NUM,StorageConstants.DOUBLESOLENOID_FOWARDCHANNEL_ID,StorageConstants.DOUBLESOLENOID_REVERSECHANNEL_ID);
 
 
     public Storage() {
