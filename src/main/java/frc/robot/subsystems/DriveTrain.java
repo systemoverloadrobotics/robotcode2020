@@ -17,12 +17,12 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax rightFollower2 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_2_ID, MotorType.kBrushless);
     private CANSparkMax leftMaster = new CANSparkMax(DriveConstants.LEFT_MASTER_ID, MotorType.kBrushless);
     private CANSparkMax leftFollower1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
-    private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
+    //private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
     private DoubleSolenoid shifter = new DoubleSolenoid(3,0,1);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
-    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1, leftFollower2);
+    private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1);
 
     private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
@@ -33,10 +33,10 @@ public class DriveTrain extends SubsystemBase {
         rightFollower2.restoreFactoryDefaults();
         leftMaster.restoreFactoryDefaults();
         leftFollower1.restoreFactoryDefaults();
-        leftFollower2.restoreFactoryDefaults();
+        //leftFollower2.restoreFactoryDefaults();
 
-        rightMaster.getEncoder(EncoderType.kQuadrature,4069);
-        leftMaster.getEncoder(EncoderType.kQuadrature,4069);
+       //rightMaster.getEncoder(EncoderType.kQuadrature,4069);
+        //leftMaster.getEncoder(EncoderType.kQuadrature,4069);
     }
 
     public void shiftUp(){shifter.set(Value.kForward);}
