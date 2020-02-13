@@ -35,6 +35,8 @@ public final class Constants {
     public static final class IntakeConstants {
         public static final int INTAKE_BAR_MOTOR_ID = 10;
         public static final int INTAKE_WHEELS_ID = 11;
+        public static final int BALLS_IN_SWITCH_ID = 17;
+        public static final int BALLS_OUT_SWITCH_ID = 18;
     }
     public static final class StorageConstants {
         public static final int POLYCORD_MOTOR_ID = 12;
