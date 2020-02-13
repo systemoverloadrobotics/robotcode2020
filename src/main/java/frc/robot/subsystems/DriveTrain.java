@@ -35,8 +35,8 @@ public class DriveTrain extends SubsystemBase {
         leftFollower1.restoreFactoryDefaults();
         //leftFollower2.restoreFactoryDefaults();
 
-       //rightMaster.getEncoder(EncoderType.kQuadrature,4069);
-        //leftMaster.getEncoder(EncoderType.kQuadrature,4069);
+       rightMaster.getEncoder(EncoderType.kQuadrature,4069);
+        leftMaster.getEncoder(EncoderType.kQuadrature,4069);
     }
 
     public void shiftUp(){shifter.set(Value.kForward);}
