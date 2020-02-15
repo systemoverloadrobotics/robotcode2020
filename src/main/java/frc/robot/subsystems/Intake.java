@@ -9,21 +9,21 @@ import frc.robot.Constants.IntakeConstants;
 public class Intake extends SubsystemBase {
 
 
-    public static final WPI_VictorSPX intakeFlywheels = new WPI_VictorSPX(IntakeConstants.INTAKE_WHEELS_ID);
+    public static final WPI_VictorSPX intakeMotor = new WPI_VictorSPX(IntakeConstants.INTAKE_WHEELS_ID);
 
     public Intake(){
     }
 
     public void spinIn(){
-        intakeFlywheels.set(ControlMode.PercentOutput, .2);
+        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_FLYWHEELS_FORWARD_POWER);
     }
 
     public void spinOut(){
-        intakeFlywheels.set(ControlMode.PercentOutput, -.2);
+        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_FLYWHEELS_REVERSE_POWER);
     }
 
     public void stop(){
-        intakeFlywheels.set(ControlMode.PercentOutput, 0);
+        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_STOP);
     }
 
 }
