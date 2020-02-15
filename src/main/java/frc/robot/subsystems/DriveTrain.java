@@ -17,7 +17,7 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax rightFollower2 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_2_ID, MotorType.kBrushless);
     private CANSparkMax leftMaster = new CANSparkMax(DriveConstants.LEFT_MASTER_ID, MotorType.kBrushless);
     private CANSparkMax leftFollower1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
-    //private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
+    private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
 
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
@@ -36,7 +36,7 @@ public class DriveTrain extends SubsystemBase {
         rightFollower2.restoreFactoryDefaults();
         leftMaster.restoreFactoryDefaults();
         leftFollower1.restoreFactoryDefaults();
-        //leftFollower2.restoreFactoryDefaults();
+        leftFollower2.restoreFactoryDefaults();
 
 
     }
