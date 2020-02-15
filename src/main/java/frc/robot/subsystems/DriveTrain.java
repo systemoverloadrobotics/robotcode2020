@@ -19,6 +19,9 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax leftFollower1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
     //private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
+
+    private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
+    private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
     private DoubleSolenoid shifter = new DoubleSolenoid(3,0,1);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
@@ -35,8 +38,7 @@ public class DriveTrain extends SubsystemBase {
         leftFollower1.restoreFactoryDefaults();
         //leftFollower2.restoreFactoryDefaults();
 
-       rightMaster.getEncoder(EncoderType.kQuadrature,4069);
-        leftMaster.getEncoder(EncoderType.kQuadrature,4069);
+
     }
 
     public void shiftUp(){shifter.set(Value.kForward);}
@@ -52,7 +54,10 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void park() {
-
+        if(leftMasterEncoder.getCountsPerRevolution() > 0 || rightMasterEncoder.getCountsPerRevolution() > 0){
+            rightGroup.set(0);
+            leftGroup.set(0);
+        }
     }
 
     public void initDefaultCommand(){
