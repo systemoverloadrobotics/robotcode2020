@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
   DriveTrain m_driveTrain = new DriveTrain();
   Compressor m_compressor = new Compressor(3);
   Joystick m_joyStick = new Joystick(0);
-  ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX(), m_joyStick.getRawButton(11));
+  ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getRawButton(11));
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -58,6 +58,13 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
+
+
+    m_joyStick.getRawAxis(1);
+    m_joyStick.getRawAxis(0);
+    double speed = m_joyStick.getRawAxis(1);
+    double turn = m_joyStick.getRawAxis(0);
+    m_arcadeDrive.execute(speed,turn);
 
     if(m_joyStick.getRawButton(11)){
       System.out.println("hi, you like it when i show up");

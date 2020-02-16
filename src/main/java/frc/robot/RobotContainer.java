@@ -37,7 +37,7 @@ public class RobotContainer {
   private final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX(),m_joyStick.getRawButton(1));
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,m_joyStick.getRawButton(1));
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 
