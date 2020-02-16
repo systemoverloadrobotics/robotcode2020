@@ -22,7 +22,7 @@ public class DriveTrain extends SubsystemBase {
 
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
-    private DoubleSolenoid shifter = new DoubleSolenoid(15, 2,4);
+    private DoubleSolenoid shifter = new DoubleSolenoid(3, 0,1);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1);
@@ -41,9 +41,9 @@ public class DriveTrain extends SubsystemBase {
 
     }
 
-//    public void shiftUp(){shifter.set(Value.kForward);}
-//
-//    public void shiftDown(){shifter.set(Value.kReverse);}
+    public void shiftUp(){shifter.set(Value.kForward);}
+
+    public void shiftDown(){shifter.set(Value.kReverse);}
 
     public void getDistance(){
 

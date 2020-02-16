@@ -66,8 +66,14 @@ public class Robot extends TimedRobot {
     double turn = m_joyStick.getRawAxis(0);
     m_arcadeDrive.execute(speed,turn);
 
+
+    if(m_joyStick.getRawButton(1)){
+      m_driveTrain.shiftUp();
+    }
+    else{
+      m_driveTrain.shiftDown();
+    }
     if(m_joyStick.getRawButton(11)){
-      System.out.println("hi, you like it when i show up");
       m_compressor.start();
     }
     else{
@@ -76,7 +82,7 @@ public class Robot extends TimedRobot {
 
 
    CommandScheduler.getInstance().run();
-    //CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
+    CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
   }
 
   /**
