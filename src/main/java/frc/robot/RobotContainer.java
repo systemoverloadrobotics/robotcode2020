@@ -10,6 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.OpenAndCloseDoor;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.Shoots10;
@@ -28,10 +30,20 @@ public class RobotContainer {
   private final Intake m_intake = new Intake();
   private final Storage m_storage = new Storage();
   private final Climb m_climb = new Climb();
-  private final Joystick m_joystick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+
+  private final Autonomous autonomous = new Autonomous();
+
+  //controllers
+  private final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+
+  //commands
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joystick.getY(), m_joystick.getX());
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX());
+  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
+
+
 
 
 
@@ -56,6 +68,9 @@ public class RobotContainer {
 
      final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
+
+     final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, ButtonConstants.OPEN_DOOR);
+     openAndCloseDoor.whenPressed(m_openAndCloseDoor);
   }
 
 
