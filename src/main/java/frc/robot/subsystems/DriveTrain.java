@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.EncoderType;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,7 +23,9 @@ public class DriveTrain extends SubsystemBase {
 
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
+
     private DoubleSolenoid shifter = new DoubleSolenoid(3, 0,1);
+    private Compressor m_compressor = new Compressor(3);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1);
@@ -37,13 +40,20 @@ public class DriveTrain extends SubsystemBase {
         leftMaster.restoreFactoryDefaults();
         leftFollower1.restoreFactoryDefaults();
         leftFollower2.restoreFactoryDefaults();
-
-
     }
 
     public void shiftUp(){shifter.set(Value.kForward);}
 
     public void shiftDown(){shifter.set(Value.kReverse);}
+
+    public void compressAir(boolean buttonPressed){
+        if(buttonPressed){
+            m_compressor.start();
+        }
+        else{
+            m_compressor.stop();
+        }
+    }
 
     public void getDistance(){
 
@@ -58,9 +68,5 @@ public class DriveTrain extends SubsystemBase {
             rightGroup.set(0);
             leftGroup.set(0);
         }
-    }
-
-    public void initDefaultCommand(){
-
     }
 }
