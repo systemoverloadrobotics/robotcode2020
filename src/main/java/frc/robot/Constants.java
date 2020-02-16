@@ -42,6 +42,8 @@ public final class Constants {
         public static final int POLYCORD_MOTOR_ID = 12;
         public static final int STORAGE_GATE_ID = 13;
         public static final int BALLS_IN_SWITCH_ID = 17;
+        public static final int POLYCORD_FORWARD_SPEED = .2;
+        public static final int POLYCORD_BACKWARD_SPEED = .2;
     }
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;

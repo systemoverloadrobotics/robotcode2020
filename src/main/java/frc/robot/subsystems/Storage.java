@@ -14,11 +14,11 @@ public class Storage extends SubsystemBase {
     }
 
     public void runPolycordForward(){
-        polycord.set(ControlMode.PercentOutput, .2);
+        polycord.set(ControlMode.PercentOutput, POLYCORD_FORWARD_SPEED);
     }
 
     public void runPolycordBackward(){
-        polycord.set(ControlMode.PercentOutput, -.2);
+        polycord.set(ControlMode.PercentOutput, POLYCORD_BACKWARD_SPEED);
     }
 
     public void stopPolycord(){
@@ -35,14 +35,5 @@ public class Storage extends SubsystemBase {
         runPolycordForward();
         return true;
     }
-    /**If the system finished and balls are in position, return false. While still running return true.
-     * Runs when drive team presses a button**/
-    public boolean moveToOuttake(){
-        if (!ballsInSwitch.get()){
-            stopPolycord();
-            return false;
-        }
-        runPolycordBackward();
-        return true;
-    }
+
 }
