@@ -25,7 +25,6 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
   DriveTrain m_driveTrain = new DriveTrain();
-  Compressor m_compressor = new Compressor(3);
   Joystick m_joyStick = new Joystick(0);
   ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getRawButton(11));
   /**
@@ -37,9 +36,6 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-
-
-    //compressor, were cheating but SHHH
 
   }
 
@@ -60,25 +56,6 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
 
 
-    m_joyStick.getRawAxis(1);
-    m_joyStick.getRawAxis(0);
-    double speed = m_joyStick.getRawAxis(1);
-    double turn = m_joyStick.getRawAxis(0);
-    m_arcadeDrive.execute(speed,turn);
-
-
-    if(m_joyStick.getRawButton(1)){
-      m_driveTrain.shiftUp();
-    }
-    else{
-      m_driveTrain.shiftDown();
-    }
-    if(m_joyStick.getRawButton(11)){
-      m_compressor.start();
-    }
-    else{
-      m_compressor.stop();
-    }
 
 
    CommandScheduler.getInstance().run();
