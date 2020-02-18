@@ -7,7 +7,11 @@ public class ShiftUp extends CommandBase {
 
     }
     @Override
-    public void initalize(){
+    public void initialize(){
+
+    }
+    @Override
+    public void execute(){
 
     }
     @Override

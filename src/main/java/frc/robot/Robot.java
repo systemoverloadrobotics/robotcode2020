@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
   DriveTrain m_driveTrain = new DriveTrain();
-  Joystick m_joyStick = new Joystick(0);
+  public static Joystick m_joyStick = new Joystick(0);
   ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getRawButton(11));
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
 
 
    CommandScheduler.getInstance().run();
-    CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
+   CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
   }
 
   /**
