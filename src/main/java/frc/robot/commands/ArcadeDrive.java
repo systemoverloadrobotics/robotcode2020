@@ -7,10 +7,8 @@ import frc.robot.subsystems.DriveTrain;
 public class ArcadeDrive extends CommandBase {
 
     private final DriveTrain m_driveTrain;
-    private final boolean m_shiftButton;
-    public ArcadeDrive(DriveTrain arcadeDrive, boolean shiftButton){
+    public ArcadeDrive(DriveTrain arcadeDrive){
         m_driveTrain = arcadeDrive;
-        m_shiftButton = shiftButton;
         addRequirements(arcadeDrive);
     }
 
@@ -21,12 +19,6 @@ public class ArcadeDrive extends CommandBase {
         double m_speed = RobotContainer.m_joyStick.getRawAxis(0);
         double m_turn = RobotContainer.m_joyStick.getRawAxis(1);
         m_driveTrain.drive(m_speed,m_turn);
-        if(m_shiftButton){
-
-        }
-        else{
-
-        }
     }
 
     // Called once the command ends or is interrupted.
