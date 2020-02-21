@@ -24,9 +24,6 @@ import frc.robot.subsystems.DriveTrain;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  DriveTrain m_driveTrain = new DriveTrain();
-  public static Joystick m_joyStick = new Joystick(0);
-  ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getRawButton(11));
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -54,12 +51,7 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-
-
-
-
    CommandScheduler.getInstance().run();
-   CommandScheduler.getInstance().setDefaultCommand(m_driveTrain, m_arcadeDrive);
   }
 
   /**
