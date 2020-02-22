@@ -18,6 +18,7 @@ public class ArcadeDrive extends CommandBase {
     public void execute() {
         double m_speed = RobotContainer.m_joyStick.getRawAxis(0);
         double m_turn = RobotContainer.m_joyStick.getRawAxis(1);
+        System.out.print(RobotContainer.m_joyStick.getRawAxis(0));
         m_driveTrain.drive(m_speed,m_turn);
     }
 
