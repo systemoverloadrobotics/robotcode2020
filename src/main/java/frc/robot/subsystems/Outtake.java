@@ -4,6 +4,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Constants.OuttakeConstants;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 
 public class Outtake extends SubsystemBase {
@@ -11,18 +12,20 @@ public class Outtake extends SubsystemBase {
 
     public Outtake() {
         shootMotor.configFactoryDefault();
+        shootMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
     }
 
-    public void shoot (double distance) {
-        double speed = distance;
-        shootMotor.set(ControlMode.PercentOutput, speed);
-}
-    public void changeSpeed(double changePercentage){
-        double speed1 = changePercentage;
-
-        shootMotor.set(ControlMode.PercentOutput, changePercentage);
+    public void shoot (double rpm) {
+        shootMotor.set(ControlMode.PercentOutput, rpm);
     }
+
     public void stopShoot () {
         shootMotor.stopMotor();
     }
+
+    public double getEncoder () {
+        return shootMotor.getSelectedSensorVelocity();
+    }
+
 }
