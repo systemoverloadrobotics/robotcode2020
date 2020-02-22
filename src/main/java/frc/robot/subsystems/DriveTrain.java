@@ -46,13 +46,12 @@ public class DriveTrain extends SubsystemBase {
 
     public void shiftDown(){shifter.set(Value.kReverse);}
 
-    public void compressAir(boolean buttonPressed){
-        if(buttonPressed){
-            m_compressor.start();
-        }
-        else{
-            m_compressor.stop();
-        }
+    public void compressorStart(){
+        m_compressor.start();
+    }
+
+    public void compressorStop(){
+        m_compressor.stop();
     }
 
     public void getDistance(){

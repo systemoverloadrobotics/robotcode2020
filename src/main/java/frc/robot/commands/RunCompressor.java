@@ -3,18 +3,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
-public class Park extends CommandBase {
-    public DriveTrain m_driveTrain;
-    public Park(){
+public class RunCompressor extends CommandBase {
+    private DriveTrain m_driveTrain;
+    public RunCompressor(DriveTrain driveTrain){
         m_driveTrain = new DriveTrain();
         addRequirements(m_driveTrain);
     }
+
     @Override
-    public void initialize(){
-        m_driveTrain.park();
+    public void execute(){
+        m_driveTrain.compressorStart();
     }
+
     @Override
-    public void end(boolean interrupted){}
+    public void end(boolean interrupted){
+        m_driveTrain.compressorStop();
+    }
 
     @Override
     public boolean isFinished() {

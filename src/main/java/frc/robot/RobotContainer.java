@@ -44,6 +44,7 @@ public class RobotContainer {
   private final ShiftDown m_shiftDown = new ShiftDown();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
+  private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
 
 
 
@@ -69,6 +70,7 @@ public class RobotContainer {
     shift.whenHeld(m_shiftUp);
     shift.whenReleased(m_shiftDown);
     final JoystickButton compressorOn = new JoystickButton(m_joyStick, 11);
+    compressorOn.whenHeld(m_runCompressor);
      final JoystickButton shoots10 = new JoystickButton(m_joyStick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
 
