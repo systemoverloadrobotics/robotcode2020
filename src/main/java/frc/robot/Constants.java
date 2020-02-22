@@ -66,5 +66,12 @@ public final class Constants {
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
     }
+    public static final class VisionConstants {
+        //Actual numbers needed upon assembly
+        public static final double LIMELIGHT_ANGLE_FROM_HORIZONTAL = 60.; //In degrees
+        public static final double LIMELIGHT_HEIGHT_FROM_GROUND = 3.5;
+        public static final double HEIGHT_OF_TOP_TARGET = 81.25; //From bottom of horizontal strip to carpet in inches
+        public static final double HEIGHT_FOR_CALCULATION = HEIGHT_OF_TOP_TARGET - LIMELIGHT_HEIGHT_FROM_GROUND;
+    }
 
 }
