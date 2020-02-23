@@ -4,14 +4,18 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
 public class Park extends CommandBase {
-    public DriveTrain m_driveTrain;
-    public Park(){
-        m_driveTrain = new DriveTrain();
+    private DriveTrain m_driveTrain;
+    public Park(DriveTrain driveTrain){
+        m_driveTrain = driveTrain;
         addRequirements(m_driveTrain);
     }
     @Override
     public void initialize(){
-        m_driveTrain.park();
+
+    }
+    @Override
+    public void execute(){
+
     }
     @Override
     public void end(boolean interrupted){}
