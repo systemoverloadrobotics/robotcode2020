@@ -10,26 +10,34 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Storage extends SubsystemBase {
 
-    public static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
-    public static final DigitalInput ballsOutSwitch = new DigitalInput(StorageConstants.BALLS_OUT_SWITCH_ID);
-    public static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageCosntants.POLYCORD_MOTOR_ID);
+    private static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
+    private static final DigitalInput ballsOutSwitch = new DigitalInput(StorageConstants.BALLS_OUT_SWITCH_ID);
+    private static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageConstants.POLYCORD_MOTOR_ID);
     private DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(StorageConstants.DOUBLESOLENOID_MODULE_NUM,StorageConstants.DOUBLESOLENOID_FOWARDCHANNEL_ID,StorageConstants.DOUBLESOLENOID_REVERSECHANNEL_ID);
 
     public Storage() {
 
     }
 
-    public void runPolycordForward(){
-        polycord.set(ControlMode.PercentOutput, POLYCORD_FORWARD_SPEED);
+    public void moveIn(){
+        polycord.set(ControlMode.PercentOutput, StorageConstants.POLYCORD_FORWARD_SPEED);
     }
 
-    public void runPolycordBackward(){
-        polycord.set(ControlMode.PercentOutput, POLYCORD_BACKWARD_SPEED);
+    public void moveOut(){
+        polycord.set(ControlMode.PercentOutput, StorageConstants.POLYCORD_BACKWARD_SPEED);
 
     }
 
     public void stopPolycord(){
         polycord.set(ControlMode.PercentOutput , StorageConstants.POLYCHORD_STOP);
+    }
+
+    public boolean getPos1(){
+        return ballsInSwitch.get();
+    }
+
+    public boolean getPos5(){
+        return ballsOutSwitch.get();
     }
 
     public void openDoubleSolenoid(){
