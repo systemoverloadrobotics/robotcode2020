@@ -12,6 +12,8 @@ import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
+import java.util.function.DoubleSupplier;
+
 public class DriveTrain extends SubsystemBase {
     private CANSparkMax rightMaster = new CANSparkMax(DriveConstants.RIGHT_MASTER_ID, MotorType.kBrushless);
     private CANSparkMax rightFollower1 = new CANSparkMax(DriveConstants.RIGHT_FOLLOWER_1_ID, MotorType.kBrushless);
@@ -30,7 +32,7 @@ public class DriveTrain extends SubsystemBase {
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1);
 
-    private DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
+    public DifferentialDrive robotDrive = new DifferentialDrive(leftGroup,rightGroup);
 
 
     public DriveTrain() {
@@ -56,6 +58,10 @@ public class DriveTrain extends SubsystemBase {
 
     public void getDistance(){
 
+    }
+
+    public double getLeftMasterEncoderValue(){
+        return leftMasterEncoder.getCountsPerRevolution();
     }
 
     public void drive(double speed, double turn){
