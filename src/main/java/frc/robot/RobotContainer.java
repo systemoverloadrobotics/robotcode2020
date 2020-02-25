@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.OpenAndCloseDoor;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,25 +30,16 @@ public class RobotContainer {
   private final Storage m_storage = new Storage();
   private final Climb m_climb = new Climb();
 
-  private final Autonomous autonomous = new Autonomous();
-
   //controllers
-  private final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+  private final Joystick m_joystick = new Joystick(ButtonConstants.JOYSTICK_PORT);
 
   //commands
   private final Outtake m_outtake = new Outtake();
   private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joyStick.getY(),m_joyStick.getX());
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joystick.getY(),m_joystick.getX());
   private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
 
 
-
-
-
-  /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
   public RobotContainer() {
     //setting default commands
     m_driveTrain.setDefaultCommand(m_arcadeDrive);
@@ -69,18 +59,7 @@ public class RobotContainer {
      final JoystickButton shoots10 = new JoystickButton(m_joystick, ButtonConstants.SHOOT_BUTTON);
      shoots10.whenPressed(m_shoots10);
 
-     final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, ButtonConstants.OPEN_DOOR);
+     final JoystickButton openAndCloseDoor = new JoystickButton(m_joystick, ButtonConstants.OPEN_DOOR);
      openAndCloseDoor.whenPressed(m_openAndCloseDoor);
-  }
-
-
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    //return m_autoCommand;
   }
 }

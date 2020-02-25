@@ -51,10 +51,9 @@ public final class Constants {
         public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 0;
         public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 1;
-        public static final int BALLS_IN_SWITCH_ID = 17;
         public static final int BALLS_OUT_SWITCH_ID = 18;
-        public static final int POLYCORD_FORWARD_SPEED = .2;
-        public static final int POLYCORD_BACKWARD_SPEED = .2;
+        public static final double POLYCORD_FORWARD_SPEED = .2;
+        public static final double POLYCORD_BACKWARD_SPEED = .2;
     }
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;
@@ -66,7 +65,7 @@ public final class Constants {
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
     }
-    public static final class VisionConstants {
+    public static final class VisionConstants { // TODO: THIS NEEDS TO BE MOVED INTO DRIVE CONSTANTS
         //Actual numbers needed upon assembly
         public static final double LIMELIGHT_ANGLE_FROM_HORIZONTAL = 60.; //In degrees
         public static final double LIMELIGHT_HEIGHT_FROM_GROUND = 3.5;
