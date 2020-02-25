@@ -36,6 +36,7 @@ public final class Constants {
     public static final class IntakeConstants {
         public static final int INTAKE_BAR_MOTOR_ID = 10;
         public static final int INTAKE_WHEELS_ID = 11;
+        public static final int INTAKE_BAR_MOTOR_SPEED = 1;
         public static final double INTAKE_FLYWHEELS_FORWARD_POWER = 0.3;
         public static final double INTAKE_FLYWHEELS_REVERSE_POWER = -0.3;
         public static final int INTAKE_STOP = 0;
@@ -44,7 +45,6 @@ public final class Constants {
         public static final int POLYCORD_MOTOR_ID = 12;
         public static final int STORAGE_GATE_ID = 13;
         public static final int SUPER_SOLENOID_TIME = 3;
-        public static final int BALLS_IN_SWITCH_ID = 17;
         public static final double POLYCHORD_FORWARD_POWER = 0.2;
         public static final double POLYCHORD_REVERSE_POWER = -0.2;
         public static final int POLYCHORD_STOP = 0;
