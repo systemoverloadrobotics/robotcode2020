@@ -14,6 +14,7 @@ import frc.robot.subsystems.Storage;
 public class LoadToOuttake extends CommandBase {
 
   private final Storage store;
+  private boolean flag;
 
   public LoadToOuttake(Storage ballStorage) {
     store = ballStorage;
@@ -22,25 +23,23 @@ public class LoadToOuttake extends CommandBase {
   }
 
   // Called when the command is initially scheduled.
-  @Override
   public void initialize() { //once
-    store.runPolycordForward();
+    store.moveIn();
+    flag = false;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
-  @Override
   public void execute() {
+    if (store.getPos1()) flag = true;
   }
 
   // Called once the command ends or is interrupted.
-  @Override
   public void end(boolean interrupted) {
     store.stopPolycord();
   }
 
   // Returns true when the command should end.
-  @Override
   public boolean isFinished() {
-    return !store.ballsOutSwitch.get();
+    return (!store.getPos1() && flag);
   }
 }
