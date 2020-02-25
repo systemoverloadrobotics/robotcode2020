@@ -36,6 +36,7 @@ public final class Constants {
     public static final class IntakeConstants {
         public static final int INTAKE_BAR_MOTOR_ID = 10;
         public static final int INTAKE_WHEELS_ID = 11;
+        public static final int INTAKE_BAR_MOTOR_SPEED = 1;
         public static final double INTAKE_FLYWHEELS_FORWARD_POWER = 0.3;
         public static final double INTAKE_FLYWHEELS_REVERSE_POWER = -0.3;
         public static final int INTAKE_STOP = 0;
@@ -44,17 +45,15 @@ public final class Constants {
         public static final int POLYCORD_MOTOR_ID = 12;
         public static final int STORAGE_GATE_ID = 13;
         public static final int SUPER_SOLENOID_TIME = 3;
-        public static final int BALLS_IN_SWITCH_ID = 17;
         public static final double POLYCHORD_FORWARD_POWER = 0.2;
         public static final double POLYCHORD_REVERSE_POWER = -0.2;
         public static final int POLYCHORD_STOP = 0;
         public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 0;
         public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 1;
-        public static final int BALLS_IN_SWITCH_ID = 17;
         public static final int BALLS_OUT_SWITCH_ID = 18;
-        public static final int POLYCORD_FORWARD_SPEED = .2;
-        public static final int POLYCORD_BACKWARD_SPEED = .2;
+        public static final double POLYCORD_FORWARD_SPEED = .2;
+        public static final double POLYCORD_BACKWARD_SPEED = .2;
     }
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;
@@ -66,7 +65,7 @@ public final class Constants {
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
     }
-    public static final class VisionConstants {
+    public static final class VisionConstants { // TODO: THIS NEEDS TO BE MOVED INTO DRIVE CONSTANTS
         //Actual numbers needed upon assembly
         public static final double LIMELIGHT_ANGLE_FROM_HORIZONTAL = 60.; //In degrees
         public static final double LIMELIGHT_HEIGHT_FROM_GROUND = 3.5;
