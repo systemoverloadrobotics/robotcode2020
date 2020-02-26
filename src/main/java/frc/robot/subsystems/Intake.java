@@ -9,8 +9,9 @@ import frc.robot.Constants.IntakeConstants;
 public class Intake extends SubsystemBase {
 
     public DoubleSolenoid = new DoubleSoleniod(IntakeConstants.PCM_ID, IntakeConstants.FORWARD_CHANNEL, IntakeConstants.REVERSE_CHANNEL);
-    public static final WPI_VictorSPX intakeMotorOne = new WPI_VictorSPX(IntakeConstants.MASTER_ID);
-    public static final WPI_VictorSPX intakeMotorTwo = new WPI_VictorSPX(IntakeConstants.FOLLOWER_ID);
+    public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
+    public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follow(intakeMotorOne);
+    public WPI_VictorSPX intakeMotorTwo.setInverted(false);
     public DigitalInput input = new DigitalInput(getPosition(0););
 
 
