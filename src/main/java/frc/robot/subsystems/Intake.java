@@ -3,7 +3,7 @@ package frc.robot.subsystems;
 import frc.robot.Constants.IntakeConstants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
