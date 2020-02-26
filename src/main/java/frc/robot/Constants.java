@@ -40,6 +40,16 @@ public final class Constants {
         public static final double INTAKE_FLYWHEELS_FORWARD_POWER = 0.3;
         public static final double INTAKE_FLYWHEELS_REVERSE_POWER = -0.3;
         public static final int INTAKE_STOP = 0;
+        public static final int PCM_ID = 3;
+        public static final int FORWARD_CHANNEL = 2;
+        public static final int REVERSE_CHANNEL = 3;
+        public static final int FIRST_MOTOR_CONTROLLER_ID = 10;
+        public static final int SECOND_MOTOR_CONTROLLER_ID = 11;
+        public static final int INWARD = -1
+        public static final int OUTWARD = 1
+        public static final int STOP = 0;
+        public static final int LIMIT_SWITCH_INPUT = 0;
+
     }
     public static final class StorageConstants {
         public static final int POLYCORD_MOTOR_ID = 12;

@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import frc.robot.Constants.IntakeConstants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
@@ -10,32 +11,36 @@ public class Intake extends SubsystemBase {
 
     public static final WPI_VictorSPX intakeMotor = new WPI_VictorSPX(IntakeConstants.INTAKE_WHEELS_ID);
     public static final WPI_VictorSPX intakeBarMotor = new WPI_VictorSPX(IntakeConstants.INTAKE_BAR_MOTOR_ID);
+    public DoubleSolenoid test = new DoubleSoleniod(IntakeConstants.PCM_ID, IntakeConstants.FORWARD_CHANNEL, IntakeConstants.REVERSE_CHANNEL);
+    public IntakeMotor = new IntakeMotor(IntakeConstants.FIRST_MOTOR_CONTROLLER_ID, IntakeMotor.SECOND_MOTOR_CONTROLLER_ID, IntakeMotor.INWARD, IntakeMotor.OUTWARD, IntakeMotor.STOP);
+    public LimitSwitch = new LimitSwitch(IntakeConstants.LIMIT_SWITCH_INPUT);
+
 
     public Intake(){
     }
 
     public void extend() {
-        intakeBarMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_BAR_MOTOR_SPEED);
+        test.set(DoubleSolenoid.Value.kforward);
     }
 
     public void retract() {
-        intakeBarMotor.set(ControlMode.PercentOutput, -(IntakeConstants.INTAKE_BAR_MOTOR_SPEED));
+        test.set(DoubleSolenoid.Value.kreverse);
     }
 
     public void getPosition() {
-        
+        test.set(LimitSwitch.Value.input);
     }
 
     public void spinIn(){
-        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_FLYWHEELS_FORWARD_POWER);
+        test.set(IntakeMotor.Value.inward);
     }
 
     public void spinOut() {
-        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_FLYWHEELS_REVERSE_POWER);
+        test.set(IntakeMotor.Value.outward);
     }
 
     public void stop(){
-        intakeMotor.set(ControlMode.PercentOutput, IntakeConstants.INTAKE_STOP);
+        test.set(IntakeMotor.Value.stop);
     }
 
 }
