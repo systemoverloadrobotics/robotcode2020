@@ -48,7 +48,6 @@ public final class Constants {
         public static final int INWARD = -1
         public static final int OUTWARD = 1
         public static final int STOP = 0;
-        public static final int LIMIT_SWITCH_INPUT = 0;
 
     }
     public static final class StorageConstants {

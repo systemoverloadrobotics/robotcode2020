@@ -13,7 +13,7 @@ public class Intake extends SubsystemBase {
     public static final WPI_VictorSPX intakeBarMotor = new WPI_VictorSPX(IntakeConstants.INTAKE_BAR_MOTOR_ID);
     public DoubleSolenoid test = new DoubleSoleniod(IntakeConstants.PCM_ID, IntakeConstants.FORWARD_CHANNEL, IntakeConstants.REVERSE_CHANNEL);
     public IntakeMotor = new IntakeMotor(IntakeConstants.FIRST_MOTOR_CONTROLLER_ID, IntakeMotor.SECOND_MOTOR_CONTROLLER_ID, IntakeMotor.INWARD, IntakeMotor.OUTWARD, IntakeMotor.STOP);
-    public LimitSwitch = new LimitSwitch(IntakeConstants.LIMIT_SWITCH_INPUT);
+    public DigitalInput input = new DigitalInput(0);
 
 
     public Intake(){
@@ -28,7 +28,7 @@ public class Intake extends SubsystemBase {
     }
 
     public void getPosition() {
-        test.set(LimitSwitch.Value.input);
+        input.get(DigitalInput);
     }
 
     public void spinIn(){
