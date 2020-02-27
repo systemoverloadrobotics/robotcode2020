@@ -8,16 +8,16 @@ import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
 
-    public DoubleSolenoid = new DoubleSoleniod(IntakeConstants.PCM_ID);
+    public DoubleSolenoid = new DoubleSoleniod(IntakeConstants.PCM_ID,IntakeConstants.FORWARD_CHANNEL,IntakeConstants.OUTWARD_CHANNEL);
     public WPI_VictorSPX intakeMotorOne = new WPI_VictorSPX(IntakeConstants.MASTER_ID);
     public WPI_VictorSPX intakeMotorTwo = new WPI_VictorSPX(IntakeConstants.FOLLOWER_ID);
     public DigitalInput input = new DigitalInput(0);
-    public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
-    public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
-    public WPI_VictorSPX intakeMotorTwo.selfInverted(false)
 
 
     public Intake(){
+        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
+        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
     }
 
     public void extend() {
@@ -33,11 +33,19 @@ public class Intake extends SubsystemBase {
     }
 
     public void spinIn(){
+        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
+        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
+
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
         intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
     }
 
     public void spinOut() {
+        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
+        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
+
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
         intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
     }
