@@ -33,18 +33,12 @@ public class Intake extends SubsystemBase {
     }
 
     public void spinIn(){
-        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
-        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
-        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
 
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
         intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
     }
 
     public void spinOut() {
-        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
-        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
-        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
 
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
         intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
