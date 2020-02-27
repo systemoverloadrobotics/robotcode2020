@@ -10,8 +10,8 @@ public class Intake extends SubsystemBase {
 
     public DoubleSolenoid = new DoubleSoleniod(IntakeConstants.PCM_ID, IntakeConstants.FORWARD_CHANNEL, IntakeConstants.REVERSE_CHANNEL);
     public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
-    public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follow(intakeMotorOne);
-    public WPI_VictorSPX intakeMotorTwo.setInverted(false);
+    public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+    public WPI_VictorSPX intakeMotorTwo.selfInverted(false)
     public DigitalInput input = new DigitalInput(getPosition(0););
 
 
@@ -31,16 +31,17 @@ public class Intake extends SubsystemBase {
     }
 
     public void spinIn(){
-        intakeMotorOne(ControlMode.PercentOuput.INWARD);
-        intakeMotorTwo(ControlMode.PercentOuput.INWARD);
+        intakeMotorOne.set(ControlMode.PercentOutput.INWARD);
+        intakeMotorTwo.set(ControlMode.PercentOutput.INWARD);
     }
 
     public void spinOut() {
-        intakeMotorOne(ControlMode.PercentOuput.OUTWARD);
-        intakeMotorTwo(ControlMode.PercentOuput.OUTWARD);
+        intakeMotorOne.set(ControlMode.PercentOutput.OUTWARD);
+        intakeMotorTwo.set(ControlMode.PercentOutput.OUTWARD);
     }
 
     public void stop(){
+
         intakeMotorOne.stopMotor();
         intakeMotorTwo.stopMotor();
     }
