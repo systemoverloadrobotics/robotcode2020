@@ -45,8 +45,8 @@ public final class Constants {
         public static final int REVERSE_CHANNEL = 3;
         public static final int MASTER_ID = 10;
         public static final int FOLLOWER_ID = 11;
-        public static final int INWARD = 1
-        public static final int OUTWARD = -1
+        public static final int INWARD = 1;
+        public static final int OUTWARD = -1;
 
     }
 
