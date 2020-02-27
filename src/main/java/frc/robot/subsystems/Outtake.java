@@ -2,11 +2,11 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants.OuttakeConstants;
 
 public class Outtake extends SubsystemBase {
-    private WPI_VictorSPX shootMotor = new WPI_VictorSPX(OuttakeConstants.OUTTAKE_WHEELS_ID);
+    private WPI_TalonSRX shootMotor = new WPI_TalonSRX(OuttakeConstants.OUTTAKE_WHEELS_ID);
 
     public Outtake() {
         shootMotor.configFactoryDefault();
