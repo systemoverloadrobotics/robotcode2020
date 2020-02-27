@@ -8,7 +8,7 @@ import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
 
-    public Yeet = new DoubleSoleniod(IntakeConstants.PCM_ID,IntakeConstants.FORWARD_CHANNEL,IntakeConstants.OUTWARD_CHANNEL);
+    public DoubleSolenoid Yeet = new DoubleSoleniod(IntakeConstants.PCM_ID,IntakeConstants.FORWARD_CHANNEL,IntakeConstants.OUTWARD_CHANNEL);
     public WPI_VictorSPX intakeMotorOne = new WPI_VictorSPX(IntakeConstants.MASTER_ID);
     public WPI_VictorSPX intakeMotorTwo = new WPI_VictorSPX(IntakeConstants.FOLLOWER_ID);
     public DigitalInput input = new DigitalInput(0);
