@@ -15,9 +15,9 @@ public class Intake extends SubsystemBase {
 
 
     public Intake(){
-        public WPI_VictorSPX intakeMotorOne = intakeMotorOne.configFactoryDefault();
-        public WPI_VictorSPX intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
-        public WPI_VictorSPX intakeMotorTwo.selfInverted(false);
+        intakeMotorOne = intakeMotorOne.configFactoryDefault();
+        intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+        intakeMotorTwo.selfInverted(false);
     }
 
     public void extend() {
