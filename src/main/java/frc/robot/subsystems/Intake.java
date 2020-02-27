@@ -15,8 +15,8 @@ public class Intake extends SubsystemBase {
 
 
     public Intake(){
-        intakeMotorOne = intakeMotorOne.configFactoryDefault();
-        intakeMotorTwo = intakeMotorTwo.follower(intakeMotorOne);
+        intakeMotorOne.configFactoryDefault();
+        intakeMotorTwo.follower(intakeMotorOne);
         intakeMotorTwo.selfInverted(false);
     }
 
