@@ -35,19 +35,16 @@ public class Intake extends SubsystemBase {
     public void spinIn(){
 
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
-        intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.INWARD);
     }
 
     public void spinOut() {
 
         intakeMotorOne.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
-        intakeMotorTwo.set(ControlMode.PercentOutput,IntakeConstants.OUTWARD);
     }
 
     public void stop(){
 
         intakeMotorOne.stopMotor();
-        intakeMotorTwo.stopMotor();
     }
 
 }
