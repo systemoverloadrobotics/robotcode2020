@@ -27,7 +27,7 @@ public class SeizeFire extends CommandBase {
     }
 
     @Override
-    public isFinished(){
+    public boolean isFinished(){
         return true;
     }
 
