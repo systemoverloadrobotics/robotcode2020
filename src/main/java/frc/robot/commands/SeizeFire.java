@@ -13,18 +13,14 @@ public class SeizeFire extends CommandBase {
     }
 
     @Override
-    public void initialize{
+    public void initialize(){
         m_outtake.spinStop(0);
     }
 
     @Override
-    public void execute() {
+    public void execute(){
     }
 
-    @Override
-    public void end(boolean interrupted) {
-        m_shoot.stopShoot();
-    }
 
     @Override
     public boolean isFinished(){
