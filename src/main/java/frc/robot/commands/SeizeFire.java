@@ -3,16 +3,16 @@ package frc.robot.commands;
 import frc.robot.Constants.OuttakeConstants;
 import frc.robot.subsystems.Outtake;
 
+private Outtake m_outtake;
+
 public class SeizeFire extends CommandBase {
 
-    private Outtake motor;
+    public void initialize{
 
-    public init(){
-
-        motor.spinStop();
+        m_outtake.spinStop();
 
     }
-    public boolean isFinished(){
+    public void isFinished(){
 
         return true;
 
