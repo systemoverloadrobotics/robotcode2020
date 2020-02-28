@@ -8,7 +8,7 @@ public class SeizeFire extends CommandBase {
     private final Outtake m_outtake;
 
     public SeizeFire(Outtake shoot) {
-        m_shoot = shoot;
+        m_outtake = shoot;
         addRequirements(shoot);
     }
 
@@ -27,7 +27,7 @@ public class SeizeFire extends CommandBase {
     }
 
     @Override
-    public void isFinished(){
+    public isFinished(){
         return true;
     }
 
