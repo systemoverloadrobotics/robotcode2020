@@ -17,7 +17,7 @@ public class Outtake extends SubsystemBase {
         shootMotor.set(ControlMode.PercentOutput, speed);
     }
 
-    public void stopShoot () {
+    public void spinStop () {
         shootMotor.stopMotor();
     }
 }
