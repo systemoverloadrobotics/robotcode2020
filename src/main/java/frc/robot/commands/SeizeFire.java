@@ -1,19 +1,34 @@
 package frc.robot.commands;
 
-import frc.robot.Constants.OuttakeConstants;
 import frc.robot.subsystems.Outtake;
-
-private final Outtake m_outtake;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class SeizeFire extends CommandBase {
 
+    private final Outtake m_outtake;
+
+    public SeizeFire(Outtake shoot) {
+        m_shoot = shoot;
+        addRequirements(shoot);
+    }
+
+    @Override
     public void initialize{
-        m_outtake.spinStop();
+        m_outtake.spinStop(0);
+    }
+
+    @Override
+    public void execute() {
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        m_shoot.stopShoot();
     }
 
     @Override
     public void isFinished(){
         return true;
     }
-    @Override
+
 }
