@@ -14,17 +14,11 @@ public class SeizeFire extends CommandBase {
 
     @Override
     public void initialize(){
-        m_outtake.spinStop(0);
+        m_outtake.spinStop();
     }
-
-    @Override
-    public void execute(){
-    }
-
 
     @Override
     public boolean isFinished(){
         return true;
     }
-
 }
