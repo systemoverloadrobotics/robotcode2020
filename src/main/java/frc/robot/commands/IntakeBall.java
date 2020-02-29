@@ -15,11 +15,9 @@ import frc.robot.subsystems.Storage;
 public class IntakeBall extends CommandBase {
 
   private final Intake in;
-  private final Storage store;
 
-  public IntakeBall(Intake intakeWheels, Storage ballStorage) {
+  public IntakeBall(Intake intakeWheels) {
     in = intakeWheels;
-    store = ballStorage;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intakeWheels);
   }
@@ -43,6 +41,6 @@ public class IntakeBall extends CommandBase {
 
   // Returns true when the command should end.
   public boolean isFinished() {
-    return store.getPos0();
+    return in.getPosition();
   }
 }

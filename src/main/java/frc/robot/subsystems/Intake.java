@@ -31,8 +31,8 @@ public class Intake extends SubsystemBase {
 		arms.set(DoubleSolenoid.Value.kReverse);
 	}
 
-	public void getPosition() {
-		input.get();
+	public boolean getPosition() {
+		return input.get();
 	}
 
 	public void spinIn() {
