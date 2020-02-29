@@ -78,7 +78,7 @@ public class DriveTrain extends SubsystemBase {
         return leftMasterEncoder.getCountsPerRevolution();
     }
 
-    public void drive(double leftSpeed, double rightSpeed){
+    public void driveTank(double leftSpeed, double rightSpeed){
 	    robotDrive.tankDrive(leftSpeed*DriveConstants.SPEED_MULTIPLIER, rightSpeed*DriveConstants.SPEED_MULTIPLIER);
     }
 

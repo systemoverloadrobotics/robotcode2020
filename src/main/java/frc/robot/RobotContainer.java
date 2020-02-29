@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants.ButtonConstants;
 import frc.robot.Constants.Controls;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -28,8 +27,8 @@ public class RobotContainer {
   private final Autonomous autonomous = new Autonomous();
 
   //controllers
-  private final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
-  private final Joystick left_joystick = new Joystick(Controls.LEFT_JOYSTICK_PORT);
+  public static final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
+  public static final Joystick left_joystick = new Joystick(Controls.LEFT_JOYSTICK_PORT);
 
   //commands
   private final Outtake m_outtake = new Outtake();
