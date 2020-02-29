@@ -29,6 +29,7 @@ public class DriveTrain extends SubsystemBase {
     NetworkTableEntry tx = limelight.getEntry("tx");
     NetworkTableEntry ty = limelight.getEntry("ty");
     NetworkTableEntry ta = limelight.getEntry("ta");
+    //NetworkTableEntry piper = limelight.getEntry("getpipe").getDouble(0);
 
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
