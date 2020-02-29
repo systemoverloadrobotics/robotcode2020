@@ -75,6 +75,7 @@ public final class Constants {
         public static final double ELEVATOR_POWER_CONSTANT = 0.3;
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
+        public static final double ELEVATOR_STOP_CONSTANT = 0;
     }
     public static final class VisionConstants { // TODO: THIS NEEDS TO BE MOVED INTO DRIVE CONSTANTS
         //Actual numbers needed upon assembly
