@@ -8,47 +8,34 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Outtake;
+import frc.robot.subsystems.Storage;
 
 
-public class Shoots10 extends CommandBase {
+public class StorageFromIntake extends CommandBase {
 
-  private final Outtake m_shoot;
-  //private final Outtake m_desiredSpeed;
-  public Shoots10(Outtake shoot) {
-    m_shoot = shoot;
+  private final Storage store;
+
+  public StorageFromIntake(Storage ballStorage) {
+    store = ballStorage;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shoot);
+    addRequirements(ballStorage);
   }
 
   // Called when the command is initially scheduled.
-  @Override
   public void initialize() { //once
-    m_shoot.shoot(10);
+    store.moveIn();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
- // @Override
-  public void shootSpeed(double joystickValue){
-
-  }
-//  /*public void changeShootSpeed(double shootvalue){
-////  //take in speed from joystick, i think this is totally wrong IDK!
-////*/
-////  }
-  @Override
   public void execute() {
   }
 
   // Called once the command ends or is interrupted.
-  @Override
   public void end(boolean interrupted) {
-    m_shoot.spinStop();
+    store.moveStop();
   }
 
   // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return true;
+  public boolean isFinished() { return store.getPos1();
   }
 }

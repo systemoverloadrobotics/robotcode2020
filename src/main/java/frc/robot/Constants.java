@@ -30,16 +30,27 @@ public final class Constants {
     public static final class ButtonConstants{
         public static final int SHOOT_BUTTON = 5; //TBD
         public static final int JOYSTICK_PORT = 0;
+        public static int CHANGE_SPEED = 0;
         public static final int OPEN_DOOR = 6;
 
     }
     public static final class IntakeConstants {
         public static final int INTAKE_BAR_MOTOR_ID = 10;
         public static final int INTAKE_WHEELS_ID = 11;
+        public static final int INTAKE_BAR_MOTOR_SPEED = 1;
         public static final double INTAKE_FLYWHEELS_FORWARD_POWER = 0.3;
         public static final double INTAKE_FLYWHEELS_REVERSE_POWER = -0.3;
         public static final int INTAKE_STOP = 0;
+        public static final int PCM_ID = 3;
+        public static final int FORWARD_CHANNEL = 2;
+        public static final int REVERSE_CHANNEL = 3;
+        public static final int MASTER_ID = 10;
+        public static final int FOLLOWER_ID = 11;
+        public static final int INWARD = 1;
+        public static final int OUTWARD = -1;
+
     }
+
     public static final class StorageConstants {
         public static final int POLYCORD_MOTOR_ID = 12;
         public static final int STORAGE_GATE_ID = 13;
@@ -50,8 +61,10 @@ public final class Constants {
         public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 4;
         public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 5;
-        public static final int BALLS_IN_SWITCH_ID = 17;
-        public static final int BALLS_OUT_SWITCH_ID = 18;
+        public static final int BALLS_IN_SWITCH_ID = 18;
+        public static final int BALLS_OUT_SWITCH_ID = 19;
+        public static final double POLYCORD_FORWARD_SPEED = .2;
+        public static final double POLYCORD_BACKWARD_SPEED = .2;
     }
     public static final class OuttakeConstants {
         public static final int OUTTAKE_WHEELS_ID = 14;
@@ -62,6 +75,14 @@ public final class Constants {
         public static final double ELEVATOR_POWER_CONSTANT = 0.3;
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
+        public static final double ELEVATOR_STOP_CONSTANT = 0;
+    }
+    public static final class VisionConstants { // TODO: THIS NEEDS TO BE MOVED INTO DRIVE CONSTANTS
+        //Actual numbers needed upon assembly
+        public static final double LIMELIGHT_ANGLE_FROM_HORIZONTAL = 60.; //In degrees
+        public static final double LIMELIGHT_HEIGHT_FROM_GROUND = 3.5;
+        public static final double HEIGHT_OF_TOP_TARGET = 81.25; //From bottom of horizontal strip to carpet in inches
+        public static final double HEIGHT_FOR_CALCULATION = HEIGHT_OF_TOP_TARGET - LIMELIGHT_HEIGHT_FROM_GROUND;
     }
 
 }
