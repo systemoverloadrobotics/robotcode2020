@@ -14,33 +14,24 @@ import frc.robot.subsystems.Storage;
 
 public class IntakeBall extends CommandBase {
 
-  private final Intake in;
+	private final Intake m_intake;
 
-  public IntakeBall(Intake intakeWheels) {
-    in = intakeWheels;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intakeWheels);
-  }
+	public IntakeBall(Intake intakeWheels) {
+		m_intake = intakeWheels;
+		addRequirements(intakeWheels);
+	}
 
-  // Called when the command is initially scheduled.
-  public void initialize() { //once
-    in.spinIn();
-    in.extend();
-  }
+	public void initialize() {
+		m_intake.spinIn();
+		m_intake.extend();
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  public void execute() {
+	public void end(boolean interrupted) {
+		m_intake.retract();
+		m_intake.spinStop();
+	}
 
-  }
-
-  // Called once the command ends or is interrupted.
-  public void end(boolean interrupted) {
-    in.retract();
-    in.stop();
-  }
-
-  // Returns true when the command should end.
-  public boolean isFinished() {
-    return in.getPosition();
-  }
+	public boolean isFinished() {
+		return m_intake.getPos0();
+	}
 }
