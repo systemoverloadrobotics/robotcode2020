@@ -86,6 +86,8 @@ public final class Constants {
 		public static final int TRIGGER = 1;
 		public static final int X_AXIS = 0;
 		public static final int Y_AXIS = 0;
+		public static final int BUTTON_2 = 2;
+		public static final int BUTTON_3 = 3;
 		public static final int BUTTON_9 = 9;
 		public static final int BUTTON_10 = 10;
 		public static final int BUTTON_11 = 11;

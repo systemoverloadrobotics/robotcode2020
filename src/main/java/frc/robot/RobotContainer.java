@@ -33,6 +33,7 @@ public class RobotContainer {
   //commands
   private final Outtake m_outtake = new Outtake();
   private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain);
+  private final TankDrive m_tankDrive = new TankDrive(m_driveTrain);
   private final ShiftUp m_shiftUp = new ShiftUp();
   private final ShiftDown m_shiftDown = new ShiftDown();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -48,7 +49,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     //setting default commands
-      m_driveTrain.setDefaultCommand(m_arcadeDrive);
+      m_driveTrain.setDefaultCommand(m_tankDrive);
 
     //Configure the button bindings
     configureButtonBindings();
@@ -61,12 +62,12 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    final JoystickButton shift = new JoystickButton(right_joystick,1);
+    final JoystickButton shift = new JoystickButton(right_joystick,Controls.BUTTON_2);
     shift.whenHeld(m_shiftUp);
     shift.whenReleased(m_shiftDown);
-    final JoystickButton park = new JoystickButton(right_joystick,2);
+    final JoystickButton park = new JoystickButton(right_joystick,Controls.BUTTON_3);
     park.whenHeld(m_park);
-    final JoystickButton compressorOn = new JoystickButton(right_joystick, 11);
+    final JoystickButton compressorOn = new JoystickButton(right_joystick, Controls.BUTTON_11);
     compressorOn.whenHeld(m_runCompressor);
     final JoystickButton fire = new JoystickButton(right_joystick, Controls.TRIGGER); //TODO: Name the button after the command excluding the m_
       fire.whenPressed(m_fire);
