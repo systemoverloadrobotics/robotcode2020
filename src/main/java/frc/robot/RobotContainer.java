@@ -12,16 +12,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.ButtonConstants;
+import frc.robot.Constants.Controls;
 import edu.wpi.first.wpilibj.Joystick;
-import frc.robot.Constants.*;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-/**
- * This class is where the bulk of the robot should be declared.  Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
- * (including subsystems, commands, and button mappings) should be declared here.
- */
 public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
@@ -33,22 +28,23 @@ public class RobotContainer {
   private final Autonomous autonomous = new Autonomous();
 
   //controllers
-  public static final Joystick m_joyStick = new Joystick(ButtonConstants.JOYSTICK_PORT);
+  private final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
+  private final Joystick left_joystick = new Joystick(Controls.LEFT_JOYSTICK_PORT);
 
   //commands
   private final Outtake m_outtake = new Outtake();
-  private final Shoots10 m_shoots10 = new Shoots10(m_outtake);
   private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain);
   private final ShiftUp m_shiftUp = new ShiftUp();
   private final ShiftDown m_shiftDown = new ShiftDown();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-  private final OpenAndCloseDoor m_openAndCloseDoor = new OpenAndCloseDoor(m_storage);
   private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
   private final Park m_park = new Park(m_driveTrain);
+  private final Fire m_fire = new Fire(m_outtake, 5000); //TODO: After the first argument a second may follow, this will be some sort of number, you can put any number in for now\
+    private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
 
 
 
-  /**
+    /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
@@ -66,18 +62,15 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    final JoystickButton shift = new JoystickButton(m_joyStick,1);
+    final JoystickButton shift = new JoystickButton(right_joystick,1);
     shift.whenHeld(m_shiftUp);
     shift.whenReleased(m_shiftDown);
-    final JoystickButton park = new JoystickButton(m_joyStick,2);
+    final JoystickButton park = new JoystickButton(right_joystick,2);
     park.whenHeld(m_park);
-    final JoystickButton compressorOn = new JoystickButton(m_joyStick, 11);
+    final JoystickButton compressorOn = new JoystickButton(right_joystick, 11);
     compressorOn.whenHeld(m_runCompressor);
-     final JoystickButton shoots10 = new JoystickButton(m_joyStick, ButtonConstants.SHOOT_BUTTON);
-     shoots10.whenPressed(m_shoots10);
-
-     final JoystickButton openAndCloseDoor = new JoystickButton(m_joyStick, ButtonConstants.OPEN_DOOR);
-     openAndCloseDoor.whenPressed(m_openAndCloseDoor);
+    final JoystickButton fire = new JoystickButton(right_joystick, Controls.TRIGGER); //TODO: Name the button after the command excluding the m_
+      fire.whenPressed(m_fire);
   }
 
 

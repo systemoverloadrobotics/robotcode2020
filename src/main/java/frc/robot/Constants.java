@@ -17,6 +17,10 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    //General Constants
+    public static final int PCM_ID = 3;
+
+
     public static final class DriveConstants {
         public static final int RIGHT_MASTER_ID = 4;
         public static final int RIGHT_FOLLOWER_1_ID = 5;
@@ -26,32 +30,8 @@ public final class Constants {
         public static final int LEFT_FOLLOWER_2_ID = 9;
         public static final double SPEED_MULTIPLIER = 0.6;
         public static final double TURN_MULTIPLIER = 0.4;
-        public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 4;
         public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 5;
-    }
-    public static final class ButtonConstants{
-        public static final int SHOOT_BUTTON = 5; //TBD
-        public static final int JOYSTICK_PORT = 0;
-        public static int CHANGE_SPEED = 0;
-        public static final int OPEN_DOOR = 6;
-
-    }
-    public static final class IntakeConstants {
-        public static final int INTAKE_BAR_MOTOR_ID = 10;
-        public static final int INTAKE_WHEELS_ID = 11;
-        public static final int INTAKE_BAR_MOTOR_SPEED = 1;
-        public static final double INTAKE_FLYWHEELS_FORWARD_POWER = 0.3;
-        public static final double INTAKE_FLYWHEELS_REVERSE_POWER = -0.3;
-        public static final int INTAKE_STOP = 0;
-        public static final int PCM_ID = 3;
-        public static final int FORWARD_CHANNEL = 2;
-        public static final int REVERSE_CHANNEL = 3;
-        public static final int MASTER_ID = 10;
-        public static final int FOLLOWER_ID = 11;
-        public static final int INWARD = 1;
-        public static final int OUTWARD = -1;
-
     }
 
     public static final class StorageConstants {
@@ -66,13 +46,11 @@ public final class Constants {
         public static final double POLYCORD_FORWARD_SPEED = .2;
         public static final double POLYCORD_BACKWARD_SPEED = .2;
     }
-    public static final class OuttakeConstants {
-        public static final int OUTTAKE_WHEELS_ID = 14;
-    }
     public static final class ClimbConstants {
         public static final int CLIMB_WINCH_ID = 15;
         public static final int CLIMB_ELEVATOR_ID = 16;
         public static final double ELEVATOR_POWER_CONSTANT = 0.3;
+        public static final double REVERSE_ELEVATOR_POWER_CONSTANT = -0.3;
         public static final double WINCH_POWER_CONSTANT = 0.3;
         public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
         public static final double ELEVATOR_STOP_CONSTANT = 0;
@@ -85,4 +63,40 @@ public final class Constants {
         public static final double HEIGHT_FOR_CALCULATION = HEIGHT_OF_TOP_TARGET - LIMELIGHT_HEIGHT_FROM_GROUND;
     }
 
+	public static final class IntakeConstants {
+		public static final int FORWARD_CHANNEL = 2;
+		public static final int REVERSE_CHANNEL = 3;
+		public static final int MASTER_ID = 10;
+		public static final int FOLLOWER_ID = 11;
+		public static final int INWARD = 1;
+		public static final int OUTWARD = -1;
+		public static final int INPUT_DIO_PORT_ID = 0;
+	}
+
+	public static final class OuttakeConstants {
+		public static final int OUTTAKE_WHEELS_ID = 14;
+	}
+
+
+	public static final class Controls {
+		public static final int LEFT_JOYSTICK_PORT = 0;
+		public static final int RIGHT_JOYSTICK_PORT = 1;
+
+		// For Testing
+		public static final int TRIGGER = 1;
+		public static final int X_AXIS = 0;
+		public static final int Y_AXIS = 0;
+		public static final int BUTTON_9 = 9;
+		public static final int BUTTON_10 = 10;
+		public static final int BUTTON_11 = 11;
+		public static final int BUTTON_12 = 12;
+	}
+
+//    public static final class VisionConstants { // TODO: WILL DELETE ARE CHECK THAT NUMBERS ARE NOT NEEDED
+//        //Actual numbers needed upon assembly
+//        public static final double LIMELIGHT_ANGLE_FROM_HORIZONTAL = 60.; //In degrees
+//        public static final double LIMELIGHT_HEIGHT_FROM_GROUND = 3.5;
+//        public static final double HEIGHT_OF_TOP_TARGET = 81.25; //From bottom of horizontal strip to carpet in inches
+//        public static final double HEIGHT_FOR_CALCULATION = HEIGHT_OF_TOP_TARGET - LIMELIGHT_HEIGHT_FROM_GROUND;
+//    }
 }
