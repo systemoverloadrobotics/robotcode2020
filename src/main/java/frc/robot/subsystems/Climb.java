@@ -28,7 +28,7 @@ public class Climb extends SubsystemBase {
 
     public void liftStop() { elevatorMotor.stopMotor(); }
 
-    public void getEncoder() { elevatorMotor.getSelectedSensorVelocity(); }
+    public double getEncoder() { return elevatorMotor.getSelectedSensorPosition(); }
 
     public void reelIn() { winchMotor.set(ClimbConstants.WINCH_POWER_CONSTANT); }
 
