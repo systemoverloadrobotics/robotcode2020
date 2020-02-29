@@ -24,7 +24,7 @@ public class StopOuttake extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() { //once
-    m_shoot.stopShoot();
+    m_shoot.spinStop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

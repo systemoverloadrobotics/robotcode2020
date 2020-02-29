@@ -18,13 +18,13 @@ public class SpeedChanger extends CommandBase {
   public SpeedChanger(Outtake outtake) {
     m_outtake = outtake;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shoot);
+    addRequirements(outtake);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() { //once
-    m_shoot.shoot(10);
+    m_outtake.shoot(10);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -43,7 +43,7 @@ public class SpeedChanger extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_shoot.stopShoot();
+    m_outtake.spinStop();
   }
 
   // Returns true when the command should end.
