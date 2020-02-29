@@ -11,14 +11,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Storage;
 
 
-public class LoadToStorage extends CommandBase {
+public class StorageFromIntake extends CommandBase {
 
   private final Storage store;
-  private boolean flag;
 
-  public LoadToStorage(Storage ballStorage) {
+  public StorageFromIntake(Storage ballStorage) {
     store = ballStorage;
-    flag = false;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(ballStorage);
   }
@@ -30,16 +28,14 @@ public class LoadToStorage extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   public void execute() {
-    if (store.getPos5()) flag = true;
   }
 
   // Called once the command ends or is interrupted.
   public void end(boolean interrupted) {
-    store.stopPolycord();
+    store.moveStop();
   }
 
   // Returns true when the command should end.
-  public boolean isFinished() {
-    return (!store.getPos5() && flag);
+  public boolean isFinished() { return store.getPos1();
   }
 }

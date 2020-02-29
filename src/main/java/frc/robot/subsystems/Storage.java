@@ -28,7 +28,7 @@ public class Storage extends SubsystemBase {
 
     }
 
-    public void stopPolycord(){
+    public void moveStop(){
         polycord.set(ControlMode.PercentOutput , StorageConstants.POLYCHORD_STOP);
     }
 
