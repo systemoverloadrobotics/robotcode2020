@@ -8,38 +8,39 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Storage;
+import frc.robot.subsystems.Outtake;
 
 
-public class LoadToOuttake extends CommandBase {
+public class StopOuttake extends CommandBase {
 
-  private final Storage store;
-  private boolean flag;
-
-  public LoadToOuttake(Storage ballStorage) {
-    store = ballStorage;
+  private final Outtake m_shoot;
+  //private final Outtake m_desiredSpeed;
+  public StopOuttake(Outtake shoot) {
+    m_shoot = shoot;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(ballStorage);
+    addRequirements(shoot);
   }
 
   // Called when the command is initially scheduled.
+  @Override
   public void initialize() { //once
-    store.moveIn();
-    flag = false;
+    m_shoot.spinStop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
+  @Override
   public void execute() {
-    if (store.getPos1()) flag = true;
   }
 
   // Called once the command ends or is interrupted.
+  @Override
   public void end(boolean interrupted) {
-    store.stopPolycord();
+
   }
 
   // Returns true when the command should end.
+  @Override
   public boolean isFinished() {
-    return (!store.getPos1() && flag);
+    return true;
   }
 }

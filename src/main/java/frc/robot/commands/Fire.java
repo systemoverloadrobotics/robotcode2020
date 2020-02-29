@@ -8,38 +8,52 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Storage;
+import frc.robot.subsystems.Outtake;
 
 
-public class LoadToStorage extends CommandBase {
+public class Fire extends CommandBase {
 
-  private final Storage store;
-  private boolean flag;
-
-  public LoadToStorage(Storage ballStorage) {
-    store = ballStorage;
-    flag = false;
+  private final Outtake m_shoot;
+  private final double m_rpm;
+  //private final Outtake m_desiredSpeed;
+  public Fire(Outtake shoot, double rpm) {
+    m_shoot = shoot;
+    m_rpm = rpm;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(ballStorage);
+    addRequirements(shoot);
+
+
   }
 
+
   // Called when the command is initially scheduled.
+  @Override
   public void initialize() { //once
-    store.moveIn();
+    m_shoot.shoot(m_rpm);
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
-  public void execute() {
-    if (store.getPos5()) flag = true;
+ // @Override
+  public void shootSpeed(double joystickValue){
+
   }
+//  /*public void changeShootSpeed(double shootvalue){
+////  //take in speed from joystick, i think this is totally wrong IDK!
+////*/
+////  }
+
 
   // Called once the command ends or is interrupted.
+  @Override
   public void end(boolean interrupted) {
-    store.stopPolycord();
+    m_shoot.spinStop();
   }
 
   // Returns true when the command should end.
+  @Override
   public boolean isFinished() {
-    return (!store.getPos5() && flag);
+
+    return m_shoot.getEncoder() == m_rpm;
   }
 }
