@@ -2,13 +2,13 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants.OuttakeConstants;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 
 public class Outtake extends SubsystemBase {
-    private WPI_TalonSPX shootMotor = new WPI_TalonSPX(OuttakeConstants.OUTTAKE_WHEELS_ID);
+    private WPI_TalonSRX shootMotor = new WPI_TalonSRX(OuttakeConstants.OUTTAKE_WHEELS_ID);
 
     public Outtake() {
         shootMotor.configFactoryDefault();
@@ -20,7 +20,7 @@ public class Outtake extends SubsystemBase {
         shootMotor.set(ControlMode.PercentOutput, rpm);
     }
 
-    public void stopShoot () {
+    public void spinStop () {
         shootMotor.stopMotor();
     }
 
