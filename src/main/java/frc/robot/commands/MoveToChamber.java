@@ -13,31 +13,22 @@ import frc.robot.subsystems.Storage;
 
 public class MoveToChamber extends CommandBase {
 
-  private final Storage store;
+	private final Storage m_storage;
 
-  public MoveToChamber(Storage ballStorage) {
-    store = ballStorage;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(ballStorage);
-  }
+	public MoveToChamber(Storage storage) {
+		m_storage = storage;
+		addRequirements(storage);
+	}
 
-  // Called when the command is initially scheduled.
-  public void initialize() { //once
-    store.moveIn();
-  }
+	public void initialize() { //once
+		m_storage.moveIn();
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  public void execute() {
+	public void end(boolean interrupted) {
+		m_storage.moveStop();
+	}
 
-  }
-
-  // Called once the command ends or is interrupted.
-  public void end(boolean interrupted) {
-    store.moveStop();
-  }
-
-  // Returns true when the command should end.
-  public boolean isFinished() {
-    return store.getPos5();
-  }
+	public boolean isFinished() {
+		return m_storage.getPos5();
+	}
 }

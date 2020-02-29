@@ -8,24 +8,24 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 
 public class Outtake extends SubsystemBase {
-    private WPI_TalonSRX shootMotor = new WPI_TalonSRX(OuttakeConstants.OUTTAKE_WHEELS_ID);
+	private WPI_TalonSRX shootMotor = new WPI_TalonSRX(OuttakeConstants.OUTTAKE_WHEELS_ID);
 
-    public Outtake() {
-        shootMotor.configFactoryDefault();
-        shootMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+	public Outtake() {
+		shootMotor.configFactoryDefault();
+		shootMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
-    }
+	}
 
-    public void shoot (double rpm) {
-        shootMotor.set(ControlMode.PercentOutput, rpm);
-    }
+	public void shoot(double rpm) {
+		shootMotor.set(ControlMode.PercentOutput, rpm);
+	}
 
-    public void spinStop () {
-        shootMotor.stopMotor();
-    }
+	public void spinStop() {
+		shootMotor.stopMotor();
+	}
 
-    public double getEncoder () {
-        return shootMotor.getSelectedSensorVelocity();
-    }
+	public double getEncoder() {
+		return shootMotor.getSelectedSensorVelocity();
+	}
 
 }

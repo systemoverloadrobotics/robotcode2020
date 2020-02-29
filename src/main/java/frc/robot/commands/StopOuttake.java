@@ -13,34 +13,21 @@ import frc.robot.subsystems.Outtake;
 
 public class StopOuttake extends CommandBase {
 
-  private final Outtake m_shoot;
-  //private final Outtake m_desiredSpeed;
-  public StopOuttake(Outtake shoot) {
-    m_shoot = shoot;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shoot);
-  }
+	private final Outtake m_shoot;
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() { //once
-    m_shoot.spinStop();
-  }
+	//private final Outtake m_desiredSpeed;
+	public StopOuttake(Outtake shoot) {
+		m_shoot = shoot;
+		addRequirements(shoot);
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-  }
+	@Override
+	public void initialize() { //once
+		m_shoot.spinStop();
+	}
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-
-  }
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return true;
-  }
+	@Override
+	public boolean isFinished() {
+		return true;
+	}
 }
