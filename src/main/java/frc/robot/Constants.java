@@ -26,6 +26,7 @@ public final class Constants {
         public static final int LEFT_FOLLOWER_2_ID = 9;
         public static final double SPEED_MULTIPLIER = 0.6;
         public static final double TURN_MULTIPLIER = 0.4;
+        public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 4;
         public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 5;
     }
@@ -60,7 +61,6 @@ public final class Constants {
         public static final double POLYCHORD_FORWARD_POWER = 0.2;
         public static final double POLYCHORD_REVERSE_POWER = -0.2;
         public static final int POLYCHORD_STOP = 0;
-        public static final int DOUBLESOLENOID_MODULE_NUM = 3;
         public static final int BALLS_IN_SWITCH_ID = 18;
         public static final int BALLS_OUT_SWITCH_ID = 19;
         public static final double POLYCORD_FORWARD_SPEED = .2;

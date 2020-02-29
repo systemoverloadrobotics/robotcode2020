@@ -34,7 +34,7 @@ public class DriveTrain extends SubsystemBase {
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
 
-    private DoubleSolenoid shifter = new DoubleSolenoid(3, 0,1);
+    private DoubleSolenoid shifter = new DoubleSolenoid(DriveConstants.DOUBLESOLENOID_MODULE_NUM, DriveConstants.DOUBLESOLENOID_FOWARDCHANNEL_ID,DriveConstants.DOUBLESOLENOID_REVERSECHANNEL_ID);
     private Compressor m_compressor = new Compressor(3);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
