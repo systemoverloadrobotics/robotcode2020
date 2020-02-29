@@ -1,6 +1,9 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.EncoderType;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -22,6 +25,7 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax leftFollower1 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
     private CANSparkMax leftFollower2 = new CANSparkMax(DriveConstants.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
+    NetworkTable limelight = NetworkTableInstance.getDefault().getTable("limelight");
 
     private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster,EncoderType.kQuadrature,4069);
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster,EncoderType.kQuadrature,4069);
@@ -54,6 +58,10 @@ public class DriveTrain extends SubsystemBase {
 
     public void compressorStop(){
         m_compressor.stop();
+    }
+
+    public void getYaw(){
+
     }
 
     public void getDistance(){

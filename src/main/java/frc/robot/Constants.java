@@ -48,8 +48,8 @@ public final class Constants {
         public static final double POLYCHORD_REVERSE_POWER = -0.2;
         public static final int POLYCHORD_STOP = 0;
         public static final int DOUBLESOLENOID_MODULE_NUM = 3;
-        public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 0;
-        public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 1;
+        public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 4;
+        public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 5;
         public static final int BALLS_IN_SWITCH_ID = 17;
         public static final int BALLS_OUT_SWITCH_ID = 18;
     }
