@@ -26,6 +26,7 @@ public class RobotContainer {
   private final Storage m_storage = new Storage();
   private final Climb m_climb = new Climb();
   private final Autonomous autonomous = new Autonomous();
+    private final Outtake m_outtake = new Outtake();
 
   //controllers
   private final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
@@ -34,19 +35,27 @@ public class RobotContainer {
 
 
   //commands
-  private final Outtake m_outtake = new Outtake();
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,
-          () -> left_joystick.getY(),
-          () -> right_joystick.getY());
-  private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
-          () -> left_joystick.getY(),
-          () -> right_joystick.getY());
-  private final ShiftUp m_shiftUp = new ShiftUp();
-  private final ShiftDown m_shiftDown = new ShiftDown();
-  private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
-  private final Park m_park = new Park(100 /* any distance you want*/,m_driveTrain);
-  private final Fire m_fire = new Fire(m_outtake, 5000); //TODO: After the first argument a second may follow, this will be some sort of number, you can put any number in for now\
-  private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
+    private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,
+            () -> left_joystick.getY(),
+            () -> right_joystick.getY());
+    private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
+            () -> left_joystick.getY(),
+            () -> right_joystick.getY());
+    private final ShiftUp m_shiftUp = new ShiftUp(m_driveTrain);
+    private final ShiftDown m_shiftDown = new ShiftDown(m_driveTrain);
+    private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
+    private final Park m_park = new Park(100 /** any distance you want*/,m_driveTrain);
+    private final Fire m_fire = new Fire(m_outtake, 5000); //TODO: After the first argument a second may follow, this will be some sort of number, you can put any number in for now
+    private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
+    private final IntakeBall m_intakeBall = new IntakeBall(m_intake);
+    private final MoveBackToPos1 m_moveBackToPos1 = new MoveBackToPos1(m_storage);
+    private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
+    private final MoveOffPos1 m_moveOffPos1 = new MoveOffPos1(m_storage);
+    private final MoveToChamber m_moveToChamber = new MoveToChamber(m_storage);
+    private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
+    private final SetHeight m_setHeight = new SetHeight(m_climb, 10); //TODO: change height to appropriate value
+    private final StopOuttake m_stopOuttake = new StopOuttake(m_outtake);
+    private final StorageFromIntake m_storageFromIntake = new StorageFromIntake(m_storage);
 
 
 

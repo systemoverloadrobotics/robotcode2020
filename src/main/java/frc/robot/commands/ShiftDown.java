@@ -5,8 +5,8 @@ import frc.robot.subsystems.DriveTrain;
 
 public class ShiftDown extends CommandBase {
     private DriveTrain m_driveTrain;
-    public ShiftDown(){
-        m_driveTrain = new DriveTrain();
+    public ShiftDown(DriveTrain driveTrain){
+        m_driveTrain = driveTrain;
     }
     @Override
     public void initialize(){

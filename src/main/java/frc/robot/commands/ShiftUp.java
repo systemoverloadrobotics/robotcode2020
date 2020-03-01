@@ -5,8 +5,8 @@ import frc.robot.subsystems.DriveTrain;
 
 public class ShiftUp extends CommandBase {
     private DriveTrain m_driveTrain;
-    public ShiftUp(){
-        m_driveTrain = new DriveTrain();
+    public ShiftUp(DriveTrain driveTrain){
+        m_driveTrain = driveTrain;
 
         addRequirements(m_driveTrain);
     }
