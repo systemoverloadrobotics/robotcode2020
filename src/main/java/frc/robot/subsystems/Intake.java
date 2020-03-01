@@ -32,6 +32,7 @@ public class Intake extends SubsystemBase {
 	}
 
 	public boolean getPos0() {
+		System.out.println("Position 0: " + input.get());
 		return input.get();
 	}
 
