@@ -31,6 +31,7 @@ public class RobotContainer {
 	private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
 	private final IntakeBall m_intakeBall = new IntakeBall(m_intake);
 	private final MoveBackToPos1 m_moveBackToPos1 = new MoveBackToPos1(m_storage);
+	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
 	private final MoveOffPos1 m_moveOffPos1 = new MoveOffPos1(m_storage);
 	private final MoveToChamber m_moveToChamber = new MoveToChamber(m_storage);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
