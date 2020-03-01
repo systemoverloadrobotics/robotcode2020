@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import frc.robot.commands.Climb.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
 import frc.robot.commands.DriveTrain.*;
@@ -56,6 +57,7 @@ public class RobotContainer {
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
 	private final SetHeight m_setHeight = new SetHeight(m_climb, 10); //TODO: change height to appropriate value
 	private final StorageFromIntake m_storageFromIntake = new StorageFromIntake(m_storage);
+	private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
 
 	public RobotContainer() {
 		//setting default commands
@@ -74,6 +76,26 @@ public class RobotContainer {
 		compressorOn.whenHeld(m_runCompressor);
 		final JoystickButton fire = new JoystickButton(right_joystick, Controls.TRIGGER); //TODO: Name the button after the command excluding the m_
 		fire.whenPressed(m_fire);
+		final JoystickButton climb = new JoystickButton(right_joystick, Controls.BUTTON_12);
+		climb.whenPressed(m_climbTheBar);
+		final JoystickButton goToBottom = new JoystickButton(right_joystick, Controls.BUTTON_10);
+		goToBottom.whenPressed(m_goToBottom);
+		final JoystickButton intakeBall = new JoystickButton(right_joystick, Controls.BUTTON_9);
+		intakeBall.whenPressed(m_intakeBall);
+		final JoystickButton moveBackToPos1 = new JoystickButton(left_joystick, Controls.BUTTON_2);
+		moveBackToPos1.whenPressed(m_moveBackToPos1);
+		final JoystickButton moveIntoShooter = new JoystickButton(left_joystick, Controls.BUTTON_3);
+		moveIntoShooter.whenPressed(m_moveIntoShooter);
+		final JoystickButton moveOffPos1 = new JoystickButton(left_joystick, Controls.BUTTON_9);
+		moveOffPos1.whenPressed(m_moveOffPos1);
+		final JoystickButton moveToChamber = new JoystickButton(left_joystick, Controls.BUTTON_10);
+		moveToChamber.whenPressed(m_moveToChamber);
+		final JoystickButton seizeFire = new JoystickButton(left_joystick, Controls.BUTTON_11);
+		seizeFire.whenHeld(m_seizeFire);
+		final JoystickButton setHeight = new JoystickButton(left_joystick, Controls.BUTTON_12);
+		setHeight.whenPressed(m_setHeight);
+		final JoystickButton storageFromIntake = new JoystickButton(left_joystick, Controls.TRIGGER);
+		storageFromIntake.whenHeld(m_storageFromIntake);
 	}
 
 	public Command getAutonomousCommand() {
