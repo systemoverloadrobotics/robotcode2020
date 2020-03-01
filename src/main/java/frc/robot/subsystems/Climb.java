@@ -31,6 +31,7 @@ public class Climb extends SubsystemBase {
 	}
 
 	public double getEncoder() {
+		System.out.println("Elevator Encoder: " + elevatorMotor.getSelectedSensorPosition());
 		return elevatorMotor.getSelectedSensorPosition();
 	}
 
