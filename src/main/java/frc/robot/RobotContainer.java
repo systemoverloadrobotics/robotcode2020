@@ -29,6 +29,15 @@ public class RobotContainer {
 	//private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain, m_joystick.getY(), m_joystick.getX());
 	private final Fire m_fire = new Fire(m_outtake, 5000); //TODO: After the first argument a second may follow, this will be some sort of number, you can put any number in for now
 	private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
+	private final IntakeBall m_intakeBall = new IntakeBall(m_intake);
+	private final MoveBackToPos1 m_moveBackToPos1 = new MoveBackToPos1(m_storage);
+	private final MoveOffPos1 m_moveOffPos1 = new MoveOffPos1(m_storage);
+	private final MoveToChamber m_moveToChamber = new MoveToChamber(m_storage);
+	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
+	private final SetHeight m_setHeight = new SetHeight(m_climb, 10); //TODO: change height to appropriate value
+	private final StopOuttake m_stopOuttake = new StopOuttake(m_outtake);
+	private final StorageFromIntake m_storageFromIntake = new StorageFromIntake(m_storage);
+
 
 	public RobotContainer() {
 		//setting default commands
