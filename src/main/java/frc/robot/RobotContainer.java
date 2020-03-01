@@ -7,16 +7,18 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.*;
+import frc.robot.commands.Climb.GoToBottom;
+import frc.robot.commands.Climb.SetHeight;
+import frc.robot.commands.DriveTrain.*;
+import frc.robot.commands.Intake.IntakeBall;
+import frc.robot.commands.Outtake.Fire;
+import frc.robot.commands.Outtake.SeizeFire;
+import frc.robot.commands.Storage.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Controls;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
-import java.util.function.DoubleSupplier;
 
 public class RobotContainer {
 
