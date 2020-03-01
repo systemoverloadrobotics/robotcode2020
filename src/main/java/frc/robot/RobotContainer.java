@@ -21,7 +21,6 @@ import java.util.function.DoubleSupplier;
 public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final Intake m_intake = new Intake();
   private final Storage m_storage = new Storage();
@@ -44,9 +43,8 @@ public class RobotContainer {
           () -> right_joystick.getY());
   private final ShiftUp m_shiftUp = new ShiftUp();
   private final ShiftDown m_shiftDown = new ShiftDown();
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
-  private final Park m_park = new Park(m_driveTrain);
+  private final Park m_park = new Park(100 /* any distance you want*/,m_driveTrain);
   private final Fire m_fire = new Fire(m_outtake, 5000); //TODO: After the first argument a second may follow, this will be some sort of number, you can put any number in for now\
   private final GoToBottom m_goToBottom = new GoToBottom(m_climb); //TODO: The first argument will always be the subsystem
 
@@ -88,6 +86,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return null;
   }
 }
