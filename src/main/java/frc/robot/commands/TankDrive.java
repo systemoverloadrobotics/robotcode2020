@@ -4,10 +4,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 
+import java.util.function.DoubleSupplier;
+
 public class TankDrive extends CommandBase {
     DriveTrain m_driveTrain;
-    public TankDrive(DriveTrain tankDrive){
+    DoubleSupplier m_leftSpeed;
+    DoubleSupplier m_rightSpeed;
+    public TankDrive(DriveTrain tankDrive, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed){
         m_driveTrain = tankDrive;
+        m_leftSpeed = leftSpeed;
+        m_rightSpeed = rightSpeed;
     }
 
     @Override
@@ -15,11 +21,7 @@ public class TankDrive extends CommandBase {
 
     @Override
     public void execute(){
-        double m_leftSpeed = RobotContainer.left_joystick.getY();
-        double m_rightSpeed = RobotContainer.right_joystick.getY();
-
-
-        m_driveTrain.driveTank(m_leftSpeed, m_rightSpeed);
+        m_driveTrain.driveTank(m_leftSpeed.getAsDouble(), m_rightSpeed.getAsDouble());
     }
 
     @Override

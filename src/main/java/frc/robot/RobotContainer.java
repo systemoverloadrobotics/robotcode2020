@@ -16,6 +16,8 @@ import frc.robot.Constants.Controls;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
+import java.util.function.DoubleSupplier;
+
 public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
@@ -27,13 +29,19 @@ public class RobotContainer {
   private final Autonomous autonomous = new Autonomous();
 
   //controllers
-  public static final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
-  public static final Joystick left_joystick = new Joystick(Controls.LEFT_JOYSTICK_PORT);
+  private final Joystick right_joystick = new Joystick(Controls.RIGHT_JOYSTICK_PORT);
+  private final Joystick left_joystick = new Joystick(Controls.LEFT_JOYSTICK_PORT);
+
+
 
   //commands
   private final Outtake m_outtake = new Outtake();
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain);
-  private final TankDrive m_tankDrive = new TankDrive(m_driveTrain);
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,
+          () -> left_joystick.getY(),
+          () -> right_joystick.getY());
+  private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
+          () -> left_joystick.getY(),
+          () -> right_joystick.getY());
   private final ShiftUp m_shiftUp = new ShiftUp();
   private final ShiftDown m_shiftDown = new ShiftDown();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -50,7 +58,6 @@ public class RobotContainer {
   public RobotContainer() {
     //setting default commands
       m_driveTrain.setDefaultCommand(m_tankDrive);
-
     //Configure the button bindings
     configureButtonBindings();
   }
