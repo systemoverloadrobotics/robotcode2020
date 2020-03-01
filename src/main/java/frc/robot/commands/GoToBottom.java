@@ -13,28 +13,28 @@ import frc.robot.subsystems.Climb;
 public class GoToBottom extends CommandBase {
 
 
-	private final Climb m_elevatorMotor;
+	private final Climb m_climb;
 
-	public GoToBottom(Climb elevatorMotor) {
-		m_elevatorMotor = elevatorMotor;
-		addRequirements(elevatorMotor);
+	public GoToBottom(Climb climb) {
+		m_climb = climb;
+		addRequirements(climb);
 	}
 
 	@Override
 	public void initialize() {
-		m_elevatorMotor.reelIn();
-		m_elevatorMotor.goDown();
+		m_climb.reelIn();
+		m_climb.goDown();
 	}
 
 	@Override
 	public void end(boolean interrupted) {
-		m_elevatorMotor.liftStop();
-		m_elevatorMotor.reelStop();
+		m_climb.liftStop();
+		m_climb.reelStop();
 	}
 
 	@Override
 	public boolean isFinished() {
-		return m_elevatorMotor.getEncoder() == 0;
+		return m_climb.getEncoder() == 0;
 	}
 }
 
