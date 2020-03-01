@@ -4,19 +4,20 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
 public class ShiftDown extends CommandBase {
-    private DriveTrain m_driveTrain;
-    public ShiftDown(DriveTrain driveTrain){
-        m_driveTrain = driveTrain;
-    }
-    @Override
-    public void initialize(){
-        m_driveTrain.shiftDown();
-    }
-    @Override
-    public void end(boolean interrupted){}
+	private DriveTrain m_driveTrain;
 
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
+	public ShiftDown(DriveTrain driveTrain) {
+		m_driveTrain = driveTrain;
+		addRequirements(driveTrain);
+	}
+
+	@Override
+	public void initialize() {
+		m_driveTrain.shiftDown();
+	}
+
+	@Override
+	public boolean isFinished() {
+		return true;
+	}
 }
