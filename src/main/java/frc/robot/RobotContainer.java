@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import frc.robot.commands.Climb.ClimbTheBar;
+import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
 import frc.robot.commands.DriveTrain.*;
