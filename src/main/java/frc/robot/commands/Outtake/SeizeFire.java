@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.Outtake;
 
 import frc.robot.subsystems.Outtake;
 import edu.wpi.first.wpilibj2.command.CommandBase;

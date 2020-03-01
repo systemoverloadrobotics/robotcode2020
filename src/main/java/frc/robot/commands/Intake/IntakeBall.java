@@ -5,30 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Storage;
 
 
-public class MoveIntoShooter extends CommandBase {
+public class IntakeBall extends CommandBase {
 
-	private final Storage m_storage;
+	private final Intake m_intake;
 
-	public MoveIntoShooter(Storage storage) {
-		m_storage = storage;
-		addRequirements(storage);
+	public IntakeBall(Intake intakeWheels) {
+		m_intake = intakeWheels;
+		addRequirements(intakeWheels);
 	}
 
-	public void initialize() { //once
-		m_storage.moveIn();
+	public void initialize() {
+		m_intake.spinIn();
+		m_intake.extend();
 	}
 
 	public void end(boolean interrupted) {
-		m_storage.moveStop();
+		m_intake.retract();
+		m_intake.spinStop();
 	}
 
 	public boolean isFinished() {
-		return !m_storage.getPos5();
+		return m_intake.getPos0();
 	}
 }
