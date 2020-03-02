@@ -68,8 +68,6 @@ public class RobotContainer {
 	}
 
 	private void configureButtonBindings() {
-
-		//right joystick binds
 		final JoystickButton shift = new JoystickButton(right_joystick, Controls.BUTTON_2);
 		shift.whenHeld(m_shiftUp);
 		shift.whenReleased(m_shiftDown);
@@ -85,8 +83,6 @@ public class RobotContainer {
 		goToBottom.whenPressed(m_goToBottom);
 		final JoystickButton intakeBall = new JoystickButton(right_joystick, Controls.BUTTON_9);
 		intakeBall.whenPressed(m_intakeBall);
-
-		//left joystick binds
 		final JoystickButton moveBackToPos1 = new JoystickButton(left_joystick, Controls.BUTTON_2);
 		moveBackToPos1.whenPressed(m_moveBackToPos1);
 		final JoystickButton moveIntoShooter = new JoystickButton(left_joystick, Controls.BUTTON_3);
