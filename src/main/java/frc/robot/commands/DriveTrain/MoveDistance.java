@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.DriveTrain;
 
 public class MoveDistance extends PIDCommand {
-    public MoveDistance(double distance, DriveTrain driveTrain) {
+    public MoveDistance(DriveTrain driveTrain, double distance) {
         super(
                 new PIDController(1, 0, 0),
                 // Close loop on heading

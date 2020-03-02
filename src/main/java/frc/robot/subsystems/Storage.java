@@ -3,16 +3,16 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.StorageConstants;
+import frc.robot.CONSTANTS.STORAGE;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Storage extends SubsystemBase {
 
-    public static final DigitalInput ballsInSwitch = new DigitalInput(StorageConstants.BALLS_IN_SWITCH_ID);
-    public static final DigitalInput ballsOutSwitch = new DigitalInput(StorageConstants.BALLS_OUT_SWITCH_ID);
-    public static final WPI_VictorSPX polycord = new WPI_VictorSPX(StorageConstants.POLYCORD_MOTOR_ID);
+    public static final DigitalInput ballsInSwitch = new DigitalInput(STORAGE.BALLS_IN_SWITCH_ID);
+    public static final DigitalInput ballsOutSwitch = new DigitalInput(STORAGE.BALLS_OUT_SWITCH_ID);
+    public static final WPI_VictorSPX polycord = new WPI_VictorSPX(STORAGE.POLYCORD_MOTOR_ID);
 
 
     public Storage() {
@@ -20,11 +20,11 @@ public class Storage extends SubsystemBase {
     }
 
     public void moveIn() {
-        polycord.set(ControlMode.PercentOutput, StorageConstants.POLYCORD_FORWARD_SPEED);
+        polycord.set(ControlMode.PercentOutput, STORAGE.POLYCORD_FORWARD_SPEED);
     }
 
     public void moveOut() {
-        polycord.set(ControlMode.PercentOutput, StorageConstants.POLYCORD_BACKWARD_SPEED);
+        polycord.set(ControlMode.PercentOutput, STORAGE.POLYCORD_BACKWARD_SPEED);
     }
 
     public void moveStop() {
