@@ -6,8 +6,8 @@ import frc.robot.subsystems.DriveTrain;
 public class RunCompressor extends CommandBase {
     private DriveTrain m_driveTrain;
     public RunCompressor(DriveTrain driveTrain){
-        m_driveTrain = new DriveTrain();
-        addRequirements(m_driveTrain);
+        m_driveTrain = driveTrain;
+        addRequirements(driveTrain);
     }
 
     @Override
