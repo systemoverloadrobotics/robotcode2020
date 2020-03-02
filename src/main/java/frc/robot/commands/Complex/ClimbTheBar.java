@@ -5,10 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Climb;
+package frc.robot.commands.Complex;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.commands.Climb.GoToBottom;
+import frc.robot.commands.Climb.SetHeight;
 import frc.robot.subsystems.Climb;
 
 public class ClimbTheBar extends SequentialCommandGroup {
