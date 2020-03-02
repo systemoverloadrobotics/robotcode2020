@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.DriveTrain;
 
 public class MoveDistance extends PIDCommand {
-    public MoveDistance(double distance, DriveTrain driveTrain){
+    public MoveDistance(double distance, DriveTrain driveTrain) {
         super(
                 new PIDController(1, 0, 0),
                 // Close loop on heading
@@ -26,19 +26,21 @@ public class MoveDistance extends PIDCommand {
     }
 
     @Override
-    public void initialize(){
+    public void initialize() {
 
     }
+
     @Override
-    public void execute(){
+    public void execute() {
         System.out.print(m_useOutput);
     }
 
     @Override
-    public void end(boolean interrupted){}
+    public void end(boolean interrupted) {
+    }
 
     @Override
-    public boolean isFinished(){
+    public boolean isFinished() {
         return true;
     }
 }
