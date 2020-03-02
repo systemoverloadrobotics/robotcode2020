@@ -71,6 +71,8 @@ public class RobotContainer {
 		final JoystickButton shift = new JoystickButton(right_joystick, Controls.BUTTON_2);
 		shift.whenHeld(m_shiftUp);
 		shift.whenReleased(m_shiftDown);
+		final JoystickButton moveDistance = new JoystickButton(right_joystick, Controls.BUTTON_4);
+		moveDistance.whenPressed(m_moveDistance);
 		final JoystickButton park = new JoystickButton(right_joystick, Controls.BUTTON_3);
 		park.whenHeld(m_park);
 		final JoystickButton compressorOn = new JoystickButton(right_joystick, Controls.BUTTON_11);
