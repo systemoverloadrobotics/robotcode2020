@@ -16,7 +16,7 @@ public class Park extends PIDCommand {
 				// Set reference to target
 				distance,
 				// Pipe output to move robot
-				output -> driveTrain.robotDrive.arcadeDrive(output, 0),
+				output -> driveTrain.driveTank(output, output),
 				// Require the drive
 				driveTrain);
 

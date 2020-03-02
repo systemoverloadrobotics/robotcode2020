@@ -4,16 +4,16 @@ import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.DriveTrain;
 
-public class Alignment extends PIDCommand {
-    public Alignment(double angle, DriveTrain driveTrain){
+public class MoveDistance extends PIDCommand {
+    public MoveDistance(double distance, DriveTrain driveTrain){
         super(
                 new PIDController(1, 0, 0),
                 // Close loop on heading
                 driveTrain::getLeftMasterEncoderValue,
                 // Set reference to target
-                angle,
+                distance,
                 // Pipe output to move robot
-                output -> driveTrain.robotDrive.arcadeDrive(output, 0),
+                output -> driveTrain.driveTank(output, output),
                 // Require the drive
                 driveTrain);
 
