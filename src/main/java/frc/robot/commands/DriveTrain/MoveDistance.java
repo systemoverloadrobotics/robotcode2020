@@ -31,7 +31,7 @@ public class MoveDistance extends PIDCommand {
     }
     @Override
     public void execute(){
-
+        System.out.print(m_useOutput);
     }
 
     @Override

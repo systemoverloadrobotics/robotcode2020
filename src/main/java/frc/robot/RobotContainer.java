@@ -46,7 +46,8 @@ public class RobotContainer {
 	private final ShiftUp m_shiftUp = new ShiftUp(m_driveTrain);
 	private final ShiftDown m_shiftDown = new ShiftDown(m_driveTrain);
 	private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
-	private final Park m_park = new Park(m_driveTrain, 100 /** any distance you want*/); //TODO: This should not be taking any input besides subsystem
+	private final MoveDistance m_moveDistance = new MoveDistance(10000 ,m_driveTrain);
+	private final Park m_park = new Park(m_driveTrain,0); //TODO: This should not be taking any input besides subsystem
 	private final Fire m_fire = new Fire(m_outtake, 5000);
 	private final GoToBottom m_goToBottom = new GoToBottom(m_climb);
 	private final IntakeBall m_intakeBall = new IntakeBall(m_intake);
