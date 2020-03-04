@@ -10,17 +10,24 @@ public class TankDrive extends CommandBase {
     DriveTrain m_driveTrain;
     DoubleSupplier m_leftSpeed;
     DoubleSupplier m_rightSpeed;
+    boolean m_shift;
 
-    public TankDrive(DriveTrain driveTrain, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
+    public TankDrive(DriveTrain driveTrain, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed, boolean shift) {
         m_driveTrain = driveTrain;
         m_leftSpeed = leftSpeed;
         m_rightSpeed = rightSpeed;
+        m_shift = shift;
         addRequirements(driveTrain);
     }
 
     @Override
     public void execute() {
         m_driveTrain.driveTank(m_leftSpeed.getAsDouble(), m_rightSpeed.getAsDouble());
+        if (m_shift) {
+            m_driveTrain.shiftDown();
+        } else {
+            m_driveTrain.shiftUp();
+        }
     }
 
     @Override

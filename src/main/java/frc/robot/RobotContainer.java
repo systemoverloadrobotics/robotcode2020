@@ -40,7 +40,7 @@ public class RobotContainer {
     //			() -> right_joystick.getY());
     private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
             () -> left_joystick.getY(),
-            () -> right_joystick.getY());
+            () -> right_joystick.getY(), );
     private final ShiftUp m_shiftUp = new ShiftUp(m_driveTrain);
     private final ShiftDown m_shiftDown = new ShiftDown(m_driveTrain);
     private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
@@ -69,11 +69,11 @@ public class RobotContainer {
     private void configureButtonBindings() {
 
     	// Right Joystick
-        final JoystickButton shift = new JoystickButton(right_joystick, CONTROLS.BUTTON_2);
+        final JoystickButton shift = new JoystickButton(right_joystick, CONTROLS.TRIGGER);
         final JoystickButton moveDistance = new JoystickButton(right_joystick, CONTROLS.BUTTON_4);
         final JoystickButton park = new JoystickButton(right_joystick, CONTROLS.BUTTON_3);
         final JoystickButton compressorOn = new JoystickButton(right_joystick, CONTROLS.BUTTON_11);
-        final JoystickButton fire = new JoystickButton(right_joystick, CONTROLS.TRIGGER);
+        final JoystickButton fire = new JoystickButton(right_joystick, CONTROLS.BUTTON_2);
         final JoystickButton climb = new JoystickButton(right_joystick, CONTROLS.BUTTON_12);
         final JoystickButton goToBottom = new JoystickButton(right_joystick, CONTROLS.BUTTON_10);
         final JoystickButton intakeBall = new JoystickButton(right_joystick, CONTROLS.BUTTON_9);
