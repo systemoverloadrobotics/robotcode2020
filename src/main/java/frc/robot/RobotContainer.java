@@ -40,7 +40,8 @@ public class RobotContainer {
     //			() -> right_joystick.getY());
     private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
             () -> left_joystick.getY(),
-            () -> right_joystick.getY(), );
+            () -> right_joystick.getY(),
+            () -> right_joystick.getRawButtonPressed(CONTROLS.TRIGGER));
     private final ShiftUp m_shiftUp = new ShiftUp(m_driveTrain);
     private final ShiftDown m_shiftDown = new ShiftDown(m_driveTrain);
     private final RunCompressor m_runCompressor = new RunCompressor(m_driveTrain);
