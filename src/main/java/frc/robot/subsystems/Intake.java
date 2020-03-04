@@ -1,8 +1,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.InvertType;
-import frc.robot.Constants;
-import frc.robot.Constants.IntakeConstants;
+import frc.robot.CONSTANTS;
+import frc.robot.CONSTANTS.INTAKE;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -11,10 +11,10 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Intake extends SubsystemBase {
 
-	public DoubleSolenoid arms = new DoubleSolenoid(Constants.PCM_ID, IntakeConstants.FORWARD_CHANNEL, IntakeConstants.REVERSE_CHANNEL);
-	public WPI_VictorSPX master = new WPI_VictorSPX(IntakeConstants.MASTER_ID);
-	public WPI_VictorSPX follower = new WPI_VictorSPX(IntakeConstants.FOLLOWER_ID);
-	public DigitalInput input = new DigitalInput(IntakeConstants.INPUT_DIO_PORT_ID);
+	public DoubleSolenoid arms = new DoubleSolenoid(CONSTANTS.PCM_ID, INTAKE.FORWARD_CHANNEL, INTAKE.REVERSE_CHANNEL);
+	public WPI_VictorSPX master = new WPI_VictorSPX(INTAKE.MASTER_ID);
+	public WPI_VictorSPX follower = new WPI_VictorSPX(INTAKE.FOLLOWER_ID);
+	public DigitalInput input = new DigitalInput(INTAKE.INPUT_DIO_PORT_ID);
 
 	public Intake() {
 		master.configFactoryDefault();
@@ -37,11 +37,11 @@ public class Intake extends SubsystemBase {
 	}
 
 	public void spinIn() {
-		master.set(ControlMode.PercentOutput, IntakeConstants.INWARD);
+		master.set(ControlMode.PercentOutput, INTAKE.INWARD);
 	}
 
 	public void spinOut() {
-		master.set(ControlMode.PercentOutput, IntakeConstants.OUTWARD);
+		master.set(ControlMode.PercentOutput, INTAKE.OUTWARD);
 	}
 
 	public void spinStop() {

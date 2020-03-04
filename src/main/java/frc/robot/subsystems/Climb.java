@@ -3,13 +3,13 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.ClimbConstants;
+import frc.robot.CONSTANTS.CLIMB;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 public class Climb extends SubsystemBase {
 
-	private WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(ClimbConstants.CLIMB_ELEVATOR_ID);
-	private WPI_VictorSPX winchMotor = new WPI_VictorSPX(ClimbConstants.CLIMB_WINCH_ID);
+	private WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(CLIMB.ELEVATOR_ID);
+	private WPI_VictorSPX winchMotor = new WPI_VictorSPX(CLIMB.WINCH_ID);
 
 
 	public Climb() {
@@ -19,11 +19,11 @@ public class Climb extends SubsystemBase {
 	}
 
 	public void goUp() {
-		elevatorMotor.set(ClimbConstants.ELEVATOR_POWER_CONSTANT);
+		elevatorMotor.set(CLIMB.ELEVATOR_POWER_CONSTANT);
 	}
 
 	public void goDown() {
-		elevatorMotor.set(ClimbConstants.REVERSE_ELEVATOR_POWER_CONSTANT);
+		elevatorMotor.set(CLIMB.REVERSE_ELEVATOR_POWER_CONSTANT);
 	}
 
 	public void liftStop() {
@@ -36,11 +36,11 @@ public class Climb extends SubsystemBase {
 	}
 
 	public void reelIn() {
-		winchMotor.set(ClimbConstants.WINCH_POWER_CONSTANT);
+		winchMotor.set(CLIMB.WINCH_POWER_CONSTANT);
 	}
 
 	public void reelOut() {
-		winchMotor.set(ClimbConstants.REVERSE_WINCH_POWER_CONSTANT);
+		winchMotor.set(CLIMB.REVERSE_WINCH_POWER_CONSTANT);
 	}
 
 	public void reelStop() {
