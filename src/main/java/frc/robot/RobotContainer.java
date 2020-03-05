@@ -29,7 +29,9 @@ public class RobotContainer {
 
     // Subsystems
     private final Climb m_climb = new Climb();
-    private final DriveTrain m_driveTrain = new DriveTrain();
+    private final DriveTrain m_driveTrain = new DriveTrain(
+            () -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER)
+    );
     private final Intake m_intake = new Intake();
     private final Outtake m_outtake = new Outtake();
     private final Storage m_storage = new Storage();
@@ -86,7 +88,10 @@ public class RobotContainer {
         final JoystickButton moveToChamber = new JoystickButton(left_joystick, CONTROLS.BUTTON_10);
         final JoystickButton seizeFire = new JoystickButton(left_joystick, CONTROLS.BUTTON_11);
         final JoystickButton setHeight = new JoystickButton(left_joystick, CONTROLS.BUTTON_12);
-        final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
+        final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_4);
+
+
+
 
         shift.whenHeld(m_shiftUp);
         shift.whenReleased(m_shiftDown);
