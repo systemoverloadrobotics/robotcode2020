@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Storage;
 
 
-public class CheckMoveIntakeToStorage extends CommandBase {
+public class StorageBallChecker extends CommandBase {
 
   private final Storage store;
 
-  public CheckMoveIntakeToStorage(Storage ballStorage) {
+  public StorageBallChecker(Storage ballStorage) {
     store = ballStorage;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(ballStorage);
@@ -23,12 +23,15 @@ public class CheckMoveIntakeToStorage extends CommandBase {
 
   // Called when the command is initially scheduled.
   public void initialize() { //once
-    if (!store.getPos0()) store.moveIn();
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   public void execute() {
-
+    if (store.getPos0()) store.moveIn();
+    else if (store.getPos1()) store.moveStop();
+    if (!store.getPos5()) store.moveStop();
+    if (store.getPos0() && store.getPos1() && store.getPos5()) store.moveStop();
   }
 
   // Called once the command ends or is interrupted.
@@ -38,6 +41,6 @@ public class CheckMoveIntakeToStorage extends CommandBase {
 
   // Returns true when the command should end.
   public boolean isFinished() {
-    return (!store.getPos1() && store.getPos0());
+    return false;
   }
 }
