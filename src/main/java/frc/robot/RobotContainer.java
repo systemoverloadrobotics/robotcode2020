@@ -58,10 +58,12 @@ public class RobotContainer {
     private final SetHeight m_setHeight = new SetHeight(m_climb, 10);
     private final StorageFromIntake m_storageFromIntake = new StorageFromIntake(m_storage);
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
+    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 
     public RobotContainer() {
         //Default Commands
         m_driveTrain.setDefaultCommand(m_tankDrive);
+        m_storage.setDefaultCommand(m_storageBallChecker);
 
         //Configure the button bindings
         configureButtonBindings();
