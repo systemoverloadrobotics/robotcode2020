@@ -31,8 +31,8 @@ public final class CONSTANTS {
 		public static final double POLYCORD_FORWARD_POWER = 0.2;
 		public static final double POLYCORD_REVERSE_POWER = -0.2;
 		public static final int POLYCORD_STOP = 0;
-		public static final int BALLS_IN_SWITCH_ID = 18;
-		public static final int BALLS_OUT_SWITCH_ID = 19;
+		public static final int BALLS_IN_SWITCH_ID = 17;
+		public static final int BALLS_OUT_SWITCH_ID = 18;
 		public static final double POLYCORD_FORWARD_SPEED = .2;
 		public static final double POLYCORD_BACKWARD_SPEED = .2;
         public static final int BALLS_INTAKE_SWITCH_ID = 19;
