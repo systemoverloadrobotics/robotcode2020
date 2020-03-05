@@ -27,8 +27,9 @@ public class MoveDistance extends PIDCommand {
 
     @Override
     public void initialize() {
-
+        super.initialize();
     }
+
 
     @Override
     public void execute() {
