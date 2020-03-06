@@ -62,10 +62,12 @@ public class RobotContainer {
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
     private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
     private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
+    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 
     public RobotContainer() {
         //Default Commands
         m_driveTrain.setDefaultCommand(m_tankDrive);
+        m_storage.setDefaultCommand(m_storageBallChecker);
 
         //Configure the button bindings
         configureButtonBindings();
