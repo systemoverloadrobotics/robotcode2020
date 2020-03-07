@@ -12,7 +12,9 @@ import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
 import frc.robot.commands.DriveTrain.*;
+import frc.robot.commands.Intake.ExtendIntake;
 import frc.robot.commands.Intake.IntakeBall;
+import frc.robot.commands.Intake.RetractIntake;
 import frc.robot.commands.Outtake.Fire;
 import frc.robot.commands.Outtake.SeizeFire;
 import frc.robot.commands.Storage.*;
@@ -64,10 +66,14 @@ public class RobotContainer {
     private final SetHeight m_setHeight = new SetHeight(m_climb, 10);
     private final StorageFromIntake m_storageFromIntake = new StorageFromIntake(m_storage);
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
+    private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
+    private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
+    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 
     public RobotContainer() {
         //Default Commands
         m_driveTrain.setDefaultCommand(m_tankDrive);
+        m_storage.setDefaultCommand(m_storageBallChecker);
 
         //Configure the button bindings
         configureButtonBindings();
@@ -86,13 +92,13 @@ public class RobotContainer {
         final JoystickButton intakeBall = new JoystickButton(right_joystick, CONTROLS.BUTTON_9);
 
         // Left Joystick
-        final JoystickButton moveBackToPos1 = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
+        final JoystickButton moveBackToPos1 = new JoystickButton(left_joystick, CONTROLS.BUTTON_4);
         final JoystickButton moveIntoShooter = new JoystickButton(left_joystick, CONTROLS.BUTTON_3);
         final JoystickButton moveOffPos1 = new JoystickButton(left_joystick, CONTROLS.BUTTON_9);
         final JoystickButton moveToChamber = new JoystickButton(left_joystick, CONTROLS.BUTTON_10);
         final JoystickButton seizeFire = new JoystickButton(left_joystick, CONTROLS.BUTTON_11);
         final JoystickButton setHeight = new JoystickButton(left_joystick, CONTROLS.BUTTON_12);
-        final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_4);
+
 
 
 
@@ -103,7 +109,13 @@ public class RobotContainer {
             m_compressor.stop();
         }
 
+        final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
+        final JoystickButton extendIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
+        final JoystickButton retractIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
 
+
+        extendIntake.whenHeld(m_extendIntake);
+        retractIntake.whenReleased(m_retractIntake);
         shift.whenHeld(m_shiftUp);
         shift.whenReleased(m_shiftDown);
         moveDistance.whenPressed(m_moveDistance);

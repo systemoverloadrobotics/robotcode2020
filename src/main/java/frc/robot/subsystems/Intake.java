@@ -31,11 +31,11 @@ public class Intake extends SubsystemBase {
 		arms.set(DoubleSolenoid.Value.kReverse);
 	}
 
-	public boolean getPos0() {
+	/*public boolean getPos0() {
 		System.out.println("Position 0: " + input.get());
 		return input.get();
 	}
-
+*/
 	public void spinIn() {
 		master.set(ControlMode.PercentOutput, INTAKE.INWARD);
 	}

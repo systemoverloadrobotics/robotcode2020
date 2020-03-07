@@ -31,7 +31,7 @@ public class IntakeBall extends CommandBase {
 		m_intake.spinStop();
 	}
 
-	public boolean isFinished() {
-		return m_intake.getPos0();
-	}
+	//public boolean isFinished() {
+		//return m_intake.getPos0();
+	//}
 }

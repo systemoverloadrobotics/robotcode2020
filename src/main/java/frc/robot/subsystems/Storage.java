@@ -12,6 +12,7 @@ public class Storage extends SubsystemBase {
 
     public static final DigitalInput ballsInSwitch = new DigitalInput(STORAGE.BALLS_IN_SWITCH_ID);
     public static final DigitalInput ballsOutSwitch = new DigitalInput(STORAGE.BALLS_OUT_SWITCH_ID);
+    public static final DigitalInput ballsIntakeSwitch = new DigitalInput(STORAGE.BALLS_INTAKE_SWITCH_ID);
     public static final WPI_VictorSPX polycord = new WPI_VictorSPX(STORAGE.POLYCORD_MOTOR_ID);
 
 
@@ -39,5 +40,10 @@ public class Storage extends SubsystemBase {
     public boolean getPos5() {
         System.out.println("Position 5: " + ballsOutSwitch.get());
         return ballsOutSwitch.get();
+    }
+
+    public boolean getPos0() {
+        System.out.println("Position 0: " + ballsOutSwitch.get());
+        return ballsIntakeSwitch.get();
     }
 }
