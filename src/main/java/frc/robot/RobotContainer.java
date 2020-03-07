@@ -64,6 +64,7 @@ public class RobotContainer {
     public RobotContainer() {
         //Default Commands
         m_driveTrain.setDefaultCommand(m_tankDrive);
+        m_
 
         //Configure the button bindings
         configureButtonBindings();
@@ -97,7 +98,7 @@ public class RobotContainer {
         shift.whenReleased(m_shiftDown);
         moveDistance.whenPressed(m_moveDistance);
         park.whenHeld(m_park);
-        compressorOn.whenHeld(m_runCompressor);
+        compressorOn.whenPressed(m_runCompressor);
         fire.whenPressed(m_fire);
         climb.whenPressed(m_climbTheBar);
         goToBottom.whenPressed(m_goToBottom);
