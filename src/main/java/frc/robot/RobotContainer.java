@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
@@ -35,6 +36,9 @@ public class RobotContainer {
     private final Intake m_intake = new Intake();
     private final Outtake m_outtake = new Outtake();
     private final Storage m_storage = new Storage();
+
+    // Compressor
+    private Compressor m_compressor = new Compressor(CONSTANTS.PCM_ID);
 
     // Commands
     //	private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,
@@ -91,6 +95,13 @@ public class RobotContainer {
         final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_4);
 
 
+
+        if(compressorOn.get()){
+            m_compressor.start();
+        }
+        else{
+            m_compressor.stop();
+        }
 
 
         shift.whenHeld(m_shiftUp);

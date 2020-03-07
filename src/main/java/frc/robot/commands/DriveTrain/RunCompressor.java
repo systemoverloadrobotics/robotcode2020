@@ -12,14 +12,18 @@ public class RunCompressor extends CommandBase {
     }
 
     @Override
+    public void initialize(){
+        //m_driveTrain.compressorStart();
+    }
+
+    @Override
     public void execute() {
-        m_driveTrain.compressorStart();
-        System.out.print("it worked");
+        //System.out.println("it worked");
     }
 
     @Override
     public void end(boolean interrupted) {
-        m_driveTrain.compressorStop();
+        //m_driveTrain.compressorStop();
     }
 
     @Override
