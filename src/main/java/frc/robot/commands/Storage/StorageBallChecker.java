@@ -13,34 +13,43 @@ import frc.robot.subsystems.Storage;
 
 public class StorageBallChecker extends CommandBase {
 
-  private final Storage store;
+    private final Storage store;
 
-  public StorageBallChecker(Storage ballStorage) {
-    store = ballStorage;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(ballStorage);
-  }
+    public StorageBallChecker(Storage ballStorage) {
+        store = ballStorage;
+        // Use addRequirements() here to declare subsystem dependencies.
+        addRequirements(ballStorage);
+    }
 
-  // Called when the command is initially scheduled.
-  public void initialize() { //once
+    // Called when the command is initially scheduled.
+    public void initialize() { //once
 
-  }
+    }
 
-  // Called every time the scheduler runs while the command is scheduled.
-  public void execute() {
-    if (store.getPos0()) store.moveIn();
-    else if (store.getPos1()) store.moveStop();
-    if (!store.getPos5()) store.moveStop();
-    if (store.getPos0() && store.getPos1() && store.getPos5()) store.moveStop();
-  }
+    // Called every time the scheduler runs while the command is scheduled.
+    public void execute() {
+        if (!store.getPos5()) {
+            if (store.getPos0()) {
+                store.moveIn();
+            } else if (store.getPos1() && store.getPos0()) {
+                store.moveIn();
+            } else if (store.getPos1() && !store.getPos0()) {
+                store.moveStop();
+            }
 
-  // Called once the command ends or is interrupted.
-  public void end(boolean interrupted) {
-    store.moveStop();
-  }
+        } else {
+            store.moveStop();
+        }
 
-  // Returns true when the command should end.
-  public boolean isFinished() {
-    return false;
-  }
+    }
+
+    // Called once the command ends or is interrupted.
+    public void end(boolean interrupted) {
+        store.moveStop();
+    }
+
+    // Returns true when the command should end.
+    public boolean isFinished() {
+        return false;
+    }
 }
