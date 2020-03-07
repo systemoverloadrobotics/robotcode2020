@@ -33,7 +33,6 @@ public class DriveTrain extends SubsystemBase {
     private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster, EncoderType.kQuadrature, 4069);
 
     private DoubleSolenoid shifter = new DoubleSolenoid(CONSTANTS.PCM_ID, DRIVE.DOUBLESOLENOID_FOWARDCHANNEL_ID, DRIVE.DOUBLESOLENOID_REVERSECHANNEL_ID);
-    private Compressor m_compressor = new Compressor(3);
 
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1, leftFollower2);
@@ -96,14 +95,6 @@ public class DriveTrain extends SubsystemBase {
 
     public void shiftDown() {
         shifter.set(Value.kReverse);
-    }
-
-    public void compressorStart() {
-        m_compressor.start();
-    }
-
-    public void compressorStop() {
-        m_compressor.stop();
     }
 
 
