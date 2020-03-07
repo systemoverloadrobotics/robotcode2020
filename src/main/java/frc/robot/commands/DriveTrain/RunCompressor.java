@@ -14,6 +14,7 @@ public class RunCompressor extends CommandBase {
     @Override
     public void execute() {
         m_driveTrain.compressorStart();
+        System.out.print("it worked");
     }
 
     @Override
