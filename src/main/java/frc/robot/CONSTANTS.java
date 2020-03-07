@@ -65,6 +65,7 @@ public final class CONSTANTS {
 	public static final class CONTROLS {
 		public static final int LEFT_JOYSTICK_PORT = 0;
 		public static final int RIGHT_JOYSTICK_PORT = 1;
+		public static final byte ARCADE_JOYSTICK_PORT = 2;
 
 		// For Testing
 		public static final int TRIGGER = 1;
