@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
@@ -68,7 +69,7 @@ public class RobotContainer {
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
     private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
     private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
-    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
+    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage, () -> left_joystick.getRawButton(8));
 
     public RobotContainer() {
         //Default Commands
@@ -133,6 +134,11 @@ public class RobotContainer {
         seizeFire.whenHeld(m_seizeFire);
         setHeight.whenPressed(m_setHeight);
         storageFromIntake.whenHeld(m_storageFromIntake);
+
+        final JoystickButton Eject = new JoystickButton(left_joystick, 8);
+       // Eject.whenHeld(new InstantCommand(m_storage::moveOut)).whenReleased(new InstantCommand(m_storage::moveStop));
+
+
     }
 
 //	public Command getAutonomousCommand() {
