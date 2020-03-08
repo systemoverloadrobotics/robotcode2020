@@ -12,6 +12,7 @@ import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
 import frc.robot.commands.Complex.IntakeTHEBall;
+import frc.robot.commands.Complex.ReadyToFire;
 import frc.robot.commands.DriveTrain.*;
 import frc.robot.commands.Intake.ExtendIntake;
 import frc.robot.commands.Intake.IntakeBall;
@@ -103,7 +104,7 @@ public class RobotContainer {
         final JoystickButton setHeight = new JoystickButton(left_joystick, CONTROLS.BUTTON_12);
 
         // Arcade Joystick
-        final JoystickButton fire = new JoystickButton(arcade_joystick, CONTROLS.TRIGGER);
+        final JoystickButton betterFire = new JoystickButton(arcade_joystick, CONTROLS.TRIGGER);
 
 
 
@@ -117,7 +118,7 @@ public class RobotContainer {
         final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
         final JoystickButton extendIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
 
-
+        betterFire.whenHeld(m_fire);
         extendIntake.whenHeld(m_intakeBall);
         shift.whenHeld(m_shiftUp).whenReleased(m_shiftDown);
         moveDistance.whenPressed(m_moveDistance);
