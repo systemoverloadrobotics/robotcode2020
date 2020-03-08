@@ -35,7 +35,7 @@ public class RobotContainer {
 	private final Storage m_storage = new Storage();
 	private final CompressorSubsystem m_compressorSub = new CompressorSubsystem();
 	private final DriveTrain m_driveTrain = new DriveTrain(
-			() -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER)
+			() -> arcade_joystick.getRawButtonPressed(CONTROLS.TRIGGER)
 	);
 
 	// Compressor
@@ -45,6 +45,11 @@ public class RobotContainer {
 	private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
 			() -> left_joystick.getY(),
 			() -> right_joystick.getY(),
+			() -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER),
+			() -> left_joystick.getRawButtonReleased(CONTROLS.TRIGGER));
+	private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_driveTrain,
+			() -> left_joystick.getY(),
+			() -> left_joystick.getX(),
 			() -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER),
 			() -> left_joystick.getRawButtonReleased(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
@@ -71,15 +76,14 @@ public class RobotContainer {
 		final JoystickButton shoot = new JoystickButton(right_joystick, CONTROLS.TRIGGER);
 
 		// Left Joystick
-
 //        final JoystickButton eject = new JoystickButton(left_joystick, 12);
 
 		// Arcade Joystick
         final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_8);
 
-		shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
 
 		// Button Actions
+		shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
         intake.whenHeld(m_extendIntake.alongWith(m_storageBallChecker)).whenReleased(m_retractIntake.alongWith(new InstantCommand(m_storage::moveStop, m_storage)));
         compressorOn.whenPressed(new InstantCommand(m_compressorSub::startCompressor)).whenReleased(new InstantCommand(m_compressorSub::stopCompressor));
 //		eject.whenPressed(new InstantCommand(m_storage::moveOut).alongWith(new ConditionalCommand(m_extendIntake, null, m_storage::getPos0)));
