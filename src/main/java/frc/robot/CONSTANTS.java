@@ -26,17 +26,13 @@ public final class CONSTANTS {
 
 	public static final class STORAGE {
 		public static final int POLYCORD_MOTOR_ID = 11;
-		public static final int STORAGE_GATE_ID = 13;
-		public static final int SUPER_SOLENOID_TIME = 3;
-		public static final double POLYCORD_FORWARD_POWER = 0.2;
-		public static final double POLYCORD_REVERSE_POWER = -0.2;
-		public static final int POLYCORD_STOP = 0;
+		public static final double POLYCORD_BACKWARD_SPEED = -.2;
+		public static final int BALLS_INTAKE_SWITCH_ID = 0;
 		public static final int BALLS_IN_SWITCH_ID = 1;
 		public static final int BALLS_OUT_SWITCH_ID = 2;
 		public static final double POLYCORD_FORWARD_SPEED = .2;
-		public static final double POLYCORD_BACKWARD_SPEED = -.2;
-        public static final int BALLS_INTAKE_SWITCH_ID = 0;
-    }
+		public static final double POLYCORD_REVERSE_SPEED = -.2;
+	}
 
 	public static final class CLIMB {
 		public static final int WINCH_ID = 15;
@@ -45,7 +41,6 @@ public final class CONSTANTS {
 		public static final double REVERSE_ELEVATOR_POWER_CONSTANT = -0.3;
 		public static final double WINCH_POWER_CONSTANT = 0.3;
 		public static final double REVERSE_WINCH_POWER_CONSTANT = -0.3;
-		public static final double ELEVATOR_STOP_CONSTANT = 0;
 	}
 
 	public static final class INTAKE {
@@ -69,8 +64,6 @@ public final class CONSTANTS {
 
 		// For Testing
 		public static final int TRIGGER = 1;
-		public static final int X_AXIS = 0;
-		public static final int Y_AXIS = 0;
 		public static final int BUTTON_2 = 2;
 		public static final int BUTTON_3 = 3;
 		public static final int BUTTON_4 = 4;
