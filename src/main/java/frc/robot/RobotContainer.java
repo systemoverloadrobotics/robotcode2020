@@ -64,13 +64,13 @@ public class RobotContainer {
 	private void configureButtonBindings() {
 
 		// Right Joystick
-		final JoystickButton compressorOn = new JoystickButton(right_joystick, CONTROLS.BUTTON_11);
+		final JoystickButton compressorOn = new JoystickButton(left_joystick, CONTROLS.BUTTON_9);
 
 		// Left Joystick
         final JoystickButton shoot = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
 
 		// Arcade Joystick
-        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_2);
+        final JoystickButton intake = new JoystickButton(left_joystick, CONTROLS.BUTTON_8);
 
 		if (compressorOn.get()) {
 			m_compressor.start();
