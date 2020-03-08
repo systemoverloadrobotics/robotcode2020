@@ -107,7 +107,7 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void driveTank(double leftSpeed, double rightSpeed) {
-        robotDrive.tankDrive(leftSpeed * DRIVE.SPEED_MULTIPLIER, rightSpeed * DRIVE.SPEED_MULTIPLIER);
+        robotDrive.tankDrive(-leftSpeed * DRIVE.SPEED_MULTIPLIER, -rightSpeed * DRIVE.SPEED_MULTIPLIER);
     }
 
     public void driveArcade(double speed, double turn) {
