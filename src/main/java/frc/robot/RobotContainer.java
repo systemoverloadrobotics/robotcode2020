@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
@@ -71,13 +72,14 @@ public class RobotContainer {
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
     private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
     private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
-    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
     private final IntakeTHEBall m_intakeTheBall = new IntakeTHEBall(m_intake, m_storage);
+    private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage, () -> left_joystick.getRawButton(8));
 
     public RobotContainer() {
         //Default Commands
         m_driveTrain.setDefaultCommand(m_tankDrive);
         m_storage.setDefaultCommand(m_storageBallChecker);
+
 
         //Configure the button bindings
         configureButtonBindings();
@@ -123,7 +125,7 @@ public class RobotContainer {
         shift.whenHeld(m_shiftUp).whenReleased(m_shiftDown);
         moveDistance.whenPressed(m_moveDistance);
         park.whenHeld(m_park);
-        compressorOn.whenHeld(m_runCompressor);
+        compressorOn.whenPressed(m_runCompressor);
         fire.whenPressed(m_fire);
         climb.whenPressed(m_climbTheBar);
         goToBottom.whenPressed(m_goToBottom);
@@ -135,6 +137,11 @@ public class RobotContainer {
         seizeFire.whenHeld(m_seizeFire);
         setHeight.whenPressed(m_setHeight);
         storageFromIntake.whenHeld(m_storageFromIntake);
+
+        final JoystickButton Eject = new JoystickButton(left_joystick, 8);
+       // Eject.whenHeld(new InstantCommand(m_storage::moveOut)).whenReleased(new InstantCommand(m_storage::moveStop));
+
+
     }
 
 //	public Command getAutonomousCommand() {

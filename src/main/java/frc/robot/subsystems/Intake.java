@@ -14,7 +14,7 @@ public class Intake extends SubsystemBase {
 	public DoubleSolenoid arms = new DoubleSolenoid(CONSTANTS.PCM_ID, INTAKE.FORWARD_CHANNEL, INTAKE.REVERSE_CHANNEL);
 	public WPI_VictorSPX master = new WPI_VictorSPX(INTAKE.MASTER_ID);
 	public WPI_VictorSPX follower = new WPI_VictorSPX(INTAKE.FOLLOWER_ID);
-	public DigitalInput input = new DigitalInput(INTAKE.INPUT_DIO_PORT_ID);
+
 
 	public Intake() {
 		master.configFactoryDefault();
