@@ -33,17 +33,17 @@ public class Storage extends SubsystemBase {
     }
 
     public boolean getPos1() {
-        System.out.println("Position 1: " + ballsInSwitch.get());
-        return ballsInSwitch.get();
+        System.out.println("Position 1: " + !ballsInSwitch.get());
+        return !ballsInSwitch.get();
     }
 
     public boolean getPos5() {
-        System.out.println("Position 5: " + ballsOutSwitch.get());
-        return ballsOutSwitch.get();
+        System.out.println("Position 5: " + !ballsOutSwitch.get());
+        return !ballsOutSwitch.get();
     }
 
     public boolean getPos0() {
-        System.out.println("Position 0: " + ballsOutSwitch.get());
-        return ballsIntakeSwitch.get();
+        System.out.println("Position 0: " + !ballsOutSwitch.get());
+        return !ballsIntakeSwitch.get();
     }
 }
