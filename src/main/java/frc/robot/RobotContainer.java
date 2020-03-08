@@ -44,6 +44,8 @@ public class RobotContainer {
 			() -> right_joystick.getY(),
 			() -> right_joystick.getRawButtonPressed(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage, () -> left_joystick.getRawButton(8));
+	private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
+	private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
 
 	public RobotContainer() {
 		//Default Commands
@@ -63,12 +65,18 @@ public class RobotContainer {
 		// Left Joystick
 
 		// Arcade Joystick
+        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_2);
 
 		if (compressorOn.get()) {
 			m_compressor.start();
 		} else {
 			m_compressor.stop();
 		}
+
+
+		// Button Actions
+        intake.whenPressed(m_extendIntake).whenReleased(m_retractIntake);
+
 	}
 
 //	public Command getAutonomousCommand() {
