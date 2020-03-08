@@ -29,12 +29,7 @@ public class Fire extends CommandBase {
 	}
 
 	@Override
-	public void end(boolean interrupted) {
-		m_shoot.spinStop();
-	}
-
-	@Override
 	public boolean isFinished() {
-		return m_shoot.getEncoder() == m_rpm;
+		return true;
 	}
 }

@@ -20,8 +20,8 @@ public final class CONSTANTS {
 		public static final int LEFT_FOLLOWER_2_ID = 9;
 		public static final double SPEED_MULTIPLIER = 0.6;
 		public static final double TURN_MULTIPLIER = 0.4;
-		public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 4;
-		public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 5;
+		public static final int DOUBLESOLENOID_FOWARDCHANNEL_ID = 2;
+		public static final int DOUBLESOLENOID_REVERSECHANNEL_ID = 3;
 	}
 
 	public static final class STORAGE {
@@ -30,7 +30,7 @@ public final class CONSTANTS {
 		public static final int BALLS_INTAKE_SWITCH_ID = 0;
 		public static final int BALLS_IN_SWITCH_ID = 1;
 		public static final int BALLS_OUT_SWITCH_ID = 2;
-		public static final double POLYCORD_FORWARD_SPEED = .2;
+		public static final double POLYCORD_FORWARD_SPEED = .3;
 		public static final double POLYCORD_REVERSE_SPEED = -.2;
 	}
 
@@ -44,12 +44,12 @@ public final class CONSTANTS {
 	}
 
 	public static final class INTAKE {
-		public static final int FORWARD_CHANNEL = 2;
-		public static final int REVERSE_CHANNEL = 3;
+		public static final int FORWARD_CHANNEL = 5;
+		public static final int REVERSE_CHANNEL = 4;
 		public static final int MASTER_ID = 10;
 		public static final int FOLLOWER_ID = 11;
-		public static final int INWARD = 1;
-		public static final int OUTWARD = -1;
+		public static final double INWARD = -.35;
+		public static final double OUTWARD = .5;
 
 	}
 

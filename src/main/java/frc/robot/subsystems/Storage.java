@@ -15,7 +15,6 @@ public class Storage extends SubsystemBase {
     public static final DigitalInput ballsIntakeSwitch = new DigitalInput(STORAGE.BALLS_INTAKE_SWITCH_ID);
     public static final WPI_VictorSPX polycord = new WPI_VictorSPX(STORAGE.POLYCORD_MOTOR_ID);
 
-
     public Storage() {
         polycord.configFactoryDefault();
     }

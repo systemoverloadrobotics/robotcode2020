@@ -16,55 +16,40 @@ import java.util.function.BooleanSupplier;
 public class StorageBallChecker extends CommandBase {
 
     private final Storage store;
-    private final BooleanSupplier m_reverse;
 
-    public StorageBallChecker(Storage ballStorage, BooleanSupplier reverse) {
+    public StorageBallChecker(Storage ballStorage) {
         store = ballStorage;
-        m_reverse = reverse;
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(ballStorage);
     }
 
-    // Called when the command is initially scheduled.
-    public void initialize() { //once
-
-    }
-
-    // Called every time the scheduler runs while the command is scheduled.
+    @Override
     public void execute() {
-    /*if(store.getPos0()) {
-        store.moveIn();
-    }
-
-     */
-        if (m_reverse.getAsBoolean()) {
-            store.moveOut();
-        } else if (!m_reverse.getAsBoolean()) {
-            if (!store.getPos5()) {
-                if (store.getPos0()) {
-                    store.moveIn();
-                } else if (store.getPos1() && store.getPos0()) {
-                    store.moveIn();
-                } else if (store.getPos1() && !store.getPos0()) {
-                    store.moveStop();
-                }
-            else{
-                store.moveStop();
-                }
-            }
-        } else {
+        if (store.getPos5() || (store.getPos1() && !store.getPos0())) {
+            System.out.println("STOP" + store.getPos0() + " | " + store.getPos1() + " | " + store.getPos5());
             store.moveStop();
+        } else {
+            System.out.println("IN" + store.getPos0() + " | " + store.getPos1() + " | " + store.getPos5());
+            store.moveIn();
         }
 
-    }
+//            if (!store.getPos5()) {
+//                if (store.getPos0()) {
+//                    store.moveIn();
+//                } else if (store.getPos1() && store.getPos0()) {
+//                    store.moveIn();
+//                } else if (store.getPos1() && !store.getPos0()) {
+//                    store.moveStop();
+//                } else {
+//                    store.moveStop();
+//                }
+//            } else {
+//                store.moveStop();
+//            }
+        }
 
-    // Called once the command ends or is interrupted.
-    public void end(boolean interrupted) {
-        //store.moveStop();
-    }
-
-    // Returns true when the command should end.
-    public boolean isFinished() {
-        return false;
-    }
+//    @Override
+//    public boolean isFinished() {
+//        return true;
+//    }
 }

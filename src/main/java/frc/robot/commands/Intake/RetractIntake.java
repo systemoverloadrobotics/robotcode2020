@@ -22,8 +22,10 @@ public class RetractIntake extends CommandBase {
 
 	public void initialize() {
 		m_intake.retract();
-		m_intake.spinIn();
+		m_intake.spinStop();
 	}
+
+
 
 	public boolean isFinished() {
 		return true;

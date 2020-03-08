@@ -20,10 +20,12 @@ public class MoveIntoShooter extends CommandBase {
 		addRequirements(storage);
 	}
 
-	public void initialize() { //once
+	@Override
+	public void execute() { //once
 		m_storage.moveIn();
 	}
 
+	@Override
 	public boolean isFinished() {
 		return true;
 	}

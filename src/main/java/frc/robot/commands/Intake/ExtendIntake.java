@@ -20,11 +20,13 @@ public class ExtendIntake extends CommandBase {
 		addRequirements(intakeWheels);
 	}
 
+	@Override
 	public void initialize() {
 		m_intake.extend();
 		m_intake.spinIn();
 	}
 
+	@Override
 	public boolean isFinished() {
 		return true;
 	}
