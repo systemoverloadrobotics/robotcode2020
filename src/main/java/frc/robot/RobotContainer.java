@@ -48,6 +48,8 @@ public class RobotContainer {
 	private final Fire m_fire = new Fire(m_outtake, .5);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
 	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
+	private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
+	private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
 
 	public RobotContainer() {
 		//Default Commands
@@ -68,6 +70,7 @@ public class RobotContainer {
         final JoystickButton shoot = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
 
 		// Arcade Joystick
+        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_2);
 
 		if (compressorOn.get()) {
 			m_compressor.start();
@@ -76,6 +79,10 @@ public class RobotContainer {
 		}
 
 		shoot.whenHeld(m_fire.alongWith(m_moveIntoShooter)).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
+
+		// Button Actions
+        intake.whenPressed(m_extendIntake).whenReleased(m_retractIntake);
+
 	}
 
 //	public Command getAutonomousCommand() {
