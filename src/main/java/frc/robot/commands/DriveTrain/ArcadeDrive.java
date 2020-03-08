@@ -19,7 +19,7 @@ public class ArcadeDrive extends CommandBase {
 
     @Override
     public void execute() {
-        m_driveTrain.driveTank(m_speed.getAsDouble(), m_turn.getAsDouble());
+        m_driveTrain.driveArcade(m_speed.getAsDouble(), m_turn.getAsDouble());
     }
 
     @Override

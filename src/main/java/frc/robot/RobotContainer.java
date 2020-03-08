@@ -45,7 +45,8 @@ public class RobotContainer {
 	private final TankDrive m_tankDrive = new TankDrive(m_driveTrain,
 			() -> left_joystick.getY(),
 			() -> right_joystick.getY(),
-			() -> right_joystick.getRawButtonPressed(CONTROLS.TRIGGER));
+			() -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER),
+			() -> left_joystick.getRawButtonReleased(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 	private final Fire m_fire = new Fire(m_outtake, 1);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
@@ -66,14 +67,15 @@ public class RobotContainer {
 	private void configureButtonBindings() {
 
 		// Right Joystick
-		final JoystickButton compressorOn = new JoystickButton(left_joystick, CONTROLS.BUTTON_9);
+		final JoystickButton compressorOn = new JoystickButton(right_joystick, CONTROLS.BUTTON_9);
+		final JoystickButton shoot = new JoystickButton(right_joystick, CONTROLS.TRIGGER);
 
 		// Left Joystick
-        final JoystickButton shoot = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
+
 //        final JoystickButton eject = new JoystickButton(left_joystick, 12);
 
 		// Arcade Joystick
-        final JoystickButton intake = new JoystickButton(left_joystick, CONTROLS.BUTTON_8);
+        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_8);
 
 		shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
 
