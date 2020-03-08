@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.Complex.ClimbTheBar;
 import frc.robot.commands.Climb.GoToBottom;
 import frc.robot.commands.Climb.SetHeight;
+import frc.robot.commands.Complex.IntakeTHEBall;
+import frc.robot.commands.Complex.ReadyToFire;
 import frc.robot.commands.DriveTrain.*;
 import frc.robot.commands.Intake.ExtendIntake;
 import frc.robot.commands.Intake.IntakeBall;
@@ -30,6 +32,7 @@ public class RobotContainer {
     // Controllers
     private final Joystick right_joystick = new Joystick(CONTROLS.RIGHT_JOYSTICK_PORT);
     private final Joystick left_joystick = new Joystick(CONTROLS.LEFT_JOYSTICK_PORT);
+    private final Joystick arcade_joystick = new Joystick(CONTROLS.ARCADE_JOYSTICK_PORT);
 
     // Subsystems
     private final Climb m_climb = new Climb();
@@ -69,6 +72,7 @@ public class RobotContainer {
     private final ClimbTheBar m_climbTheBar = new ClimbTheBar(m_climb);
     private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
     private final RetractIntake m_retractIntake = new RetractIntake(m_intake);
+    private final IntakeTHEBall m_intakeTheBall = new IntakeTHEBall(m_intake, m_storage);
     private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage, () -> left_joystick.getRawButton(8));
 
     public RobotContainer() {
@@ -101,6 +105,8 @@ public class RobotContainer {
         final JoystickButton seizeFire = new JoystickButton(left_joystick, CONTROLS.BUTTON_11);
         final JoystickButton setHeight = new JoystickButton(left_joystick, CONTROLS.BUTTON_12);
 
+        // Arcade Joystick
+        final JoystickButton betterFire = new JoystickButton(arcade_joystick, CONTROLS.TRIGGER);
 
 
 
@@ -113,13 +119,10 @@ public class RobotContainer {
 
         final JoystickButton storageFromIntake = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
         final JoystickButton extendIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
-        final JoystickButton retractIntake = new JoystickButton(left_joystick, CONTROLS.BUTTON_2);
 
-
-        extendIntake.whenHeld(m_extendIntake);
-        retractIntake.whenReleased(m_retractIntake);
-        shift.whenHeld(m_shiftUp);
-        shift.whenReleased(m_shiftDown);
+        betterFire.whenHeld(m_fire);
+        extendIntake.whenHeld(m_intakeBall);
+        shift.whenHeld(m_shiftUp).whenReleased(m_shiftDown);
         moveDistance.whenPressed(m_moveDistance);
         park.whenHeld(m_park);
         compressorOn.whenPressed(m_runCompressor);
