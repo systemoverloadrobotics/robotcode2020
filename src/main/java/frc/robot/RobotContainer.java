@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.CONSTANTS.CONTROLS;
 import frc.robot.commands.Climb.*;
 import frc.robot.commands.Complex.*;
@@ -44,6 +45,9 @@ public class RobotContainer {
 			() -> right_joystick.getY(),
 			() -> right_joystick.getRawButtonPressed(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage, () -> left_joystick.getRawButton(8));
+	private final Fire m_fire = new Fire(m_outtake, .5);
+	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
+	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
 
 	public RobotContainer() {
 		//Default Commands
@@ -61,6 +65,7 @@ public class RobotContainer {
 		final JoystickButton compressorOn = new JoystickButton(right_joystick, CONTROLS.BUTTON_11);
 
 		// Left Joystick
+        final JoystickButton shoot = new JoystickButton(left_joystick, CONTROLS.TRIGGER);
 
 		// Arcade Joystick
 
@@ -69,6 +74,8 @@ public class RobotContainer {
 		} else {
 			m_compressor.stop();
 		}
+
+		shoot.whenHeld(m_fire.alongWith(m_moveIntoShooter)).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
 	}
 
 //	public Command getAutonomousCommand() {

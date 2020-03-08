@@ -24,11 +24,7 @@ public class MoveIntoShooter extends CommandBase {
 		m_storage.moveIn();
 	}
 
-	public void end(boolean interrupted) {
-		m_storage.moveStop();
-	}
-
 	public boolean isFinished() {
-		return !m_storage.getPos5();
+		return true;
 	}
 }
