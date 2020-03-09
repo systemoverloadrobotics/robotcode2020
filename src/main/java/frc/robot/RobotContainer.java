@@ -53,7 +53,12 @@ public class RobotContainer {
 			() -> left_joystick.getRawButtonPressed(CONTROLS.TRIGGER),
 			() -> left_joystick.getRawButtonReleased(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
-	private final Fire m_fire = new Fire(m_outtake, 1);
+	private final Fire m_fire = new Fire(m_outtake,
+			() -> arcade_joystick.getRawButtonPressed(3),
+			() -> arcade_joystick.getRawButtonPressed(4),
+			() -> arcade_joystick.getRawButtonPressed(5),
+			() -> arcade_joystick.getRawButtonPressed(6),
+			0);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
 	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
 	private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
@@ -62,6 +67,7 @@ public class RobotContainer {
 	public RobotContainer() {
 		//Default Commands
 		m_driveTrain.setDefaultCommand(m_tankDrive);
+		//m_outtake.setDefaultCommand(m_fire);
 		//m_storage.setDefaultCommand(m_storageBallChecker);
 
 
@@ -70,6 +76,12 @@ public class RobotContainer {
 	}
 
 	private void configureButtonBindings() {
+
+		final JoystickButton climbUp = new JoystickButton(left_joystick, 12);
+		final JoystickButton climbDown = new JoystickButton(left_joystick, 11);
+		climbUp.whenHeld(new InstantCommand(m_climb::goUp, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
+		climbDown.whenHeld(new InstantCommand(m_climb::goDown, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
+
 
 		// Right Joystick
 		final JoystickButton compressorOn = new JoystickButton(right_joystick, CONTROLS.BUTTON_9);
@@ -80,6 +92,21 @@ public class RobotContainer {
 
 		// Arcade Joystick
         final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.BUTTON_8);
+
+        JoystickButton button3 = new JoystickButton(arcade_joystick, 3);
+		JoystickButton button4 = new JoystickButton(arcade_joystick, 4);
+		JoystickButton button5 = new JoystickButton(arcade_joystick, 5);
+		JoystickButton button6 = new JoystickButton(arcade_joystick, 6);
+		JoystickButton button1 = new JoystickButton(arcade_joystick, 1);
+
+		button3.whenHeld(m_fire);
+		button4.whenHeld(m_fire);
+		button5.whenHeld(m_fire);
+		button6.whenHeld(m_fire);
+		button1.whenHeld(new InstantCommand(m_storage::moveIn, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
+
+
+		//shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
 
 
 		// Button Actions
