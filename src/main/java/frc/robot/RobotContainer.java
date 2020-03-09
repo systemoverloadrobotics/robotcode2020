@@ -65,6 +65,12 @@ public class RobotContainer {
 
 	private void configureButtonBindings() {
 
+		final JoystickButton climbUp = new JoystickButton(left_joystick, 12);
+		final JoystickButton climbDown = new JoystickButton(left_joystick, 11);
+		climbUp.whenHeld(new InstantCommand(m_climb::goUp, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
+		climbDown.whenHeld(new InstantCommand(m_climb::goDown, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
+
+
 		// Right Joystick
 		final JoystickButton compressorOn = new JoystickButton(left_joystick, CONTROLS.BUTTON_9);
 
