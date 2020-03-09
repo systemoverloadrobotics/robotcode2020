@@ -26,30 +26,9 @@ public class StorageBallChecker extends CommandBase {
     @Override
     public void execute() {
         if (store.getPos5() || (store.getPos1() && !store.getPos0())) {
-            System.out.println("STOP" + store.getPos0() + " | " + store.getPos1() + " | " + store.getPos5());
             store.moveStop();
         } else {
-            System.out.println("IN" + store.getPos0() + " | " + store.getPos1() + " | " + store.getPos5());
             store.moveIn();
         }
-
-//            if (!store.getPos5()) {
-//                if (store.getPos0()) {
-//                    store.moveIn();
-//                } else if (store.getPos1() && store.getPos0()) {
-//                    store.moveIn();
-//                } else if (store.getPos1() && !store.getPos0()) {
-//                    store.moveStop();
-//                } else {
-//                    store.moveStop();
-//                }
-//            } else {
-//                store.moveStop();
-//            }
-        }
-
-//    @Override
-//    public boolean isFinished() {
-//        return true;
-//    }
+    }
 }
