@@ -24,7 +24,7 @@ public class Storage extends SubsystemBase {
     }
 
     public void moveOut() {
-        polycord.set(ControlMode.PercentOutput, STORAGE.POLYCORD_BACKWARD_SPEED);
+        polycord.set(ControlMode.PercentOutput, STORAGE.POLYCORD_REVERSE_SPEED);
     }
 
     public void moveStop() {

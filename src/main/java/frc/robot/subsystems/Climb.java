@@ -19,11 +19,11 @@ public class Climb extends SubsystemBase {
 	}
 
 	public void goUp() {
-		elevatorMotor.set(CLIMB.ELEVATOR_POWER_CONSTANT);
+		elevatorMotor.set(CLIMB.ELEVATOR_UP_SPEED);
 	}
 
 	public void goDown() {
-		elevatorMotor.set(CLIMB.REVERSE_ELEVATOR_POWER_CONSTANT);
+		elevatorMotor.set(CLIMB.ELEVATOR_DOWN_SPEED);
 	}
 
 	public void liftStop() {

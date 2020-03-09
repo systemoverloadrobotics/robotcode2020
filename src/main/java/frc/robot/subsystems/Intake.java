@@ -11,16 +11,11 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Intake extends SubsystemBase {
 
-	public DoubleSolenoid arms = new DoubleSolenoid(CONSTANTS.PCM_ID, INTAKE.FORWARD_CHANNEL, INTAKE.REVERSE_CHANNEL);
-	public WPI_VictorSPX master = new WPI_VictorSPX(INTAKE.MASTER_ID);
-	public WPI_VictorSPX follower = new WPI_VictorSPX(INTAKE.FOLLOWER_ID);
-
+	public DoubleSolenoid arms = new DoubleSolenoid(CONSTANTS.PCM_ID, INTAKE.FORWARD_CHANNEL_ID, INTAKE.REVERSE_CHANNEL_ID);
+	public WPI_VictorSPX master = new WPI_VictorSPX(INTAKE.INTAKE_ID);
 
 	public Intake() {
 		master.configFactoryDefault();
-		follower.configFactoryDefault();
-		follower.follow(master);
-		follower.setInverted(InvertType.OpposeMaster);
 	}
 
 	public void extend() {
