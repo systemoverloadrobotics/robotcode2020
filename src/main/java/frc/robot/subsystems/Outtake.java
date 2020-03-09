@@ -16,8 +16,13 @@ public class Outtake extends SubsystemBase {
 
 	}
 
-	public void shoot(double rpm) {
-		shootMotor.set(ControlMode.PercentOutput, rpm);
+	public void shoot(double velocity) {
+		double percent = (velocity / OUTTAKE.MAX_RPM) * 100; // TODO: CHECK THIS
+		shootMotor.set(ControlMode.PercentOutput, percent);
+	}
+
+	public void percentShoot(double percent) {
+		shootMotor.set(ControlMode.PercentOutput, percent);
 	}
 
 	public void spinStop() {

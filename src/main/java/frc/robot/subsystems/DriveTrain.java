@@ -1,6 +1,8 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.EncoderType;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -13,10 +15,17 @@ import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
-import java.io.Console;
-import java.util.function.BooleanSupplier;
 
 public class DriveTrain extends SubsystemBase {
+
+    private NetworkTable limelight = NetworkTableInstance.getDefault().getTable("limelight");
+    private NetworkTableEntry validTarget = limelight.getEntry("tv");
+    private NetworkTableEntry x = limelight.getEntry("tx");
+    private NetworkTableEntry y = limelight.getEntry("ty");
+    private NetworkTableEntry area = limelight.getEntry("ta");
+
+    private DoubleSolenoid shifter = new DoubleSolenoid(CONSTANTS.PCM_ID, DRIVE.FORWARD_CHANNEL_ID, DRIVE.REVERSE_CHANNEL_ID);
+
     private CANSparkMax rightMaster = new CANSparkMax(DRIVE.RIGHT_MASTER_ID, MotorType.kBrushless);
     private CANSparkMax rightFollower1 = new CANSparkMax(DRIVE.RIGHT_FOLLOWER_1_ID, MotorType.kBrushless);
     private CANSparkMax rightFollower2 = new CANSparkMax(DRIVE.RIGHT_FOLLOWER_2_ID, MotorType.kBrushless);
@@ -24,24 +33,15 @@ public class DriveTrain extends SubsystemBase {
     private CANSparkMax leftFollower1 = new CANSparkMax(DRIVE.LEFT_FOLLOWER_1_ID, MotorType.kBrushless);
     private CANSparkMax leftFollower2 = new CANSparkMax(DRIVE.LEFT_FOLLOWER_2_ID, MotorType.kBrushless);
 
-
-
-    private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster, EncoderType.kQuadrature, 4069);
-    private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster, EncoderType.kQuadrature, 4069);
-
-    private DoubleSolenoid shifter = new DoubleSolenoid(CONSTANTS.PCM_ID, DRIVE.FORWARD_CHANNEL_ID, DRIVE.REVERSE_CHANNEL_ID);
-
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMaster, rightFollower1, rightFollower2);
     private SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMaster, leftFollower1, leftFollower2);
 
     public DifferentialDrive robotDrive = new DifferentialDrive(leftGroup, rightGroup);
 
-    BooleanSupplier m_align;
+    private CANEncoder leftMasterEncoder = new CANEncoder(leftMaster, EncoderType.kQuadrature, 4069);
+    private CANEncoder rightMasterEncoder = new CANEncoder(rightMaster, EncoderType.kQuadrature, 4069);
 
-    public DriveTrain(BooleanSupplier align) {
-
-        m_align = align;
-
+    public DriveTrain() {
         rightMaster.restoreFactoryDefaults();
         rightFollower1.restoreFactoryDefaults();
         rightFollower2.restoreFactoryDefaults();
@@ -51,98 +51,48 @@ public class DriveTrain extends SubsystemBase {
     }
 
 
-    public void Update_Limelight_Tracking() {
-        // These numbers must be tuned for your Robot!  Be careful!
-        final double STEER_K = 0.03;                    // how hard to turn toward the target
-        final double DRIVE_K = 0.26;                    // how hard to drive fwd toward the target
-        final double DESIRED_TARGET_AREA = 13.0;        // Area of the target when the robot reaches the wall
-        final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
-
-        double tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
-        double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
-        double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
-        double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
-        if (tv < 1.0) {
-            m_LimelightHasValidTarget = false;
-            m_LimelightDriveCommand = 0.0;
-            m_LimelightSteerCommand = 0.0;
-            return;
-        }
-
-        m_LimelightHasValidTarget = true;
-
-        // Start with proportional steering
-        double steer_cmd = tx * STEER_K;
-        m_LimelightSteerCommand = steer_cmd;
-
-        // try to drive forward until the target area reaches our desired area
-        double drive_cmd = (DESIRED_TARGET_AREA - ta) * DRIVE_K;
-
-        // don't let the robot drive too fast into the goal
-        if (drive_cmd > MAX_DRIVE) {
-            drive_cmd = MAX_DRIVE;
-        }
-        m_LimelightDriveCommand = drive_cmd;
-    }
-
-
     public void shiftUp() {
-        System.out.println("Down");
         shifter.set(Value.kForward);
     }
 
     public void shiftDown() {
-        System.out.println("Up");
         shifter.set(Value.kReverse);
     }
 
-
-    public double getLeftMasterEncoderValue() {
+    public double getLeftEncoder() {
         return leftMasterEncoder.getPosition();
     }
 
-    public double getRightMasterEncoderValue() {
+    public double getRightEncoder() {
         return rightMasterEncoder.getPosition();
     }
 
-    public void driveTank(double leftSpeed, double rightSpeed) {
-        robotDrive.tankDrive(-leftSpeed * DRIVE.SPEED_MULTIPLIER, -rightSpeed * DRIVE.SPEED_MULTIPLIER);
+    public void resetEncoders() {
+        rightMasterEncoder.setPosition(0);
+        leftMasterEncoder.setPosition(0);
+    }
+
+    public double getLimelightValidTarget() {
+        return validTarget.getDouble(0);
+    }
+
+    public double getLimelightX() {
+        return x.getDouble(0);
+    }
+
+    public double getLimelightY() {
+        return y.getDouble(0);
+    }
+
+    public double getLimelightArea() {
+        return area.getDouble(0);
     }
 
     public void driveArcade(double speed, double turn) {
-        //incase we need arcade drive
-        robotDrive.arcadeDrive(-speed * DRIVE.SPEED_MULTIPLIER, -turn * DRIVE.TURN_MULTIPLIER);
+        robotDrive.arcadeDrive(speed * DRIVE.SPEED_MULTIPLIER, turn * DRIVE.TURN_MULTIPLIER);
     }
 
-
-    private boolean m_LimelightHasValidTarget = false;
-    private double m_LimelightDriveCommand = 0.0;
-    private double m_LimelightSteerCommand = 0.0;
-
-
-
-    public void teleopPeriodic() {
-
-
-        Update_Limelight_Tracking();
-
-        if(m_align.getAsBoolean())
-        {
-            if (m_LimelightHasValidTarget)
-            {
-                robotDrive.arcadeDrive(m_LimelightDriveCommand,m_LimelightSteerCommand);
-            }
-            else
-            {
-                robotDrive.arcadeDrive(0.0,0.0);
-            }
-        }
-        else
-        {
-
-        }
-
+    public void driveTank(double leftSpeed, double rightSpeed) {
+        robotDrive.tankDrive(leftSpeed * DRIVE.SPEED_MULTIPLIER, rightSpeed * DRIVE.SPEED_MULTIPLIER);
     }
-
-
 }

@@ -10,29 +10,29 @@ package frc.robot.commands.Outtake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Outtake;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
-public class Fire extends CommandBase {
+public class ThrottleSpeed extends CommandBase {
 
     private final Outtake m_outtake;
 
-    DoubleSupplier m_distance;
-    double velocity;
+    DoubleSupplier m_percent;
 
-    public Fire(Outtake outtake, DoubleSupplier distance) { // TODO: CHECK THE DoubleSupplier IS CORRECT
+    public ThrottleSpeed(Outtake outtake, DoubleSupplier percent) {
         m_outtake = outtake;
-        m_distance = distance;
+        m_percent = percent;
         addRequirements(outtake);
     }
 
     @Override
-    public void initialize() {
-        velocity = m_distance.getAsDouble(); // TODO: MATH FOR DISTANCE IN X UNIT TO VELOCITY
-        m_outtake.shoot(velocity);
+    public void execute() {
+        double speed = (m_percent.getAsDouble() + 1) / 2; // TODO: MAKE SURE RANGE IS CONVERTED TO 0 - 1, MIGHT NEED TO INVERSE, CAN'T REMEMBER IF THROTTLE IS -1 to +1 or +1 to -1
+        m_outtake.percentShoot(speed);
     }
 
     @Override
     public boolean isFinished() {
-        return m_outtake.getEncoder() == velocity;
+        return false;
     }
 }

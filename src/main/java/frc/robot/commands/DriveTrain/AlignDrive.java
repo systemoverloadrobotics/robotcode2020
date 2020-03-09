@@ -4,16 +4,17 @@ import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.DriveTrain;
 
-public class MoveDistance extends PIDCommand {
-    public MoveDistance(DriveTrain driveTrain, double distance) {
+public class AlignDrive extends PIDCommand {
+
+    public AlignDrive(DriveTrain driveTrain) {
         super(
                 new PIDController(1, 0, 0),
                 // Close loop on heading
-                driveTrain::getLeftEncoder,
+                driveTrain::getLimelightX,
                 // Set reference to target
-                distance,
+                0,
                 // Pipe output to move robot
-                output -> driveTrain.driveArcade(output, 0),
+                output -> driveTrain.driveArcade(0, output),
                 // Require the drive
                 driveTrain);
 
@@ -23,10 +24,6 @@ public class MoveDistance extends PIDCommand {
     @Override
     public void initialize() {
         super.initialize();
-    }
-
-    @Override
-    public void end(boolean interrupted) {
     }
 
     @Override

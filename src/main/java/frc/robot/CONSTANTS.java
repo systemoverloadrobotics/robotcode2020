@@ -21,8 +21,8 @@ public final class CONSTANTS {
         public static final int LEFT_MASTER_ID = 7;
         public static final int LEFT_FOLLOWER_1_ID = 8;
         public static final int LEFT_FOLLOWER_2_ID = 9;
-        public static final double SPEED_MULTIPLIER = 0.6;
-        public static final double TURN_MULTIPLIER = 0.4;
+        public static final double SPEED_MULTIPLIER = -0.6;
+        public static final double TURN_MULTIPLIER = -0.4;
     }
 
     public static final class STORAGE {
@@ -54,13 +54,13 @@ public final class CONSTANTS {
 
     public static final class OUTTAKE {
         public static final int OUTTAKE_WHEELS_ID = 14;
+        public static final int MAX_RPM = 0; // TODO: SET THIS
     }
 
     public static final class CONTROLS {
-        public static final int JOYSTICK_PORT = 0;
-        public static final byte ARCADE_JOYSTICK_PORT = 1;
 
         public static final class JOYSTICK {
+            public static final int PORT = 0;     // PORT
             public static final int TRIGGER = 1;  // BUTTON
             public static final int THUMB = 2;    // BUTTON
 
@@ -99,6 +99,7 @@ public final class CONSTANTS {
         }
 
         public static final class ARCADE {
+            public static final int PORT = 1;     // PORT
             public static final int A = 1;        // BUTTON
             public static final int B = 2;        // BUTTON
             public static final int X = 3;        // BUTTON

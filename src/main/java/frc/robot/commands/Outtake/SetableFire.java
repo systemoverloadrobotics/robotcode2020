@@ -10,29 +10,38 @@ package frc.robot.commands.Outtake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Outtake;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
-public class Fire extends CommandBase {
+public class SetableFire extends CommandBase {
 
     private final Outtake m_outtake;
 
-    DoubleSupplier m_distance;
-    double velocity;
+    BooleanSupplier m_increase;
+    BooleanSupplier m_decrease;
+    double velocity = 5000; // TODO: SET TO BASE/MIDDLE VELOCITY
 
-    public Fire(Outtake outtake, DoubleSupplier distance) { // TODO: CHECK THE DoubleSupplier IS CORRECT
+    public SetableFire(Outtake outtake, BooleanSupplier increase, BooleanSupplier decrease) {
         m_outtake = outtake;
-        m_distance = distance;
+        m_increase = increase;
+        m_decrease = decrease;
         addRequirements(outtake);
     }
 
     @Override
-    public void initialize() {
-        velocity = m_distance.getAsDouble(); // TODO: MATH FOR DISTANCE IN X UNIT TO VELOCITY
+    public void execute() {
+        if (m_increase.getAsBoolean()) {
+            velocity += 100;
+        }
+        if (m_decrease.getAsBoolean()) {
+            velocity -= 100;
+        }
+
         m_outtake.shoot(velocity);
     }
 
     @Override
     public boolean isFinished() {
-        return m_outtake.getEncoder() == velocity;
+        return false;
     }
 }

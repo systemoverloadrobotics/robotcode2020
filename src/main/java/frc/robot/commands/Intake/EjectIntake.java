@@ -5,36 +5,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Climb;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Climb;
-
-public class GoToBottom extends CommandBase {
+import frc.robot.subsystems.Intake;
 
 
-	private final Climb m_climb;
+public class EjectIntake extends CommandBase {
 
-	public GoToBottom(Climb climb) {
-		m_climb = climb;
-		addRequirements(climb);
+	private final Intake m_intake;
+
+	public EjectIntake(Intake intake) {
+		m_intake = intake;
+		addRequirements(intake);
 	}
 
 	@Override
 	public void initialize() {
-		m_climb.reelIn();
-		m_climb.goDown();
-	}
-
-	@Override
-	public void end(boolean interrupted) {
-		m_climb.liftStop();
-		m_climb.reelStop();
+		m_intake.extend();
+		m_intake.spinOut();
 	}
 
 	@Override
 	public boolean isFinished() {
-		return m_climb.getEncoder() == 0;
+		return true;
 	}
 }
-
