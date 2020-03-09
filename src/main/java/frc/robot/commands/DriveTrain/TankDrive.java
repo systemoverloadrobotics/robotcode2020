@@ -1,7 +1,6 @@
 package frc.robot.commands.DriveTrain;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 
 import java.util.function.BooleanSupplier;
@@ -11,20 +10,27 @@ public class TankDrive extends CommandBase {
     DriveTrain m_driveTrain;
     DoubleSupplier m_leftSpeed;
     DoubleSupplier m_rightSpeed;
-    BooleanSupplier m_shift;
+    BooleanSupplier m_shiftUp;
+    BooleanSupplier m_shiftDown;
 
-    public TankDrive(DriveTrain driveTrain, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed, BooleanSupplier shift) {
+    public TankDrive(DriveTrain driveTrain, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed, BooleanSupplier shiftDown, BooleanSupplier shiftUp) {
         m_driveTrain = driveTrain;
         m_leftSpeed = leftSpeed;
         m_rightSpeed = rightSpeed;
-        m_shift = shift;
+        m_shiftDown = shiftDown;
+        m_shiftUp = shiftUp;
         addRequirements(driveTrain);
     }
 
     @Override
     public void execute() {
         m_driveTrain.driveTank(m_leftSpeed.getAsDouble(), m_rightSpeed.getAsDouble());
-        if (m_shift.getAsBoolean()) { m_driveTrain.shiftDown();} else { m_driveTrain.shiftUp();}
+
+        if (m_shiftDown.getAsBoolean()) {
+            m_driveTrain.shiftDown();
+        } else if (m_shiftUp.getAsBoolean()) {
+            m_driveTrain.shiftUp();
+        }
     }
 
     @Override

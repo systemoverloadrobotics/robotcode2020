@@ -1,11 +1,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.EncoderType;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,6 +13,7 @@ import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
+import java.io.Console;
 import java.util.function.BooleanSupplier;
 
 public class DriveTrain extends SubsystemBase {
@@ -39,11 +36,11 @@ public class DriveTrain extends SubsystemBase {
 
     public DifferentialDrive robotDrive = new DifferentialDrive(leftGroup, rightGroup);
 
-    BooleanSupplier m_allign;
+    BooleanSupplier m_align;
 
-    public DriveTrain(BooleanSupplier allign) {
+    public DriveTrain(BooleanSupplier align) {
 
-        m_allign = allign;
+        m_align = align;
 
         rightMaster.restoreFactoryDefaults();
         rightFollower1.restoreFactoryDefaults();
@@ -90,10 +87,12 @@ public class DriveTrain extends SubsystemBase {
 
 
     public void shiftUp() {
+        System.out.println("Down");
         shifter.set(Value.kForward);
     }
 
     public void shiftDown() {
+        System.out.println("Up");
         shifter.set(Value.kReverse);
     }
 
@@ -112,7 +111,7 @@ public class DriveTrain extends SubsystemBase {
 
     public void driveArcade(double speed, double turn) {
         //incase we need arcade drive
-        robotDrive.arcadeDrive(speed * DRIVE.SPEED_MULTIPLIER, turn * DRIVE.TURN_MULTIPLIER);
+        robotDrive.arcadeDrive(-speed * DRIVE.SPEED_MULTIPLIER, -turn * DRIVE.TURN_MULTIPLIER);
     }
 
 
@@ -127,7 +126,7 @@ public class DriveTrain extends SubsystemBase {
 
         Update_Limelight_Tracking();
 
-        if(m_allign.getAsBoolean())
+        if(m_align.getAsBoolean())
         {
             if (m_LimelightHasValidTarget)
             {
