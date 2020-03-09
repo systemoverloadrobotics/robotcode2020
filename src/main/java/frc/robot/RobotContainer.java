@@ -48,10 +48,11 @@ public class RobotContainer {
 			() -> right_joystick.getRawButtonPressed(CONTROLS.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 	private final Fire m_fire = new Fire(m_outtake,
-			() -> arcade_joystick.getRawButtonPressed(1),
-			() -> arcade_joystick.getRawButtonPressed(2),
 			() -> arcade_joystick.getRawButtonPressed(3),
-			() -> arcade_joystick.getRawButtonPressed(4));
+			() -> arcade_joystick.getRawButtonPressed(4),
+			() -> arcade_joystick.getRawButtonPressed(5),
+			() -> arcade_joystick.getRawButtonPressed(6),
+			0);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
 	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
 	private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
@@ -60,7 +61,7 @@ public class RobotContainer {
 	public RobotContainer() {
 		//Default Commands
 		m_driveTrain.setDefaultCommand(m_tankDrive);
-		m_outtake.setDefaultCommand(m_fire);
+		//m_outtake.setDefaultCommand(m_fire);
 		//m_storage.setDefaultCommand(m_storageBallChecker);
 
 
@@ -86,7 +87,20 @@ public class RobotContainer {
 		// Arcade Joystick
         final JoystickButton intake = new JoystickButton(left_joystick, CONTROLS.BUTTON_8);
 
-		shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
+        JoystickButton button3 = new JoystickButton(arcade_joystick, 3);
+		JoystickButton button4 = new JoystickButton(arcade_joystick, 4);
+		JoystickButton button5 = new JoystickButton(arcade_joystick, 5);
+		JoystickButton button6 = new JoystickButton(arcade_joystick, 6);
+		JoystickButton button1 = new JoystickButton(arcade_joystick, 1);
+
+		button3.whenHeld(m_fire);
+		button4.whenHeld(m_fire);
+		button5.whenHeld(m_fire);
+		button6.whenHeld(m_fire);
+		button1.whenHeld(new InstantCommand(m_storage::moveIn, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
+
+
+		//shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
 
 		// Button Actions
         intake.whenHeld(m_extendIntake.alongWith(m_storageBallChecker)).whenReleased(m_retractIntake.alongWith(new InstantCommand(m_storage::moveStop, m_storage)));

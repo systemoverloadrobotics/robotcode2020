@@ -23,38 +23,47 @@ public class Fire extends CommandBase {
 	double m_RPM;
 
 	public Fire(Outtake shoot, BooleanSupplier fullPower, BooleanSupplier lowPower, BooleanSupplier changePowerPlus, BooleanSupplier changePowerNegative, double RPM) {
-		m_shoot = shoot.getAsBoolean();
-		m_fullPower = fullPower.getAsBoolean();
-		m_lowPower = lowPower.getAsBoolean();
-		m_changePowerPlus = changePowerPlus.getAsBoolean();
-		m_changePowerNegative = changePowerNegative.getAsBoolean();
+		m_shoot = shoot;
+		m_fullPower = fullPower;
+		m_lowPower = lowPower;
+		m_changePowerPlus = changePowerPlus;
+		m_changePowerNegative = changePowerNegative;
 		addRequirements(shoot);
 
 		m_RPM = 0;
 	}
 
-
 	@Override
 	public void execute(){
-		if (m_fullPower) {
+		System.out.println("running");
+		if (m_fullPower.getAsBoolean()) {
 			m_RPM = 1;
 			m_shoot.shoot(m_RPM);
-		} else if(m_lowPower) {
+			System.out.println("running full power");
+		} else if(m_lowPower.getAsBoolean()) {
 			m_RPM = 0;
 			m_shoot.shoot(m_RPM);
-		} else if(m_changePowerPlus) {
+			System.out.println("running low power");
+		} else if(m_changePowerPlus.getAsBoolean()) {
 			if(m_RPM < 1) {
 				m_RPM += 0.05;
 				m_shoot.shoot(m_RPM);
+				System.out.println("running one up power");
 			}
-		}
-		else if(m_changePowerPlus) {
+		} else {
 			if(m_RPM >= 0) {
 				m_RPM += 0.05;
 				m_shoot.shoot(m_RPM);
+				System.out.println("running one down power");
 			}
 		}
 	}
+
+	@Override
+	public void end(boolean interrupted){
+		m_shoot.spinStop();
+	}
+
 	@Override
 	public boolean isFinished() {
 		return false;
