@@ -28,6 +28,7 @@ public class ThrottleSpeed extends CommandBase {
     @Override
     public void execute() {
         double speed = (m_percent.getAsDouble() + 1) / 2; // TODO: MAKE SURE RANGE IS CONVERTED TO 0 - 1, MIGHT NEED TO INVERSE, CAN'T REMEMBER IF THROTTLE IS -1 to +1 or +1 to -1
+        System.out.println("Throttle Speed" + speed);
         m_outtake.percentShoot(speed);
     }
 
