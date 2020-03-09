@@ -30,7 +30,6 @@ public class Outtake extends SubsystemBase {
 	}
 
 	public double getEncoder() {
-		System.out.println("Outtake Encoder: " + shootMotor.getSelectedSensorVelocity());
 		return shootMotor.getSelectedSensorVelocity();
 	}
 
