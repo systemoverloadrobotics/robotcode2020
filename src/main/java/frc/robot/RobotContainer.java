@@ -53,11 +53,8 @@ public class RobotContainer {
 			() -> m_joystick.getRawButtonReleased(CONTROLS.JOYSTICK.TRIGGER));
 	private final StorageBallChecker m_storageBallChecker = new StorageBallChecker(m_storage);
 	private final Fire m_fire = new Fire(m_outtake,
-			() -> arcade_joystick.getRawButtonPressed(3),
 			() -> arcade_joystick.getRawButtonPressed(4),
-			() -> arcade_joystick.getRawButtonPressed(5),
-			() -> arcade_joystick.getRawButtonPressed(6),
-			0);
+			1);
 	private final SeizeFire m_seizeFire = new SeizeFire(m_outtake);
 	private final MoveIntoShooter m_moveIntoShooter = new MoveIntoShooter(m_storage);
 	private final ExtendIntake m_extendIntake = new ExtendIntake(m_intake);
