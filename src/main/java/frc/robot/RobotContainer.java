@@ -78,15 +78,15 @@ public class RobotContainer {
 
 		final JoystickButton climbUp = new JoystickButton(m_joystick, CONTROLS.JOYSTICK.SIDE.BUTTON_12);
 		final JoystickButton climbDown = new JoystickButton(m_joystick, CONTROLS.JOYSTICK.SIDE.BUTTON_11);
-		final JoystickButton compressorOn = new JoystickButton(m_joystick, CONTROLS.JOYSTICK.SIDE.BUTTON_9);
 
 		// Left Joystick
 //        final JoystickButton eject = new JoystickButton(left_joystick, 12);
 
 		// Arcade Joystick
+		final JoystickButton compressorOn = new JoystickButton(arcade_joystick, CONTROLS.ARCADE.TOP_LEFT);
 		final JoystickButton moveBeltForward = new JoystickButton(arcade_joystick, CONTROLS.ARCADE.X);
 		final JoystickButton moveBeltBackward = new JoystickButton(arcade_joystick, CONTROLS.ARCADE.A);
-        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.JOYSTICK.SIDE.BUTTON_8);
+        final JoystickButton intake = new JoystickButton(arcade_joystick, CONTROLS.ARCADE.R1);
 		final JoystickButton shoot = new JoystickButton(arcade_joystick, CONTROLS.ARCADE.Y);
 
 //        JoystickButton button3 = new JoystickButton(arcade_joystick, 3);
@@ -95,13 +95,7 @@ public class RobotContainer {
 //		JoystickButton button6 = new JoystickButton(arcade_joystick, 6);
 //		JoystickButton button1 = new JoystickButton(arcade_joystick, 1);
 
-		shoot.whenHeld(m_fire);
-		moveBeltForward.whenHeld(new InstantCommand(m_storage::moveIn, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
-		moveBeltBackward.whenHeld(new InstantCommand(m_storage::moveOut, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
-
-
 		//shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
-
 
 		// Button Actions
 		shoot.whenHeld(m_fire.alongWith(new InstantCommand(m_storage::moveIn, m_storage))).whenReleased(m_seizeFire.alongWith(new InstantCommand(m_storage::moveStop)));
@@ -109,6 +103,8 @@ public class RobotContainer {
         compressorOn.whenPressed(new InstantCommand(m_compressorSub::startCompressor)).whenReleased(new InstantCommand(m_compressorSub::stopCompressor));
 		climbUp.whenHeld(new InstantCommand(m_climb::goUp, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
 		climbDown.whenHeld(new InstantCommand(m_climb::goDown, m_climb)).whenReleased(new InstantCommand(m_climb::liftStop, m_climb));
+		moveBeltForward.whenHeld(new InstantCommand(m_storage::moveIn, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
+		moveBeltBackward.whenHeld(new InstantCommand(m_storage::moveOut, m_storage)).whenReleased(new InstantCommand(m_storage::moveStop));
 //		eject.whenPressed(new InstantCommand(m_storage::moveOut).alongWith(new ConditionalCommand(m_extendIntake, null, m_storage::getPos0)));
 	}
 
