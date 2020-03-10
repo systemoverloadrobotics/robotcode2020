@@ -35,7 +35,7 @@ public class RobotContainer {
 	private final Storage m_storage = new Storage();
 	private final CompressorSubsystem m_compressorSub = new CompressorSubsystem();
 	private final DriveTrain m_driveTrain = new DriveTrain(
-			() -> arcade_joystick.getRawButtonPressed(CONTROLS.TRIGGER)
+						() -> arcade_joystick.getRawButtonPressed(CONTROLS.TRIGGER)
 	);
 
 	// Compressor
